@@ -1,0 +1,47 @@
+
+// ==========================================================================
+// e-commerce : Tunnel de commande
+// ==========================================================================
+
+/*
+# Step by Step
+
+Component ecommerce.
+
+```
+<div class="steps acenter">
+  <ol class="steps__list list-inline acenter">
+    <li class="steps__item">
+      <a class="steps__link" href="#" title="Step 1 : Checkout"><span class="steps__title">Checkout</span></a>
+    </li>
+    <li class="steps__item steps__item_state_active">
+      <strong class="steps__title">Shipping</strong>
+    </li>
+    <li class="steps__item">
+      <a class="steps__link" href="#" title="Step 2 : Billing"><span class="steps__title">Billing</span></a>
+    </li>
+    <li class="steps__item">
+      <a class="steps__link" href="#" title="Step 3 : Confirm"><span class="steps__title">Confirm</span></a>
+    </li>
+    <li class="steps__item">
+      <a class="steps__link" href="#" title="Step 4 : Complete"><span class="steps__title">Complete</span></a>
+    </li>
+  </ul>
+</div>
+```
+
+*/
+
+// Blocks
+.steps {
+
+  // Elements
+  &__item { }
+  &__link { }
+  &__title { }
+
+  // State
+  &__item_state_active {
+
+}
+
