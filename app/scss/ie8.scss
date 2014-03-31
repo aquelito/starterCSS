@@ -1,0 +1,17 @@
+
+// ==========================================================================
+// Internet Explorer 8
+// IE8: deprecated
+// ==========================================================================
+
+// Helpers
+@import
+  'helpers/var',
+  'helpers/mixins';
+
+select {
+  padding: 6px 5px 5px;
+  &, &:hover {
+    background-image: none;
+  }
+}

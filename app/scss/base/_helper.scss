@@ -1,0 +1,126 @@
+
+// ==========================================================================
+// Helper
+// ==========================================================================
+
+/*
+
+# Helpers
+
+*/
+
+/*
+## Width
+
+blocks widths (percentage)
+
+* `.w10`  - width: 10%
+* `.w20`  - width: 20%
+* `.w25`  - width: 25%
+* `.w30`  - width: 30%
+* `.w33`  - width: 33.3333%
+* `.w40`  - width: 40%
+* `.w50`  - width: 50%
+* `.w60`  - width: 60%
+* `.w66`  - width: 66.6666%
+* `.w70`  - width: 70%
+* `.w75`  - width: 75%
+* `.w80`  - width: 80%
+* `.w90`  - width: 90%
+* `.w100` - width: 100%
+
+*/
+
+.w10  { width: 10%; }
+.w20  { width: 20%; }
+.w25  { width: 25%; }
+.w30  { width: 30%; }
+.w33  { width: 33.3333%; }
+.w40  { width: 40%; }
+.w50  { width: 50%; }
+.w60  { width: 60%; }
+.w66  { width: 66.6666%; }
+.w70  { width: 70%; }
+.w75  { width: 75%; }
+.w80  { width: 80%; }
+.w90  { width: 90%; }
+.w100 { width: 100%; }
+
+/*
+## Inline-block (Elements)
+
+* `.bn` - Display: none
+* `.bl` - Display: block
+* `.inbl` - Display: inline-block
+* `.inbl.atop` - Alignment top (default)
+* `.inbl.amiddle` - Alignment middle
+* `.inbl.abottom` - Alignment bottom
+
+*/
+
+.dl { display: block !important; }
+.dn { display: none !important; }
+
+.inbl {
+  @include inline-block('none');
+}
+
+.atop    { vertical-align: top; }
+.abottom { vertical-align: bottom; }
+.amiddle { vertical-align: middle; }
+
+/*
+## Hide elements
+
+* `.show` - Affichage en mode `display-block`
+* `.hidden` - Cacher en mode `display-none`
+* `.invisible` - Cacher `visibility-hidden`
+* `.hide` - Cacher de facon accessible
+
+*/
+
+.show {
+  @extend .dl;
+}
+
+.hidden {
+  @extend .invisible;
+  @extend .dn;
+}
+
+.invisible { visibility: hidden; }
+
+.element-invisible, .hide { @include accessibility; }
+
+/* */
+
+.overhidden {
+  overflow: hidden;
+}
+
+/*
+## Clearfix
+
+* `.cleft` - Clear left
+* `.cright` - Clear right
+* `.clear` - Clear
+* `.clearfix` - Clearfix
+
+*/
+
+.cleft  { clear: left; }
+.cright { clear: right; }
+.clear  { clear: both; }
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  @if $support-for-ie7 {
+    .ie7 & { zoom: 1; }
+  }
+}

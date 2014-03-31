@@ -1,0 +1,144 @@
+
+// ==========================================================================
+// Alert box
+// ==========================================================================
+
+@if $active-message-support {
+
+/*
+# Messages
+
+Message d'avertissement délivré par le site (CMS)
+Lorsque vous avez besoin de dévlivrer un message de notification, utiliser des alertes.
+
+*/
+
+/*
+## Message d'alerte par défault
+
+```
+<div role="alert" class="message mvn">
+  <h2 class="message__title hide">Message d'erreur</h2>
+  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+  <ul class="message__list">
+    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+    <li class="message__item">Le champ Mot de passe est requis.</li>
+   </ul>
+</div>
+```
+
+*/
+
+/*
+## Message error
+
+Add `.message--error`
+
+```
+<div role="alert" class="message message--error mvn">
+  <h2 class="message__title hide">Message d'erreur</h2>
+  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+  <ul class="message__list">
+    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+    <li class="message__item">Le champ Mot de passe est requis.</li>
+   </ul>
+</div>
+```
+
+*/
+
+/*
+## Message warning
+
+Add `.message--warning`
+
+```
+<div role="alert" class="message message--warning mvn">
+  <h2 class="message__title hide">Message d'erreur</h2>
+  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+  <ul class="message__list">
+    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+    <li class="message__item">Le champ Mot de passe est requis.</li>
+   </ul>
+</div>
+```
+
+*/
+
+/*
+## Message status
+
+Add `.message--status`
+
+```
+<div role="alert" class="message message--status mvn">
+  <h2 class="message__title hide">Message d'erreur</h2>
+  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+  <ul class="message__list">
+    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+    <li class="message__item">Le champ Mot de passe est requis.</li>
+   </ul>
+</div>
+
+*/
+
+.message {
+  border: {
+    top: 4px solid;
+    bottom: 4px solid;
+  }
+  background-color: lighten(#28abe3, 45%);
+  border-color: #28abe3;
+  margin: $base-line-height 0;
+  padding: $base-line-height 20px;
+  p {
+    margin-bottom: rhythm(0.5);
+    margin-top: 0;
+  }
+  a {
+    @extend .bold;
+  }
+  &,
+  &__title,
+  & a {
+    color: #28abe3;
+  }
+  &__title,
+  &__list {
+    @extend .mvn;
+  }
+  @each $name, $color in $alert-box {
+    &--#{$name} {
+      background-color: lighten($color, 45%);
+      border-color: $color;
+      &, &__title, a {
+        color: $color;
+      }
+    }
+  }
+}
+
+/*
+## Texte Alerte
+
+```
+<p class="muted mvn">Lorem ipsum dolor sit amet.</p>
+<p class="text text--warning mvn">Lorem ipsum dolor sit amet.</p>
+<p class="text text--status mvn">Lorem ipsum dolor sit amet.</p>
+<p class="text text--error mvn">Lorem ipsum dolor sit amet.</p>
+```
+
+*/
+
+.muted { color: #999; }
+
+.text {
+  @each $name, $color in $alert-box {
+    &--#{$name} {
+      color: $color;
+    }
+  }
+}
+
+/* */
+} // enf if

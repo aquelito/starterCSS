@@ -1,0 +1,82 @@
+
+// ==========================================================================
+// Spacing style
+// ==========================================================================
+
+/*
+
+# Espacements
+
+*/
+
+/*
+## Spacing classes
+
+Should be used to modify the default spacing between objects (not between nodes of the same object)
+Please use judiciously. You want to be using defaults most of the time, these are exceptions!
+
+`<type><location><size>`
+
+Type
+
+* `(p)` : padding
+* `(m)` : margin
+
+Location
+
+* `(a)` : all
+* `(t)` : top
+* `(r)` : right
+* `(b)` : bottom
+* `(l)` : left
+* `(h)` : horizontal
+* `(v)` : vertical
+
+Size
+
+* `(s) small` : #{round($base-line-height / 4)}
+* `(m) medium` : #{round($base-line-height / 2)}
+* `(l) large` : #{$grid-gutter-width}
+* `(n) none` : 0px
+
+```
+<div class="pvl"><p>Lorem ipsum dolor.</p></div>
+<div class="pvm"><p>Lorem ipsum dolor.</p></div>
+<div class="pvs"><p>Lorem ipsum dolor.</p></div>
+<div class="pvn"><p>Lorem ipsum dolor.</p></div>
+```
+
+*/
+
+.ptn, .pvn, .pan { padding-top: 0 !important; }
+.pts, .pvs, .pas { padding-top: round($base-line-height / 4) !important; }
+.ptm, .pvm, .pam { padding-top: round($base-line-height / 2) !important; }
+.ptl, .pvl, .pal { padding-top: $base-line-height !important; }
+.prn, .phn, .pan { padding-right: 0 !important; }
+.prs, .phs, .pas { padding-right: round($grid-gutter-width / 4) !important; }
+.prm, .phm, .pam { padding-right: round($grid-gutter-width / 2) !important; }
+.prl, .phl, .pal { padding-right: $grid-gutter-width !important; }
+.pbn, .pvn, .pan { padding-bottom: 0 !important; }
+.pbs, .pvs, .pas { padding-bottom: round($base-line-height / 4) !important; }
+.pbm, .pvm, .pam { padding-bottom: round($base-line-height / 2) !important; }
+.pbl, .pvl, .pal { padding-bottom: $base-line-height !important; }
+.pln, .phn, .pan { padding-left: 0 !important; }
+.pls, .phs, .pas { padding-left: round($grid-gutter-width / 4) !important; }
+.plm, .phm, .pam { padding-left: round($grid-gutter-width / 2) !important; }
+.pll, .phl, .pal { padding-left: $grid-gutter-width !important; }
+.mtn, .mvn, .man { margin-top: 0 !important; }
+.mts, .mvs, .mas { margin-top: round($base-line-height / 4) !important; }
+.mtm, .mvm, .mam { margin-top: round($base-line-height / 2) !important; }
+.mtl, .mvl, .mal { margin-top: $base-line-height !important; }
+.mrn, .mhn, .man { margin-right: 0 !important; }
+.mrs, .mhs, .mas { margin-right: round($grid-gutter-width / 4) !important; }
+.mrm, .mhm, .mam { margin-right: round($grid-gutter-width / 2) !important; }
+.mrl, .mhl, .mal { margin-right: $grid-gutter-width !important; }
+.mbn, .mvn, .man { margin-bottom: 0 !important; }
+.mbs, .mvs, .mas { margin-bottom: round($base-line-height / 4) !important; }
+.mbm, .mvm, .mam { margin-bottom: round($base-line-height / 2) !important; }
+.mbl, .mvl, .mal { margin-bottom: $base-line-height !important; }
+.mln, .mhn, .man { margin-left: 0 !important; }
+.mls, .mhs, .mas { margin-left: round($grid-gutter-width / 4) !important; }
+.mlm, .mhm, .mam { margin-left: round($grid-gutter-width / 2) !important; }
+.mll, .mhl, .mal { margin-left: $grid-gutter-width !important; }

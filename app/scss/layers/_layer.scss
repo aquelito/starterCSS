@@ -1,0 +1,37 @@
+
+// ==========================================================================
+// Layer
+// ==========================================================================
+
+/*
+
+# Layer
+
+*/
+
+/*
+## Default container
+
+```
+<div id="page" class="page">
+  ... header
+  ... navigation
+  <div id="container" class="container">
+    ... aside left
+    <div id="content" class="content">
+      <div id="main" class="main" role="main">
+        ...
+      </div>
+    </div>
+    ... aside right
+  </div>
+  ... footer
+</div>
+```
+
+*/
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}

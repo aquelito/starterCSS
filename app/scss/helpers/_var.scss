@@ -1,0 +1,112 @@
+
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// Apply fixes for IE7 (deprecated)
+$support-for-ie7: false !default;
+
+// Apply fixes for IE8 (deprecated)
+$support-for-ie8: true !default;
+
+// Active responsive
+$responsive: true;
+
+// Active responsive
+$support-debug: false;
+
+// Typo size
+// ==========================================================================
+
+$base-font-size:              16px; // 12/18  12/20  12/24  16/20  16/24  16/32
+$base-line-height:            24px;
+$browser-default-font-size:   16px;
+$rhythm-unit:                 'em';
+$relative-font-sizing:        true;
+$default-rhythm-border-style: solid;
+
+// Heading Size
+$font_size: (
+  h1: 36px,
+  h2: 28px,
+  h3: 20px,
+  h4: 18px,
+  h5: 16px,
+  h6: 14px
+) !default;
+
+// Helpers Size
+$other_size: (
+  smaller: 12px,
+  small:   14px,
+  medium:  18px,
+  big:     24px,
+  bigger:  28px
+) !default;
+
+// Font stack
+//
+// font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+// font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+// font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+// font-family: Verdana, Geneva, sans-serif;
+
+$font-serifs:   "Droid Sans", Helvetica, Arial, sans-serif;
+$font-sans:     "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-mono:     Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$font-body:     $font-serifs;
+$font-headline: $font-sans;
+$font-pre:      $font-mono;
+
+// Color Setting
+// ==========================================================================
+
+// Body color
+$body-background: #F0F3F4;
+
+// Body Text color
+$body-color: #161616;
+
+// Colorz
+$colorz: (
+  default:   #8c4646,
+  primary:   #d96459,
+  secondary: #588c73
+) !default;
+
+// Links colors
+$link-color:         #161616;
+$link-color-hover:   #d96459;
+$link-color-active:  #d96459;
+$link-color-visited: #452224;
+
+// Active style
+// ==========================================================================
+
+$active-form-support:    true !default;
+$active-message-support: true !default;
+$active-button-support:  true !default;
+
+// Grid
+// ==========================================================================
+
+$grid-column-width: 60px !default;
+$grid-gutter-width: 20px !default;
+$grid-columns:      12 !default;
+
+// Definition description
+// ==========================================================================
+
+$description-width: 150px !default;
+
+// Alert Box
+// <name> <color>
+// ==========================================================================
+
+$alert-box: (
+  warning: #e8b71a,
+  error:   #db3340,
+  status:  #1fda9a
+) !default;

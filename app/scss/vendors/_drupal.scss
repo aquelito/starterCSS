@@ -1,0 +1,38 @@
+
+// ==========================================================================
+// Drupal Default style
+// ==========================================================================
+
+/*
+
+# Drupal
+
+*/
+
+/*
+## Admin & User Toolbar
+
+```
+<ul class="tabs primary">
+  <li class="active"><a class="active" href="#">Voir</a></li>
+  <li><a href="#">Modifier</a></li>
+  <li><a href="#">Suivi</a></li>
+</ul>
+```
+
+*/
+
+.tabs.primary {
+  @extend .clearfix;
+  @extend .list-inline;
+  @extend .mbn;
+  a {
+    @extend .pas;
+    @extend .inbl;
+  }
+  .active {
+    @extend .primary-background;
+    @extend .nounderline;
+    @extend .bold;
+  }
+}

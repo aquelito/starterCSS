@@ -1,0 +1,761 @@
+
+@charset "utf-8"; // UTF-8
+
+// ==========================================================================
+// @file:
+// SASS/Compass normalize based on normalize.css v2.0.1
+// MIT License | Copyright (c) Nicolas Gallagher and Jonathan Neal
+// @see: git.io/normalize
+// ==========================================================================
+
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
+// apply a natural box layout model to all elements
+* { @include box-sizing(border-box); }
+
+/*
+
+# Code source
+
+*/
+
+// HTML5 display-role reset for older browsers
+// ==========================================================================
+
+article,
+aside,
+audio,
+canvas,
+details,
+figure,
+figcaption,
+footer,
+header,
+main,
+nav,
+section,
+summary,
+video {
+  display: block;
+}
+
+// Correct `inline-block` display not defined in IE 8/9.
+// ==========================================================================
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+// ==========================================================================
+
+[hidden],
+audio:not([controls]) {
+  display: none; // Address styling not present in IE 8/9.
+}
+
+audio:not([controls]) {
+  height: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html,
+body,
+form,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Scripts
+body {
+  background: $body-background;
+  color: $body-color;
+  > script { display: none !important; }
+}
+
+// Baseline
+@include establish-baseline;
+
+/*
+## Heading
+
+Typo utilisé pour les titres
+
+When we define a heading we also define a corresponding class to go with it.
+This allows us to apply, say, `class="h1"` to a `h3`; a double-stranded
+heading hierarchy.
+
+```
+<h1>.h1 - #{find-value($font_size, 'h1')} - Lorem ipsum dolor</h1>
+<h2>.h2 - #{find-value($font_size, 'h2')} - Lorem ipsum dolor</h2>
+<h3>.h3 - #{find-value($font_size, 'h3')} - Lorem ipsum dolor</h3>
+<h4>.h4 - #{find-value($font_size, 'h4')} - Lorem ipsum dolor</h4>
+<h5>.h5 - #{find-value($font_size, 'h5')} - Lorem ipsum dolor</h5>
+<h6>.h6 - #{find-value($font_size, 'h6')} - Lorem ipsum dolor</h6>
+```
+
+*/
+
+@each $hn, $size in $font_size {
+  #{$hn}, .#{$hn} {
+    @include font-size($size);
+    @include margin-leader(1, $size);
+    @include margin-trailer(1, $size);
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $font-headline;
+}
+
+/*
+## Default markup
+
+```
+<p>
+<a href="#">link element</a> example<br>
+<a href="#" class="external">link element external</a><br>
+<cite>cite element</cite> example<br>
+The <code>code element</code> example<br>
+The <del>del element</del> example<br>
+The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples<br>
+The <em>em element</em> example<br>
+The <i>i element</i> example<br>
+The img element <img alt="" width="16" height="16" src="http://placehold.it/16"> example<br>
+The <ins>ins element</ins> example<br>
+The <kbd>kbd element</kbd> example<br>
+The <mark>mark element</mark> example or <code class="highlight">.highlight</code><br>
+The <q>q element <q>inside</q> a q element</q> example<br>
+The <s>s element</s> example<br>
+The <samp>samp element</samp> example<br>
+The <small>small element</small> example<br>
+The <span>span element</span> example<br>
+The <strong>strong element</strong> example<br>
+The <sub>sub element</sub> example<br>
+The <sup>sup element</sup> example<br>
+The <u>u element</u> example<br>
+The <var>var element</var> example
+</p>
+<p>To take a screenshot on your Mac, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>3</kbd>.</p>
+<p>The coordinate of the <var>i</var>th point is (<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>). For example, the 10th point has coordinate (<var>x<sub>10</sub></var>, <var>y<sub>10</sub></var>).</p>
+<p>f(<var>x</var>, <var>n</var>) = log<sub>4</sub><var>x</var><sup><var>n</var></sup></p>
+<p>The <span class="caps">caps element</span>. The <span class="small-caps">small-caps element</span>. The <span class="no-caps">no-caps element</span>. The <span class="regular">regular element</span>. The <span class="bold">bold element</span>. The <span class="italic">italic element</span>.</p>
+```
+
+*/
+
+// Heading elements
+blockquote,
+pre,
+figure,
+p,
+ul,
+ol,
+dl,
+table
+form, {
+  @include margin-leader(0);
+  @include margin-trailer();
+}
+
+// avoid collapsing margins
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+pre:first-child,
+blockquote:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+p:last-child,
+ul:last-child,
+ol:last-child,
+dl:last-child,
+pre:last-child,
+blockquote:last-child {
+  margin-bottom: 0;
+}
+
+// defaut links
+// ==========================================================================
+
+a {
+  background: transparent; // Remove the gray background color from active links in IE 10.
+  @include link-colors($link-color, $link-color-hover, $link-color-active, false);
+}
+
+a {
+  &:hover,
+  &:focus  {}
+  &:active {}
+}
+
+// Address `outline` inconsistency between Chrome and other browsers.
+a:focus { outline: thin dotted; }
+
+// misc
+// ==========================================================================
+
+// Firefox 4+, Safari 5, et Chrome.
+strong { @extend .bold; }
+
+// gist.github.com/413930
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  font-variant: small-caps;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+// 1. Internet Explorer, Chrome, Safari
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted; // 1
+  cursor: help;
+}
+
+dfn[title] {
+  @extend .bold;
+  @extend .italic;
+}
+
+code,
+kbd,
+samp {
+  line-height: normal;
+}
+
+kbd {
+  position: relative;
+  top: -2px;
+  padding: 0 0.4em;
+  border: 1px dotted;
+  background: #fff;
+  color: #A00C31;
+  @if $support-for-ie7 {
+    .ie7 & { font-size: 85%; } // bugfix IE7
+  }
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  background: #f9f2f4;
+  color: #c7254e;
+}
+
+kbd {
+  background: #D6D6C6;
+  color: #000;
+}
+
+ins {
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  color: #005D23;
+}
+
+mark,
+.highlight {
+  padding: 2px 4px;
+  background: #ff0;
+  color: #000;
+}
+
+/*
+## Ordered list and Unordered list
+
+```
+<ul>
+  <li>Unordered list test</li>
+  <li>Another list element. Lorem ipsum dolor sit amet, consectetur elit.</li>
+  <li>Yet another element in the list</li>
+  <li>Some long text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+</ul>
+<ol>
+  <li>Ordered list test</li>
+  <li>Another list element</li>
+  <li>Yet another element in the list</li>
+</ol>
+<ul>
+  <li>Ordered list</li>
+  <li>
+    <ul>
+      <li>Nested Unordered list</li>
+      <li>Nested ordered list
+        <ul>
+          <li>The first</li>
+          <li>And the second</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Ordered List item</li>
+  <li>Nested Ordered list
+    <ul>
+      <li>Some point</li>
+      <li>Nested Unordered list
+        <ul>
+          <li>The first</li>
+          <li>And the second</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+```
+
+*/
+
+ul,
+ol {
+  padding-left: rhythm(1);
+  @if $support-for-ie7 {
+    .ie7 & { margin-left: 0; }
+  }
+}
+
+li {
+  p, ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  ol {
+    list-style-type: upper-alpha;
+    ol {
+      list-style-type: lower-roman;
+      ol {
+        list-style-type: lower-alpha;
+      }
+    }
+  }
+}
+
+// Definition
+dt {
+  @extend strong;
+}
+
+/*
+## Address
+
+Mise en forme d'une adresse postale
+
+```
+<address>
+  <p>
+    <strong>Lorem ipsum dolor sit amet,</strong><br />
+    184 rue du Bled,<br />
+    33000 Bordeaux (France)<br />
+    <abbr title="Téléphone">Tél.</abbr> : 05 56 55 55 55<br />
+    <abbr title="Fax">Fax.</abbr> : 05 57 55 55 55
+  </p>
+</address>
+<address class="mtl">
+  <p>
+    <strong>John.doe</strong><br>
+    <a href="mailto:john.doe@gmail.com">john.doe@gmail.com</a>
+  </p>
+</address>
+```
+
+*/
+
+/* */
+
+// iframe & image & object & video
+// ==========================================================================
+
+img,
+object,
+video {
+  vertical-align: middle; // Supprime l'espace indésirable appraissant sous les images
+  max-width: 100%; // to prevent overflow
+  height: auto; // to keep aspect ratio
+  width: auto; // bugfix IE8
+}
+
+a img,
+iframe {
+  border: 0; // bugfix IE8, FF3.6 (Supprime la bordure des images se trouvant dans un lien.)
+}
+
+figcaption {
+  @extend .italic;
+  font-size: 0.85em;
+}
+
+// hr
+// ==========================================================================
+
+hr {
+  $color-hr: #000;
+  background: $color-hr;
+  color: $color-hr;
+  margin: 0 0 ($base-line-height -1);
+  height: 1px;
+  border-top: 0;
+  clear: both;
+  padding: 0;
+}
+
+// blockquote
+// ==========================================================================
+
+
+/*
+
+## Blockquote
+
+*/
+
+/*
+### Blockquote with p
+
+```
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</p>
+</blockquote>
+```
+
+*/
+
+blockquote,
+pre {
+  border-left: 3px solid;
+  padding-left: $grid-gutter-width;
+  clear: both;
+}
+
+/*
+### Blockquote without p
+
+```
+<blockquote>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et me.</blockquote>
+```
+
+*/
+
+/*
+### Blockquote citation
+
+```
+<blockquote>Those people who think they know everything are a great annoyance to those of us who do.<cite>Isaac Asimov</cite></blockquote>
+```
+
+*/
+
+blockquote {
+  font-style: italic;
+  cite {
+    @extend .dl;
+    color: #555;
+    font-size: 80%;
+    font-style: normal;
+    &:before {
+      content: "\2014 \0020";
+    }
+  }
+  p {
+    margin-bottom: rhythm(0.5);
+  }
+}
+
+pre {
+  @include font-size;
+  white-space: pre;
+  font-family: $font-pre;
+  code {
+    background: transparent;
+    padding: 0;
+    border: 0;
+  }
+}
+
+code,
+pre,
+samp {
+  white-space: pre-wrap;
+}
+
+/*
+## Quotes
+
+
+
+*/
+
+// {quotes: '“' '”' '‘' '’';}
+// extra content definitions for pre-2011 WebKit
+// q:before    {content: '“'; content: open-quote;}
+// q:after     {content: '”'; content: close-quote;}
+// q q:before  {content: '‘'; content: open-quote;}
+// q q:after   {content: '’'; content: close-quote;}
+
+// q in blockquote
+// blockquote q:before   {content: '‘'; content: open-quote;}
+// blockquote q:after    {content: '’'; content: close-quote;}
+// blockquote q q:before {content: '“'; content: open-quote;}
+// blockquote q q:after  {content: '”'; content: close-quote;}
+// blockquote hanging opening quote
+// blockquote:before {display: block; height: 0; content: "“"; margin-left: -.95em; font: italic 400%/1 Cochin,Georgia,"Times New Roman",serif; color: #999;}
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+// Opening followed by closing quote pairs
+// q {quotes: '“' '”' '‘' '’';}
+// The equivalent using Unicode escapes:
+// q {quotes: '\201C' '\201D' '\2018' '\2019';}
+// q:before {content: open-quote;}
+// q:after {content: close-quote;}
+
+// Quotes for French, German (two kinds), Italian and  Spanish
+:lang(fr) q { quotes: '\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a'; }
+// :lang(de) q { quotes:'\201E' '\201C' '\201A' '\2018'; }
+// :lang(es) q { quotes:'\00AB' '\00BB' '\2039' '\203A'; }
+// :lang(it) q { quotes: "\00AB\A0" "\A0\00BB" "\201C" "\201D"; }
+
+/*
+## Table
+
+Faire une table responsive ajouté un wrapper autour de l'élément `<table>`
+`<div class="table-responsive">`
+
+```
+<table>
+  <caption>Jimi Hendrix - albums</caption>
+  <thead>
+    <tr>
+      <th>Album</th>
+      <th>Year</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Album</th>
+      <th>Year</th>
+      <th>Price</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Are You Experienced</td>
+      <td>1967</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Axis: Bold as Love</td>
+      <td>1967</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>Electric Ladyland</td>
+      <td>1968</td>
+      <td>$10.00</td>
+    </tr>
+    <tr>
+      <td>Band of Gypsys</td>
+      <td>1970</td>
+      <td>$12.00</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+/*
+## Striped rows
+
+```
+<table class="table">
+  <caption>Jimi Hendrix - albums</caption>
+  <thead>
+    <tr>
+      <th>Album</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th>Price</th>
+      <th>Price</th>
+      <th>Price</th>
+      </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Album</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th>Price</th>
+      <th>Price</th>
+      <th>Price</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Are You Experienced</td>
+      <td>1967</td>
+      <td>$10.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>Axis: Bold as Love</td>
+      <td>1967</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>Electric Ladyland</td>
+      <td>1968</td>
+      <td>$10.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+    </tr>
+    <tr>
+      <td>Band of Gypsys</td>
+      <td>1970</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+      <td>$12.00</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+table {
+  width: 100%;
+  caption-side: bottom;
+  &, .table {
+    display: table;
+    // table-layout: fixed;
+    border-collapse: collapse; // fusion des bordures
+    vertical-align: top;
+    //border-spacing: 0; // Remove most spacing between table cells.
+  }
+  th,
+  td {
+    padding: ($base-line-height / 2) $grid-gutter-width ($base-line-height / 2 - 1);
+    border-bottom: 1px solid #ccc;
+  }
+  tfoot {
+    th, td {
+      border-bottom: 0;
+    }
+  }
+  td {
+    color: #555;
+  }
+}
+
+caption {
+  color: #555;
+  font-style: italic;
+}
+
+tbody {
+  border: 1px solid #ccc;
+  tr:nth-child(odd) {
+    background: #fcfcfc;
+  }
+  tr > * + * {
+    border-left: 1px solid rgba(0, 0, 0, .05);
+  }
+}
+
+@include mq('small') {
+  .table-responsive {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    th,
+    td {
+      white-space: nowrap;
+    }
+    tbody {
+      border-left: 0;
+    }
+  }
+}
+
+/*
+## Dialogues
+
+```
+<dialog class="def-inline">
+  <dt>Costello</dt>
+  <dd>Look, you gotta first baseman?</dd>
+  <dt>Abbott</dt>
+  <dd>Certainly.</dd>
+  <dt>Costello</dt>
+  <dd>Who's playing first?</dd>
+  <dt>Abbott</dt>
+  <dd>That's right.</dd>
+  <dt>Costello</dt>
+  <dd>When you pay off the first baseman every month, who gets the money?</dd>
+  <dt>Abbott</dt>
+  <dd>Every dollar of it.</dd>
+</dialog>
+```
+
+*/
+
+/* */
+
+// Selection
+// ==========================================================================
+
+// Supprime l'ombre portée du texte lors de sa sélection.
+// @see   h5bp.com/
+// @note  Les couleurs de texte et d'arrière-plan doivent être rédéfinies pour que l'instruction soit appliquée.
+// $selection-background: #fff8ab;
+// $selection-color: #666;
+// ::selection {
+//   text-shadow: none;
+//   color: $selection-color;
+//   background-color: $selection-background;
+// }
+
+// Supprime l'ombre portée du texte lors de sa sélection.
+// @bugfix  Firefox
+// ::-moz-selection {
+//   text-shadow: none;
+//   color: $selection-color;
+//   background-color: $selection-background
+// }

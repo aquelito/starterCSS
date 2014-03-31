@@ -1,0 +1,38 @@
+{
+  "name": "StarterCSS",
+  "description": "HTML / CSS / JS Base developpemnt",
+  "author": "Axel Roche <axel@aquelito.fr>",
+  "homepage": "http://aquelito.fr",
+  "license": "MIT",
+  "version": "1.0.0",
+  "dependencies": {
+    "time-grunt": "~0.2.10"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.3",
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "jshint-stylish": "~0.1.5",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-autoprefixer": "~0.7.2",
+    "grunt-css-metrics": "~0.1.2",
+    "grunt-favicons": "~0.6.1",
+    "grunt-kss": "~0.2.6",
+    "grunt-shell": "~0.6.4",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-imagemin": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-csscss": "~0.6.1",
+    "css-stats": "git://github.com/apticknor/css-stats",
+    "grunt-phantomas": "~0.5.2",
+    "grunt-contrib-connect": "~0.7.1",
+    "sassdown": "~0.2.6"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

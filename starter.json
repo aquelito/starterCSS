@@ -1,0 +1,8 @@
+{
+  "buildDate": "<%= grunt.template.today('yyyy-mm-ddTHH:MM:ss +ZZ') %>",
+  "cachebuster": "<%= grunt.template.today('yyyymmddHHMMss') %>",
+  "server": {
+    "hostname": "localhost",
+    "port": 4567
+  }
+}

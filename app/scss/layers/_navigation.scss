@@ -1,0 +1,45 @@
+
+// ==========================================================================
+// Navigation
+// ==========================================================================
+
+/*
+
+# Navigation
+
+*/
+
+/*
+## Default container
+
+```
+<div class="navigation">
+  <nav id="navigation" role="navigation" aria-label="Navigation Principale" class="container clearfix">
+    ...
+  </nav>
+</div>
+```
+
+*/
+
+/*
+
+*/
+
+.navigation {
+  background: #fff;
+  ul {
+    @extend .list-inline;
+  }
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $body-color;
+      color: #fff;
+    }
+  }
+}

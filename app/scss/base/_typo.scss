@@ -1,0 +1,368 @@
+
+// ==========================================================================
+// Typography style
+// ==========================================================================
+
+/*
+
+# Texte mis en forme
+
+*/
+
+/*
+## Typosize
+
+Autres tailles de typographie
+
+* `.smaller` - #{find-value($other_size, 'smaller')}
+* `.small` - #{find-value($other_size, 'small')}
+* `.medium` - #{find-value($other_size, 'medium')}
+* `.big` - #{find-value($other_size, 'big')}
+* `.bigger` - #{find-value($other_size, 'bigger')}
+
+```
+<p class="smaller mvn">Lorem ipsum dolor adipisicing eli</h2>
+<p class="small mvn">Lorem ipsum dolor adipisicing eli</h3>
+<p class="medium mvn">Lorem ipsum dolor adipisicing eli</h4>
+<p class="big mvn">Lorem ipsum dolor adipisicing eli</h5>
+<p class="bigger mvn">Lorem ipsum dolor adipisicing eli</h6>
+```
+
+*/
+
+@each $name, $size in $other_size {
+  .#{$name} {
+    @include font-size($size);
+  }
+}
+
+/*
+## Typostyle
+
+Divers styles de typographie
+
+```
+<table class="table">
+  <tbody><tr>
+    <td>
+      <span class="caps mbn">caps text</span>
+      <br>
+      <code>&lt;span class="caps"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <span class="small-caps mbn">small-caps text</span>
+      <br>
+      <code>&lt;span class="small-caps"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <span class="no-caps mbn">no-caps text</span>
+      <br>
+      <code>&lt;span class="no-caps"&gt;Text&lt;/span&gt;</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="bold mbn">bold text</span>
+      <br>
+      <code>&lt;span class="bold"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <span class="italic mbn">italic text</span>
+      <br>
+      <code>&lt;span class="italic"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <span class="regular mbn">regular text</span>
+      <br>
+      <code>&lt;span class="regular"&gt;Text&lt;/span&gt;</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="underline mbn">underline text</span>
+      <br>
+      <code>&lt;span class="underline"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <span class="strike mbn">strike text</span>
+      <br>
+      <code>&lt;span class="italic"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td>
+      <a href="#" class="nounderline">No underline</a>
+      <br>
+      <code>&lt;span class="nounderline"&gt;Text&lt;/span&gt;</code>
+    </td>
+  </tr>
+</tbody></table>
+```
+
+*/
+
+.caps        { text-transform: uppercase; }
+.small-caps  { font-variant: small-caps; }
+.no-caps     { font-variant: normal; }
+.regular     { font-weight: normal; font-style: normal; }
+.bold        { font-weight: bold; }
+.italic      { font-style: italic; }
+.underline   { text-decoration: underline; }
+.nounderline { text-decoration: none; }
+.ellipsis    { text-overflow: ellipsis; }
+.strike      { text-decoration: line-through; }
+
+/*
+## Typostyle alignement
+
+La justification n'est pas disponible car interdite en accessibilité pour des questions de lisibilité. Ou alors, la justication doit être contrôlable par l'utilisateur.
+
+```
+<p class="alight mvn">Aligné à gauche (default)</p>
+<p class="acenter mvn">Centré</p>
+<p class="aright mvn">Aligné à droite</p>
+```
+
+*/
+
+.aleft   { text-align: left; }
+.acenter { text-align: center; }
+.aright  { text-align: right; }
+
+/*
+## Blocs flottant
+
+* `.floatl` - Floattant à gauche
+* `.floatr` - Floattant à droite
+* `.floatn` - Annuler le float
+
+```
+<div class="clearifx"><p class="{$modifiers}">Text</p></div>
+```
+
+*/
+
+.floatl { @include float-left; }
+.floatr { @include float-right; }
+.floatn { @include reset-float; }
+
+/*
+## Blocs incrustations
+
+Utiliser souvent par le WYSIWYG pour aligner les images à gauche, centrer, ou à droite. Les espacements seront effectués.
+
+* `.alignleft` - Alignement à gauche
+* `.alignright` - Alignement à droite
+* `.aligncenter` - Alignement centré
+* `.alignnone` - Pas d'alignement
+
+```
+<p><img class="alignleft mtn" src="http://placehold.it/150x150" width="150" height="150" alt="" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi et voluptas expedita sunt sed dicta delectus esse commodi. Cupiditate, sunt, ullam, quasi, ipsam quisquam autem animi repudiandae sequi libero eos tempore commodi voluptates tempora est quam quas dignissimos officia consequuntur natus molestias? Recusandae, nostrum est consequuntur ad quam ducimus assumenda!</p>
+<p><img class="alignright" src="http://placehold.it/150x150" width="150" height="150" alt="" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, eligendi nihil at animi itaque tempore voluptas aperiam sit consequatur nisi magni iusto. Deleniti, molestiae, magnam, eligendi officiis voluptatibus voluptatum provident atque recusandae voluptate dolorem voluptatem inventore illo beatae rem doloribus debitis commodi quasi molestias in a eos maiores dolore nostrum quaerat perspiciatis. Sit, mollitia, neque, quasi libero provident rerum earum fugiat nihil sed odit dolorum eveniet quas dolores impedit voluptatibus incidunt debitis aliquam accusantium ab eligendi.</p>
+<p><img class="aligncenter" src="http://placehold.it/150x150" width="150" height="150" alt="" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, earum, molestias perferendis autem minima nihil itaque fugit quis. Eius, natus vitae similique impedit quod dolor tenetur nemo atque praesentium dolore commodi cum possimus quo quas eos magnam sapiente fugit accusamus magni quasi iure placeat quam dignissimos quidem vero aut autem officia dicta hic labore! Quibusdam delectus similique sit atque eum.</p>
+<p><img class="alignnone" src="http://placehold.it/150x150" width="150" height="150" alt="" /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, ratione, quo, aliquid, quasi minus quia a accusantium ad obcaecati vitae adipisci eos facere dicta. Ex, in consequuntur tenetur eius laborum quisquam porro sequi. Molestias, ex libero cum eligendi magni laboriosam.</p>
+```
+
+*/
+
+.alignleft {
+  @extend .floatl;
+  margin: rhythm(1) $grid-gutter-width rhythm(1) 0;
+}
+
+.alignright {
+  @extend .floatr;
+  margin: rhythm(1) 0 rhythm(1) $grid-gutter-width;
+}
+
+.alignnone {
+  clear: both;
+  display: block;
+  margin: rhythm(1) 0;
+}
+
+.aligncenter {
+  @extend .alignnone;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+## Lien externe
+
+Ajoute un icône sur un lien marqué comme externe (`.external` et `http://`)
+
+```
+<a href="http://google.fr">Lien vers Google.fr</a><br />
+<a class="external" rel="external" href="/pdf.pdf">Lien vers un fichier .pdf</a>
+```
+
+*/
+
+a.external {
+  padding-right: 18px;
+  background-image: inline-image("new_window.gif");
+  background-repeat: no-repeat;
+  background-position: right center;
+  &:focus, &:hover, &:active {
+    background-image: inline-image("new_window_hover.gif");
+  }
+}
+
+/*
+
+## Listes à puces
+
+*/
+
+/*
+### Liste reset
+
+* Fonctionne avec `ul` et `ol`
+* Supprime la puce et le `padding-left`
+
+```
+<ul class="list-none">
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+```
+
+*/
+
+.list-none {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/*
+### Liste en ligne
+
+* Fonctionne avec `ul` et `ol`
+* Etendu à `.list-none`
+
+```
+<ul class="list-inline">
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+```
+
+*/
+
+.list-inline {
+  @extend .list-none;
+  li {
+    display: inline;
+  }
+}
+
+.list-floatl {
+  @extend .list-none;
+  li {
+    @extend .floatl;
+  }
+}
+
+/*
+### Liste puce personnalisée
+
+* Fonctionne avec `ul` et `ol`
+* Etendu à `.list-none`
+
+```
+<ul class="list-bullet">
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+```
+
+*/
+
+.list-bullet {
+  @extend .list-none;
+  li {
+    padding-left: 15px;
+    //background: image-url("puce.png") no-repeat left 52%;
+  }
+}
+
+/*
+### Liste avec séparateur
+
+* Fonctionne avec `ul` et `ol`
+* Fonctionne uniquement avec `.list-inline`
+
+```
+<ul class="list-inline list-separate">
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+```
+
+*/
+
+.list-separate {
+  li {
+    & + li {
+      padding-left: 19px;
+      background: inline-image("bullet.gif") no-repeat left center;
+    }
+  }
+}
+
+/*
+## Description
+
+Mettre en forme une liste de mot avec une description (exemple: clé / valeur.)
+
+*/
+
+/*
+### Description normale
+
+```
+<dl>
+  <dt>Description lists</dt>
+  <dd>A description list is perfect for defining terms.</dd>
+  <dt>Euismod</dt>
+  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia</dd>
+  <dt>Malesuada porta</dt>
+  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
+```
+
+*/
+
+/*
+### Description horizontale
+
+```
+<dl class="def-inline">
+  <dt>Description</dt>
+  <dd>A description list is perfect for defining terms.</dd>
+  <dt>Euismod</dt>
+  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia</dd>
+  <dt>Malesuada</dt>
+  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
+```
+
+*/
+
+.def-inline {
+  @extend .clearfix;
+  dt {
+    @extend .ellipsis;
+    @extend .floatl;
+    @extend .bold;
+    @extend .overhidden;
+    // white-space: nowrap;
+    width: $description-width;
+  }
+  dd {
+    margin-left: $description-width + 10;
+  }
+}

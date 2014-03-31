@@ -1,0 +1,44 @@
+
+// ==========================================================================
+// Aside
+// ==========================================================================
+
+/*
+
+# Aside
+
+*/
+
+/*
+## Default aside
+
+```
+<div class="complementary aside">
+  <aside id="complementary" role="complementary">
+    ...
+  </aside>
+</div>
+```
+
+*/
+
+// Block
+.aside {
+
+  // Modifier
+  &--right { }
+
+}
+
+/*
+## Right aside
+
+```
+<div class="complementary aside aside--right">
+  <aside id="complementary" role="complementary">
+    ...
+  </aside>
+</div>
+```
+
+*/

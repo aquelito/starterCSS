@@ -1,0 +1,85 @@
+
+// ==========================================================================
+// Colorz
+// ==========================================================================
+
+/*
+
+# Couleurs
+
+*/
+
+/*
+## Couleurs de fond
+
+Background colorz.
+
+```
+<div class="default-background pal floatl w20">
+  <p>.default-background : #{find-value($colorz, 'default')}</p>
+</div>
+<div class="primary-background pal floatl w20">
+  <p>.primary-background : #{find-value($colorz, 'primary')}</p>
+</div>
+<div class="secondary-background pal floatl w20">
+  <p>.secondary-background : #{find-value($colorz, 'secondary')}</p>
+</div>
+<div class="white-background black-color pal floatl w20">
+  <p>.white-background : #fff</p>
+</div>
+<div class="black-background white-color pal floatl w20">
+  <p>.black-background : #222</p>
+</div>
+```
+
+*/
+
+@each $name, $color in $colorz {
+  .#{$name}-color { color: $color; }
+  .#{$name}-border { border-color: $color; }
+  .#{$name}-background { color: #fff; background-color: $color; }
+}
+
+/*
+## Couleurs de texte
+
+Couleurs et nuances utilisées à travers les styles.
+
+```
+<p class="default-color mvn">.default-color : #{find-value($colorz, 'default')}</p>
+<p class="primary-color mvn">.primary-color : #{find-value($colorz, 'primary')}</p>
+<p class="secondary-color mvn">.secondary-color : #{find-value($colorz, 'secondary')}</p>
+<p class="white-color mvn">.white-color : #fff</p>
+<p class="black-color mvn">.black-color : #222</p>
+```
+
+*/
+
+/*
+## Couleurs de bordure
+
+Border colorz.
+
+```
+<div class="default-border mtn mbl" style="border-width:1px;border-style:solid">
+  <p class="default-color pam">.default-border : #{find-value($colorz, 'default')}</p>
+</div>
+<div class="primary-border mvl" style="border-width:1px;border-style:solid">
+  <p class="primary-color pam">.primary-border : #{find-value($colorz, 'primary')}</p>
+</div>
+<div class="secondary-border mtl mbn" style="border-width:1px;border-style:solid">
+  <p class="secondary-color pam">.secondary-border : #{find-value($colorz, 'secondary')}</p>
+</div>
+<div class="black-border mtl mbn" style="border-width:1px;border-style:solid">
+  <p class="black-color pam">.black-border : #222</p>
+</div>
+```
+
+*/
+
+.black-color      { color: #222; }
+.black-border     { border-color: #222; }
+.black-background { background-color: #222; }
+
+.white-color      { color: #fff; }
+.white-background { background-color: #fff; }

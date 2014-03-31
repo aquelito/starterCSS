@@ -1,0 +1,123 @@
+
+// ==========================================================================
+// Print style
+// Black prints faster: h5bp.com/s
+// ==========================================================================
+
+// Helpers
+@import
+  'helpers/var',
+  'helpers/mixins';
+
+@media print {
+
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    text-rendering: optimizeLegibility;
+    -ms-filter: none !important;
+        filter: none !important;
+  }
+
+  // Supprimer les éventuelles marges et largeur de <body>.
+  // Initialiser la taille de police en points.
+  body {
+    font-size: 12pt;
+  }
+
+  body,
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+
+  // Page
+  @page {
+    margin: 0.5cm;
+  }
+
+  // Éviter que les titres ne soient suivis par un changement de page.
+  // @note Fonctionne uniquement sur Opera et IE 8+.
+  // @see  http://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Cascading_Style_Sheets%29#cite_ref-75
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    page-break-after: avoid;
+  }
+
+  // Éviter que ces éléments ne soient scindés par un changement de page.
+  // @note Fonctionne sur Opera et IE 8+.
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  blockquote,
+  code, pre,
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  a {
+    &, &:visited {
+      text-decoration: underline; // Souligner les liens
+    }
+    &[href]:after {
+      content: " (" attr(href) ")"; // Affiche les liens
+    }
+    &[href^="#"]:after {
+      content: ""; // Don't show links for images, or javascript/internal links
+    }
+    ul &[href]:after,
+    ol &[href]:after {
+      content: "";
+    }
+  }
+
+  // Afficher la signification des abréviations
+  abbr[title]:after,
+  dfn[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  // Spécifier le nombre minimal de lignes pouvant être isolés en bas ou en haut d’une page.
+  // @note Ne fonctionne pas sur Firefox.
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  // Restreindre la largeur de l’image à celle de son conteneur
+  img {
+    max-width: 100% !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+  }
+
+  // Forcer la répétition des en-têtes de tableaux lorsqu’ils sont répartis sur plusieurs page.
+  // @see h5bp.com/t
+  thead {
+    display: table-header-group;
+  }
+
+  .noprint,
+  .navigation, .footer, .aside,
+  .skiplinks, .pagination, .message {
+    display: none;
+  }
+
+  .alignleft,
+  .alignright {
+    display: block;
+    margin-bottom: 1.5em;
+  }
+
+}

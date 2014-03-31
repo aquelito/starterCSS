@@ -1,0 +1,560 @@
+
+// ==========================================================================
+// Forms style
+// ==========================================================================
+
+@if $active-form-support {
+
+/*
+
+# Formulaire
+
+Mise en forme par défaut des formulaires de saisie.
+
+*/
+
+$select-background-color: #fafafa;
+$select-border-color:     #c0c0c0;
+
+fieldset,
+legend,
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  padding: rhythm(1) 0 0;
+}
+
+// 1. Rétablit l'héritage de la propriété 'color'.
+//    @bugfix   affected IE 8/9.
+// 2. Permet au texte de revenir à la ligne du texte.
+//    @bugfix   affected  FF 3.6
+//    @see      http://stackoverflow.com/questions/6133571/how-can-i-make-legend-text-wrap
+//    @note     IE 6 et IE 7 nécessitent une solution de contournement alternative.
+// 3. Remove padding so people aren't caught out if they zero out fieldsets.
+legend {
+  border: 0; // 1
+  padding: 0; // 3
+  white-space: normal; // 2
+  @if $support-for-ie7 {
+    .ie7 & { margin-left: -7px; } // bugfix IE7 (http://jamesfrank.info/2011/06/18/fieldset-legends-ie7/)
+  }
+}
+
+// 1. Correct font family not being inherited in all browsers.
+// 2. Correct font size not being inherited in all browsers.
+button,
+input,
+select,
+textarea {
+  font-family: inherit; // 1
+  font-size: 100%; // 2
+  vertical-align: baseline;
+  @if $support-for-ie7 {
+    .ie7 & { vertical-align: middle; } // bugfix IE7
+  }
+}
+
+input, select, textarea {
+  // @include box-sizing(border-box);
+  outline: 0;
+  border: 1px solid #c0c0c0;
+  background: white;
+}
+
+// 1. Masque la barre de défilement présente par défaut. IE 7/8/9.
+// 2. Uniformise l'alignement vertical.
+textarea {
+  font-family: inherit;
+  overflow: auto; // 1
+  vertical-align: top; // 2
+  resize: vertical;
+  width: 92%;
+  &.resize-auto {
+    resize: auto;
+  }
+}
+
+button, label {
+  cursor: pointer;
+}
+
+// 1. Address Firefox 4+ setting `line-height` on `input` using `!important` in
+//    the UA stylesheet.
+// 2. Re-set default cursor for disabled elements.
+button, input {
+  line-height: normal; // 1
+  &[disabled] {
+    cursor: default; // 2
+  }
+}
+
+.field-group .field-false,
+input[type="text"],
+input[type="tel"],
+input[type="color"],
+input[type="number"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="url"] {
+  padding: 0 5px;
+  display: inline-block;
+  line-height: 32px; height: 32px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="color"],
+input[type="number"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea, select {
+  @include transition-timing-function(ease);
+  @include transition-property(background-color);
+  @include transition-duration(.3s);
+  // border: 1px transparent solid;
+  // width: 100%;
+  &:focus {
+    //@include transition(outline 0.3s ease-in-out 0s);
+    background-color: darken($select-background-color, 3%);
+    border-color: darken($select-border-color, 20%);
+  }
+}
+
+// input[type=url]:invalid,
+// input[type=email]:invalid {
+//   border-color: desaturate(darken(#ffcece, 60%), 40%);;
+// }
+
+textarea,
+input[type="file"] {
+  @extend .pas;
+}
+
+input[type="submit"] {
+  padding: 0 10px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  top: 1px;
+}
+
+input[type="file"] {
+  display: inline-block;
+  line-height: 0;
+  font-size: 80%;
+  // width:100%;
+}
+
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+//    and `video` controls.
+// 2. Correct inability to style clickable `input` types in iOS.
+// 3. Improve usability and consistency of cursor style between image-type
+//    `input` and others.
+button,
+html input[type="button"], // 1
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; // 2
+  cursor: pointer; // 3
+  @if $support-for-ie7 {
+    overflow: visible; // bugfix IE7
+  }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  border: 0; // bugfix IE7
+  vertical-align: middle;
+  //@include box-sizing(border-box); // Addresses box sizing set to `content-box` in IE 8/9.
+  @if $support-for-ie7 {
+    .ie7 & {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
+
+select {
+  @include appearance(none);
+  -webkit-radius: none;
+  padding: 6px 30px 5px 5px;
+  text-indent: 0.01px;
+  text-overflow: ""; // ellipsis;
+  border-radius: 0;
+  // width: 100%;
+  // @extend .overhidden;
+  &, &:hover {
+    background: $select-background-color url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat 98% center;
+  }
+  &:hover {
+    background-color: darken($select-background-color, 3%);
+    border-color: darken($select-border-color, 20%);
+  }
+}
+
+// 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+// 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+//    (include `-moz` to future-proof).
+// 3. Removes inner padding and search cancel button in Safari 5 and Chrome on OS X.
+input[type="search"] {
+  -webkit-appearance: textfield; // 1
+  @include box-sizing(content-box); // 2
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none; // 3
+  }
+}
+
+// Supprime les marges internes incompressibles.
+// @bugfix   Firefox4+
+// @see      http://www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+## Général
+
+```
+<fieldset>
+  <legend>Contact Form</legend>
+  <p class="field-group">
+    <label for="name">Name</label>
+    <input class="field-txt" id="name" name="name" type="text" />
+  </p>
+  <p class="field-group">
+    <label for="email">Email</label>
+    <input class="field-txt field--error" id="email" name="email" type="email" />
+    <br /><span class="text--error"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</span>
+  </p>
+  <p class="field-group">
+    <label for="password">Password</label>
+    <input class="field-txt" id="password" name="password" type="password" value="Password" />
+  </p>
+  <p class="field-group">
+    <label for="url">Url</label>
+    <input class="field-txt" id="url" name="url" type="url" />
+  </p>
+  <p class="field-group">
+    <label for="message">Message</label>
+    <textarea class="field-txt" cols="30" id="message" name="message" rows="5"></textarea>
+  </p>
+  <p class="field-group">
+    <label for="file">File</label>
+    <input class="field-txt" id="file" name="file" type="file" />
+  </p>
+  <p class="field-group">
+    <label for="select">Subject small</label>
+    <select class="field-txt" id="select" name="select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </p>
+  <fieldset class="field-group">
+    <legend class="label">Birthday</legend>
+    <input id="jj" maxlength="2" name="birth[jj]" placeholder="DD" size="4" title="DD" type="text" class="w20" /><input id="mm" maxlength="2" name="birth[mm]" placeholder="MM" size="4" title="MM" type="text" class="w20" /><input id="aaaa" maxlength="4" name="birth[aaaa]" placeholder="YYYY" size="4" title="YYYY" type="text" class="w20" /></fieldset>
+  <p class="field-group field-false">
+    <input id="radio_one" name="radio" type="radio" />
+    <label for="radio_one">Radio One</label>
+    <input id="radio_two" name="radio" type="radio" />
+    <label for="radio_two">Radio Two</label>
+  </p>
+  <p class="field-group field-false">
+    <input id="checkbox_one" name="checkbox" type="checkbox">
+    <label for="checkbox1_one">Checkbox One</label>
+    <input id="checkbox_two" name="checkbox" type="checkbox">
+    <label for="checkbox1_two">Checkbox Two</label>
+  </p>
+  <p class="field-group field-false">
+    <legend class="label">Checkbox</legend>
+    <input id="checkbox1_one" name="checkbox1" type="checkbox">
+    <label for="checkbox1_one">Checkbox One</label>
+    <br />
+    <input id="checkbox1_two" name="checkbox1" type="checkbox">
+    <label for="checkbox1_two">Checkbox Two</label>
+    <br />
+    <input id="checkbox1_three" name="checkbox1" type="checkbox">
+    <label for="checkbox1_three">Three</label>
+  </p>
+  <p class="form-submit">
+    <input class="submit btn btn--primary" id="submit" name="submit" type="submit" value="Envoyer votre message">
+    <input class="submit btn btn--cancel" id="cancel" name="cancel" type="submit" value="Annuler">
+  </p>
+</fieldset>
+```
+
+*/
+
+// Sumbit button
+// ==========================================================================
+
+.form-submit {
+
+}
+
+// Required
+// ==========================================================================
+
+.form-required {
+  @extend .smaller;
+  color: #555;
+}
+
+// Forms
+// ==========================================================================
+
+$form-label-width: 200px;
+$form-label-marge: $grid-gutter-width;
+$form-field-false-width: $form-label-width;
+
+.field-submit {
+  @extend .clearfix;
+  border: 0;
+  position: relative;
+  margin: 0 0 ($base-line-height / 2);
+  padding: 0 0 0 $form-label-width + $form-label-marge;
+}
+
+/*
+## Champs static
+
+```
+<p class="field-group">
+  <span class="label">Email</span>
+  <span class="field-false bold">email@example.com</span>
+</p>
+<p class="field-group">
+  <label for="password">Password</label>
+  <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
+</p>
+```
+
+*/
+
+.field-group {
+  @extend .field-submit;
+  label,
+  .label {
+    @include inline-block(middle);
+    width: $form-label-width;
+    margin-right: $form-label-marge;
+    font-weight: bold;
+    text-align: right;
+    padding: 0;
+    line-height: 32px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  // .field-false {
+  //   padding: 0 5px;
+  //   display: inline-block;
+  //   line-height: 32px; height: 32px;
+  // }
+  .field-false {
+    padding: 0;
+  }
+}
+
+fieldset {
+  &.field-group {
+    input[type="text"],
+    input[type="tel"],
+    input[type="color"],
+    input[type="number"],
+    input[type="search"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="file"],
+    textarea {
+      //border: 1px transparent solid;
+      width: auto;
+    }
+  }
+}
+
+/*
+## Champs fake
+
+```
+<p class="field-group field-false">
+  <span class="field-false bold">email@example.com</span>
+</p>
+<p class="field-group">
+  <label for="password">Password</label>
+  <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
+</p>
+```
+
+*/
+
+.field-false {
+  label {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+  }
+}
+
+/*
+## Champs block
+
+```
+<p class="field-group field-block">
+  <span class="label">Email</span>
+  <span class="field-false bold">email@example.com</span>
+</p>
+<p class="field-group field-block">
+  <label for="password">Password</label>
+  <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
+</p>
+```
+
+*/
+
+.field-block {
+  padding-left: 0;
+  label,
+  .label {
+    display: block;
+    margin-right: 0;
+    text-align: left;
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+
+/*
+## Exemple : checkbox
+
+```
+<p class="field-checkbox clearfix">
+  <label for="chk">
+    <input type="checkbox" checked="checked" id="chk" name="chk" class="inbl">
+    Available for hire
+    <br /><span class="note">Lorem ipsum dolor sit amet, consectetur adipisicing. <strong>debitis distinctio</strong> and <strong>amazing</strong> things!</span>
+  </label>
+</p>
+<p class="field-checkbox clearfix">
+  <label for="chk2">
+    <input type="checkbox" checked="checked" id="chk2" name="chk2" class="inbl">
+    <span class="highlight">A far more important option</span>
+    <br /><span class="note">It will surely do something magical.</span>
+  </label>
+</p>
+```
+
+*/
+
+.field-radio,
+.field-checkbox {
+  padding-left: 20px;
+  input {
+    margin-left: -20px;
+    position: relative;
+  }
+}
+
+.field-checkbox {
+  input[type="checkbox"] {
+
+  }
+}
+
+/*
+## Exemple : radio
+
+```
+<p class="field-radio clearfix">
+  <label for="csckde">
+    <input type="radio" checked="checked" id="csckde" name="csck3" class="inbl">
+    Available for hire
+    <br /><span class="note">This will do insanely <strong>awesome</strong> and <strong>amazing</strong> things!</span>
+  </label>
+</p>
+<p class="field-radio clearfix">
+  <label for="csckds">
+    <input type="radio" checked="checked" id="csckds" name="csck3" class="inbl">
+    <em class="highlight">A far more important option</em>
+    <br /><span class="note">It will surely do something magical.</span>
+  </label>
+</p>
+```
+
+*/
+
+.field-radio {
+  input[type="radio"] {
+
+  }
+}
+
+/*
+## Input error
+
+```
+<p class="field-group">
+  <label for="email">Email</label>
+  <input aria-labelledby="error_email" class="field-txt field--warning" id="email" name="email" type="email" required="required" aria-required="true" />
+  <br /><small id="error_email" class="text--warning"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
+</p>
+<p class="field-group">
+  <label for="email">Email</label>
+  <input aria-labelledby="error_email" class="field-txt field--error" id="email" name="email" type="email" required="required" aria-required="true" />
+  <br /><small id="error_email" class="text--error"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
+</p>
+<p class="field-group">
+  <label for="email">Email</label>
+  <input aria-labelledby="error_email" class="field-txt field--status" id="email" name="email" type="email" required="required" aria-required="true" />
+  <br /><small id="error_email" class="text--status"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
+</p>
+```
+
+*/
+
+@each $name, $color in $alert-box {
+  .field--#{$name} {
+    border-color: $color;
+  }
+}
+
+/*
+## Placeholder
+
+Couleurs de placeholder : ne pas fusionner les sélecteurs !
+
+```
+@see http://stackoverflow.com/a/2610741
+```
+
+*/
+
+$field-placeholder: #A0A0A0;
+::-webkit-input-placeholder { // WebKit browsers
+  color: $field-placeholder; }
+:-moz-placeholder { // Mozilla Firefox 4 to 18
+  color: $field-placeholder; }
+::-moz-placeholder { // Mozilla Firefox 19+
+  color: $field-placeholder; }
+:-ms-input-placeholder { // Internet Explorer 10+
+  color: $field-placeholder; }
+
+/* */
+} // enf if

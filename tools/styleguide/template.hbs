@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width;initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>{{page.title}} - Starter Styleguide</title>
+<meta name="description" content="" />
+{{> theme}}
+{{> highlight}}
+</head>
+<body>
+<div class="gutter">
+
+  <div id="nav">
+    <h1><a href="{{> root}}/{{href}}">Styleguide</a></h1>
+    {{#each pages}}
+      {{#if isDirectory}}
+        <h2 class="heading">{{name}}</h2>
+        <ul class="group">
+        {{#each pages}}
+          <li>
+            {{#if isDirectory}}
+              <h3 class="heading">{{name}}</h3>
+              <ul class="group">
+              {{#each pages}}
+                <li>
+                  {{#if isDirectory}}
+                    <h4 class="heading">{{name}}</h4>
+                    <ul class="group">
+                    {{#each pages}}
+                      <li>
+                        {{#if title}}
+                        <a href="{{> root}}/{{href}}">{{title}}</a>
+                        {{/if}}
+                      </li>
+                    {{/each}}
+                    </ul>
+                  {{else}}
+                    {{#if title}}
+                    <a href="{{> root}}/{{href}}">{{title}}</a>
+                    {{/if}}
+                  {{/if}}
+                </li>
+              {{/each}}
+              </ul>
+            {{else}}
+              {{#if title}}
+              <a href="{{> root}}/{{href}}">{{title}}</a>
+              {{/if}}
+            {{/if}}
+          </li>
+        {{/each}}
+        </ul>
+      {{/if}}
+    {{/each}}
+  </div>
+
+  <div id="content">
+    {{#each page.sections}}
+      <div class="section">
+        {{#if comment}}
+          <div class="comment">{{{comment}}}</div>
+        {{/if}}
+        {{#if result}}
+          <div class="result">
+            <iframe id="iframe{{@index}}" height="0" src="about:blank"></iframe>
+            <script id="result{{@index}}" type="text/html">{{{result}}}</script>
+            <script id="script{{@index}}">
+              var iframe  = document.getElementById('iframe{{@index}}');
+              var script  = document.getElementById('script{{@index}}');
+              var result  = document.getElementById('result{{@index}}');
+              var context = iframe.contentWindow.document;
+                  context.open();
+                  context.write('<!DOCTYPE html>');
+                  context.write('<'+'html>');
+                  context.write('    <'+'head>');
+                  context.write('        {{> assets}}');
+                  context.write('    <'+'/'+'head>');
+                  context.write('    <'+'body>');
+                  context.write(result.innerHTML);
+                  context.write('    <'+'/'+'body>');
+                  context.write('<'+'/'+'html>');
+                  context.close();
+              iframe.removeAttribute('id')
+              result.parentNode.removeChild(result);
+              script.parentNode.removeChild(script);
+            </script>
+          </div>
+        {{/if}}
+        {{#if markup}}
+          <div class="markup">{{{markup}}}</div>
+        {{/if}}
+        {{#if styles}}
+          <div class="styles">{{{styles}}}</div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+
+</div>
+
+<script>
+window.onload = function() {
+    var iframes = document.querySelectorAll('iframe');
+    for ( var i = 0; i < iframes.length; i++ ){
+        iframes[i].height = iframes[i].contentWindow.document.body.scrollHeight;
+    }
+};
+
+var headings = document.querySelectorAll('#nav .heading');
+for ( var i = 0; i < headings.length; i++ ){
+    var list = headings[i].nextElementSibling;
+    var links = list.querySelectorAll('a');
+
+    for ( var j = 0; j < links.length; j++ ){
+        if ( links[j].href.match('/{{page.href}}') ) {
+            links[j].classList.toggle('is-active');
+            links[j].parentNode.parentNode.classList.toggle('is-open');
+            links[j].parentNode.parentNode.previousElementSibling.classList.toggle('is-open');
+        }
+    }
+
+    headings[i].addEventListener('click', function () {
+        this.classList.toggle('is-open');
+        this.nextElementSibling.classList.toggle('is-open');
+    });
+}
+</script>
+</body>
+</html>

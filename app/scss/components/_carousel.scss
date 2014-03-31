@@ -1,0 +1,95 @@
+
+// ==========================================================================
+// Carousel / Slider
+// ==========================================================================
+
+/*
+# Carousel
+
+* Swipejs : https://github.com/bradbirdsall/Swipe
+
+```
+<div id="slider" class="swipe slider clearfix">
+  <div class="swipe__wrap slider__inner acenter">
+    <div class="slider__item">
+      <img class="slider__image" src="http://placehold.it/500x180" alt="" />
+    </div>
+    <div class="slider__item">
+      <img class="slider__image" src="http://placehold.it/500x180" alt="" />
+    </div>
+    <div class="slider__item">
+      <img class="slider__image" src="http://placehold.it/500x180" alt="" />
+    </div>
+  </div>
+  <ul id="pager" class="swipe__pager pager list-inline acenter mvl">
+    <li class="pager__item on"><span class="pager__title">1</span></li>
+    <li class="pager__item"><span class="pager__title">2</span></li>
+    <li class="pager__item"><span class="pager__title">3</span></li>
+  </ul>
+  <button class="slider__prev" id="pagerPrev" title="Show prev slide">Prev</button>
+  <button class="slider__next" id="pagerNext" title="Show next slide">Next</button>
+</div>
+```
+
+*/
+
+.slider {
+  visibility: hidden;
+  &, &__inner {
+    @extend .overhidden;
+    position: relative;
+  }
+  &__item {
+    float: left;
+    width: 100%;
+    position: relative;
+  }
+  &__prev,
+  &__next {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    // text-indent: -9999px;
+    top: 40%;
+    padding: 0;
+    // width: image-width("i/arrow-left.png");
+    // height: image-height("i/arrow-left.png");
+    border: 0;
+  }
+  &__prev {
+    left: 0;
+    &:hover,
+    &:focus,
+    &:active {
+
+    }
+  }
+  &__next {
+    right: 0;
+    &:hover,
+    &:focus,
+    &:active {
+
+    }
+  }
+}
+
+.pager {
+  li,
+  &__title {
+    @extend .inbl;
+  }
+  .on {
+    .pager__title {
+      background-color: $body-color;
+    }
+  }
+  &__title {
+    background: #c0c0c0;
+    width: 11px;
+    height: 11px;
+    border-radius: 11px;
+    text-indent: -9999px;
+  }
+}

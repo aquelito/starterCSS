@@ -1,0 +1,267 @@
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+@if $active-button-support {
+
+/*
+
+# Boutons
+
+*/
+
+/*
+## Boutons par défaut
+
+Vous pouvez utiliser `.btn`.
+Pour une action, préférer un `<button>` à un lien `<a>`
+
+```
+<button class="btn">Submit</button>
+<input id="submit" name="submit" class="btn" type="submit" value="Submit" />
+<span class="btn">Submit</span>
+<a href="#" class="btn">Submit</a>
+```
+
+*/
+
+.btn {
+  background-color: #ececec;
+  @include background-image(linear-gradient(#f4f4f4, #ececec));
+  @include transition-timing-function(ease);
+  @include transition-property(background-color);
+  @include transition-duration(.3s);
+  overflow: visible;
+  padding: 0.5em 1em;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #d4d4d4;
+  background-clip: padding-box;
+  font-size: 1em;
+  line-height: normal;
+  font-family: sans-serif;
+  color: #222;
+  &:hover,
+  &:focus,
+  &:active,
+  &.btn--active {
+    background-color: #3c8dde;
+    @include background-image(linear-gradient(#599bdc, #3072b3));
+    text-decoration: none;
+    border-color: #599bdc;
+    color: #fff;
+  }
+  // Kill phantom spacing and dotted
+  // border that appears in Firefox.
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+/*
+## Boutons couleurs
+
+Couleur par défault.
+
+```
+<button class="btn {$modifiers}">Submit</button>
+<input id="submit" name="submit" class="btn {$modifiers}" type="submit" value="Submit" />
+<span class="btn {$modifiers}">Submit</span>
+<a href="#" class="btn {$modifiers}">Submit</a>
+```
+
+*/
+
+/*
+## Boutons couleurs `default`
+
+* `.btn--default` - Couleur par défaut
+
+```
+<button class="btn btn--default">Submit</button>
+<input id="submit" name="submit" class="btn btn--default" type="submit" value="Submit" />
+<span class="btn btn--default">Submit</span>
+<a href="#" class="btn btn--default">Submit</a>
+```
+
+*/
+
+/*
+## Boutons couleurs `primary`
+
+* `.btn--primary` - Couleur primaire
+
+```
+<button class="btn btn--primary">Submit</button>
+<input id="submit" name="submit" class="btn btn--primary" type="submit" value="Submit" />
+<span class="btn btn--primary">Submit</span>
+<a href="#" class="btn btn--primary">Submit</a>
+```
+
+*/
+
+/*
+## Boutons couleurs `secondary`
+
+* `.btn--secondary` - Couleur secondaire
+
+```
+<button class="btn btn--secondary">Submit</button>
+<input id="submit" name="submit" class="btn btn--secondary" type="submit" value="Submit" />
+<span class="btn btn--secondary">Submit</span>
+<a href="#" class="btn btn--secondary">Submit</a>
+```
+
+*/
+
+@each $name, $color in $colorz {
+  .btn--#{$name} {
+    color: #fff;
+    background-color: $color;
+    @include background-image(linear-gradient(darken($color, 10%), $color));
+    &:hover, &:focus, &:active {
+      background-color: darken($color, 10%);
+      @include background-image(linear-gradient($color, darken($color, 10%)));
+      border-color: $color;
+    }
+  }
+}
+
+/*
+## Boutons tailles
+
+```
+<button class="btn {$modifiers}">Submit</button>
+<input id="submit" name="submit" class="btn {$modifiers}" type="submit" value="Submit" />
+<span class="btn {$modifiers}">Submit</span>
+<a href="#" class="btn {$modifiers}">Submit</a>
+```
+
+.btn--smaller - XXpx
+.btn--small   - XXpx
+.btn--medium  - XXpx
+.btn--big     - XXpx
+.btn--bigger  - XXpx
+
+*/
+
+@each $name, $size in $other_size {
+  .btn--#{$name} {
+    @include font-size($size);
+  }
+}
+
+/*
+
+## Boutons états
+
+*/
+
+/*
+### Bouton active
+
+* `.btn--active` - Bouton état actif
+
+```
+<button class="btn {$modifiers}">Submit</button>
+<input id="submit" name="submit" class="btn {$modifiers}" type="submit" value="Submit" />
+<span class="btn {$modifiers}">Submit</span>
+<a href="#" class="btn {$modifiers}">Submit</a>
+```
+
+*/
+
+.btn:active,
+.btn--active {
+  @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+  outline: 0;
+  background-image: none;
+}
+
+/*
+### Bouton désactivé
+
+* `.btn--disabled` - Bouton désactivé
+
+```
+<button class="btn btn--disabled">Submit</button>
+<input id="submit" name="submit" class="btn btn--disabled" type="submit" value="Submit" />
+<span class="btn btn--disabled">Submit</span>
+<a href="#" class="btn btn--disabled">Submit</a>
+```
+
+*/
+
+.btn[disabled],
+.btn--disabled {
+  @include opacity(.65);
+  @include box-shadow(none);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/*
+### Bouton block
+
+* `.btn--block` - Bouton large
+
+```
+<button class="btn btn--block">Submit</button>
+<input id="submit" name="submit" class="btn btn--block" type="submit" value="Submit" />
+<span class="btn btn--block">Submit</span>
+<a href="#" class="btn btn--block">Submit</a>
+```
+
+*/
+
+.btn--block {
+  @extend .dl;
+  @extend .w100;
+}
+
+/*
+## Groupe de boutons
+
+Create a visual connection between UI actions that belong together.
+Must only contain `btn-group__item` objects as children.
+
+```
+<div class="btn-group">
+  <div class="btn-group__item">
+    <a class="btn" href="#">Dashboard</a>
+  </div><div class="btn-group__item">
+    <a class="btn" href="#">Account</a>
+  </div><div class="btn-group__item">
+    <a class="btn" href="#">Logout</a>
+  </div>
+</div>
+```
+
+*/
+
+.btn-group {
+  @extend .inbl;
+  @extend .amiddle;
+  // Prevent wrapping across multiple lines
+  white-space: nowrap;
+  // Protect against WebKit bug with optimizelegibility
+  text-rendering: optimizespeed;
+}
+
+.btn-group__item {
+  @extend .inbl;
+  margin-left: -1px;
+  word-spacing: normal;
+  .btn { }
+  &:first-child { }
+  &:last-child { }
+}
+
+/* */
+} // enf if

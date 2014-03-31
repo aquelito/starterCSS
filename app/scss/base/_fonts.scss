@@ -1,0 +1,73 @@
+
+// ==========================================================================
+// Fonts stack
+// ==========================================================================
+
+/*
+
+# Fonts Stack
+
+Chaque police utilisé dans les styles.
+
+*/
+
+/*
+## Font body #{$font-body}
+
+```
+<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ<br />abcdefghijklmnopqrstuvwxyz<br />àáâãäçèéêëìíîïñòóôõöùúûüýÿ<br />!@#$€%^&"'^§*()_+-=;,./?<>[]\{}|~`°<br />1234567890</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, saepe, et, commodi repellat praesentium vel officia libero maiores odio sit eaque id alias minus eos voluptatem sed nisi quasi tempore aut vitae velit nostrum nesciunt quae reprehenderit veritatis quis facilis.</p>
+```
+
+*/
+
+/*
+## Font `italic` body #{$font-body}
+
+`.italic` - Italique
+
+```
+<p class="italic">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ<br />abcdefghijklmnopqrstuvwxyz<br />àáâãäçèéêëìíîïñòóôõöùúûüýÿ<br />!@#$€%^&"'^§*()_+-=;,./?<>[]\{}|~`°<br />1234567890</p>
+<p class="italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, saepe, et, commodi repellat praesentium vel officia libero maiores odio sit eaque id alias minus eos voluptatem sed nisi quasi tempore aut vitae velit nostrum nesciunt quae reprehenderit veritatis quis facilis.</p>
+```
+
+*/
+
+/*
+## Font `bold` body #{$font-body}
+
+`.bold` - Gras
+
+```
+<p class="bold">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ<br />abcdefghijklmnopqrstuvwxyz<br />àáâãäçèéêëìíîïñòóôõöùúûüýÿ<br />!@#$€%^&"'^§*()_+-=;,./?<>[]\{}|~`°<br />1234567890</p>
+<p class="bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, saepe, et, commodi repellat praesentium vel officia libero maiores odio sit eaque id alias minus eos voluptatem sed nisi quasi tempore aut vitae velit nostrum nesciunt quae reprehenderit veritatis quis facilis.</p>
+```
+
+*/
+
+/*  */
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciL3hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
+}
+
+/*
+## Font heading #{$font-headline}
+
+When we define a heading we also define a corresponding class to go with it.
+This allows us to apply, say, `class="h1"` to a `h3`; a double-stranded
+heading hierarchy.
+
+```
+<h1>.h1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, quasi, laborum consequatur officia eveniet dignissimos</h1>
+<h2>.h2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, consectetur incidunt officiis neque vitae laboriosam</h2>
+<h3>.h3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni minus quos reiciendis beatae illo</h3>
+<h4>.h4 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, corrupti totam sed veritatis voluptas aliquid</h4>
+<h5>.h5 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, voluptate recusandae cumque necessitatibus error quas</h5>
+<h6>.h6 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, reiciendis consequuntur magni facere dolore dolorum</h6>
+```
+
+*/
