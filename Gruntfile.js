@@ -59,7 +59,8 @@ module.exports = function (grunt) {
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '<%= starter.dist %>/css/fonts',
         relativeAssets: false,
-        assetCacheBuster: false
+        assetCacheBuster: false,
+        noLineComments: true,
       },
       dist: {
         options: {

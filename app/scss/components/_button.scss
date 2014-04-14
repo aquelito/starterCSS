@@ -134,30 +134,6 @@ Couleur par défault.
 }
 
 /*
-## Boutons tailles
-
-```
-<button class="btn {$modifiers}">Submit</button>
-<input id="submit" name="submit" class="btn {$modifiers}" type="submit" value="Submit" />
-<span class="btn {$modifiers}">Submit</span>
-<a href="#" class="btn {$modifiers}">Submit</a>
-```
-
-.btn--smaller - XXpx
-.btn--small   - XXpx
-.btn--medium  - XXpx
-.btn--big     - XXpx
-.btn--bigger  - XXpx
-
-*/
-
-@each $name, $size in $other_size {
-  .btn--#{$name} {
-    @include font-size($size);
-  }
-}
-
-/*
 
 ## Boutons états
 
@@ -169,19 +145,18 @@ Couleur par défault.
 * `.btn--active` - Bouton état actif
 
 ```
-<button class="btn {$modifiers}">Submit</button>
-<input id="submit" name="submit" class="btn {$modifiers}" type="submit" value="Submit" />
-<span class="btn {$modifiers}">Submit</span>
-<a href="#" class="btn {$modifiers}">Submit</a>
+<button class="btn btn--active">Submit</button>
+<input id="submit" name="submit" class="btn btn--active" type="submit" value="Submit" />
+<span class="btn btn--active">Submit</span>
+<a href="#" class="btn btn--active">Submit</a>
 ```
 
 */
 
 .btn:active,
 .btn--active {
-  @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
-  outline: 0;
   background-image: none;
+  outline: 0;
 }
 
 /*
@@ -201,29 +176,33 @@ Couleur par défault.
 .btn[disabled],
 .btn--disabled {
   @include opacity(.65);
-  @include box-shadow(none);
   cursor: not-allowed;
   pointer-events: none;
 }
 
 /*
-### Bouton block
-
-* `.btn--block` - Bouton large
+## Boutons tailles
 
 ```
-<button class="btn btn--block">Submit</button>
-<input id="submit" name="submit" class="btn btn--block" type="submit" value="Submit" />
-<span class="btn btn--block">Submit</span>
-<a href="#" class="btn btn--block">Submit</a>
+<button class="btn dl w10">Submit</button>
+<input id="submit" name="submit" class="btn dl w20" type="submit" value="Submit" />
+<span class="btn dl w30">Submit</span>
+<a href="#" class="btn dl w40">Submit</a>
 ```
 
 */
 
-.btn--block {
-  @extend .dl;
-  @extend .w100;
-}
+/*
+### Bouton block
+
+```
+<button class="btn dl w100">Submit</button>
+<input id="submit" name="submit" class="btn dl w100" type="submit" value="Submit" />
+<span class="btn dl w100">Submit</span>
+<a href="#" class="btn dl w100">Submit</a>
+```
+
+*/
 
 /*
 ## Groupe de boutons

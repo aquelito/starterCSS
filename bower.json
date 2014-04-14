@@ -18,8 +18,10 @@
   ],
   "ignore": [
     "**/.*",
+    "docs",
     "node_modules",
     "bower_components",
+    "LICENSE-MIT",
     "README.md"
   ]
 }

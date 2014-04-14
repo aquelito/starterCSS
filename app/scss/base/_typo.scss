@@ -21,11 +21,11 @@ Autres tailles de typographie
 * `.bigger` - #{find-value($other_size, 'bigger')}
 
 ```
-<p class="smaller mvn">Lorem ipsum dolor adipisicing eli</h2>
-<p class="small mvn">Lorem ipsum dolor adipisicing eli</h3>
-<p class="medium mvn">Lorem ipsum dolor adipisicing eli</h4>
-<p class="big mvn">Lorem ipsum dolor adipisicing eli</h5>
-<p class="bigger mvn">Lorem ipsum dolor adipisicing eli</h6>
+<p class="smaller mvn">.smaller - #{find-value($other_size, 'smaller')}</p>
+<p class="small mvn">.small - #{find-value($other_size, 'small')}</p>
+<p class="medium mvn">.medium - #{find-value($other_size, 'medium')}</p>
+<p class="big mvn">.big - #{find-value($other_size, 'big')}</p>
+<p class="bigger mvn">.bigger - #{find-value($other_size, 'bigger')}</p>
 ```
 
 */

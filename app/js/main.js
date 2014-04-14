@@ -29,6 +29,7 @@
 
 // })(jQuery, Drupal, this, this.document);
 
+
 var starter = {
   swipe: function() {
     var elem = document.getElementById('slider');
@@ -54,7 +55,6 @@ var starter = {
         },
         transitionEnd: function(index, elem) {}
       });
-
       var bullets = document.getElementById('pager').getElementsByTagName('li');
 
       if (window.jQuery) {
@@ -89,7 +89,6 @@ var starter = {
   },
 
 };
-
 
 jQuery(function($){
 

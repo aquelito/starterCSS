@@ -32,34 +32,6 @@
 
 */
 
-// .modal {
-//   position: fixed;
-//   top: 0; right: 0; bottom: 0; left: 0;
-//   z-index: 1040;
-//   display: none;
-//   overflow: auto;
-//   overflow-y: scroll;
-//   &__dialog {
-//     position: relative;
-//     z-index: 1050;
-//     width: 600px;
-//     margin: 30px auto;
-//   }
-//   &__inner {
-//     @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
-//     background-clip: padding-box;
-//     background-color: #fff;
-//     border: 1px solid #999;
-//     border-radius: 5px;
-//     position: relative;
-//   }
-//   &__header { }
-//   &__footer { }
-//   &__content { }
-//   &__title { }
-//   &__close { }
-// }
-
 // Kill the scroll on the body
 .modal__open {
   @extend .overhidden;
@@ -115,7 +87,7 @@
 // Actual modal
 .modal__content {
   @extend .white-background;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  // @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   position: relative;
   border-radius: 10px;
   border: 1px solid #ccc;

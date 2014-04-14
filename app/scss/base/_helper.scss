@@ -14,32 +14,36 @@
 
 blocks widths (percentage)
 
-* `.w10`  - width: 10%
-* `.w20`  - width: 20%
-* `.w25`  - width: 25%
-* `.w30`  - width: 30%
-* `.w33`  - width: 33.3333%
-* `.w40`  - width: 40%
-* `.w50`  - width: 50%
-* `.w60`  - width: 60%
-* `.w66`  - width: 66.6666%
-* `.w70`  - width: 70%
-* `.w75`  - width: 75%
-* `.w80`  - width: 80%
-* `.w90`  - width: 90%
-* `.w100` - width: 100%
+```
+<p class="mvn clearfix"><span class="floatl w10"><code>.w10</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w10">10%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w20</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w20">20%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w25</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w25">25%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w30</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w30">30%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w35</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w35">35%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w40</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w40">40%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w50</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w50">50%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w60</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w60">60%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w65</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w65">65%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w70</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w70">70%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w75</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w75">75%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w80</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w80">80%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w90</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w90">90%</span></span></p>
+<p class="mvn clearfix"><span class="floatl w10"><code>.w100</code></span> <span class="floatl w90"><span class="default-background inbl amiddle w100">100%</span></span></p>
+```
 
 */
+
+/* */
 
 .w10  { width: 10%; }
 .w20  { width: 20%; }
 .w25  { width: 25%; }
 .w30  { width: 30%; }
-.w33  { width: 33.3333%; }
+.w35  { width: 35%; }
 .w40  { width: 40%; }
 .w50  { width: 50%; }
 .w60  { width: 60%; }
-.w66  { width: 66.6666%; }
+.w65  { width: 65%; }
 .w70  { width: 70%; }
 .w75  { width: 75%; }
 .w80  { width: 80%; }
@@ -49,8 +53,8 @@ blocks widths (percentage)
 /*
 ## Inline-block (Elements)
 
-* `.bn` - Display: none
-* `.bl` - Display: block
+* `.dn` - Display: none
+* `.dl` - Display: block
 * `.inbl` - Display: inline-block
 * `.inbl.atop` - Alignment top (default)
 * `.inbl.amiddle` - Alignment middle

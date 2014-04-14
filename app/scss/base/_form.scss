@@ -507,6 +507,24 @@ fieldset {
 }
 
 /*
+## Exemple : Phone number
+
+```
+<p class="field-group">
+  <span class="label">Phone number</span>
+  <span class="field-false">
+    ( <input type="text" name="phone-prefix" size="3" /> )
+    <input type="text" name="phone-number-1" size="3" />
+    - <input type="text" name="phone-number-2" size="3" />
+    ext: <input type="text" name="phone-ext" size="3" />
+    <br /><small class="description">Needed if there are questions about your order</small>
+  </span>
+</p>
+```
+
+*/
+
+/*
 ## Input error
 
 ```
