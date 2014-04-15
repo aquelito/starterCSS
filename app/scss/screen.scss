@@ -8,11 +8,12 @@
 // Helpers
 @import
   'helpers/var',
+  'helpers/function',
   'helpers/mixins';
 
 // Debug
-@import
-  'helpers/debug';
+// @import
+//   'helpers/debug';
 
 // Base
 @import

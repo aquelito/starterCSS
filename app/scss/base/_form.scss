@@ -61,7 +61,6 @@ textarea {
 }
 
 input, select, textarea {
-  // @include box-sizing(border-box);
   outline: 0;
   border: 1px solid #c0c0c0;
   background: white;
@@ -117,22 +116,12 @@ input[type="email"],
 input[type="password"],
 input[type="url"],
 textarea, select {
-  @include transition-timing-function(ease);
-  @include transition-property(background-color);
-  @include transition-duration(.3s);
-  // border: 1px transparent solid;
-  // width: 100%;
+  transition: background-color .3s ease;
   &:focus {
-    //@include transition(outline 0.3s ease-in-out 0s);
     background-color: darken($select-background-color, 3%);
     border-color: darken($select-border-color, 20%);
   }
 }
-
-// input[type=url]:invalid,
-// input[type=email]:invalid {
-//   border-color: desaturate(darken(#ffcece, 60%), 40%);;
-// }
 
 textarea,
 input[type="file"] {
@@ -175,7 +164,6 @@ input[type="radio"],
 input[type="checkbox"] {
   border: 0; // bugfix IE7
   vertical-align: middle;
-  //@include box-sizing(border-box); // Addresses box sizing set to `content-box` in IE 8/9.
   @if $support-for-ie7 {
     .ie7 & {
       height: 12px;
@@ -185,7 +173,8 @@ input[type="checkbox"] {
 }
 
 select {
-  @include appearance(none);
+  -moz-appearance: none;
+  -webkit-appearance: none;
   -webkit-radius: none;
   padding: 6px 30px 5px 5px;
   text-indent: 0.01px;
@@ -208,7 +197,7 @@ select {
 // 3. Removes inner padding and search cancel button in Safari 5 and Chrome on OS X.
 input[type="search"] {
   -webkit-appearance: textfield; // 1
-  @include box-sizing(content-box); // 2
+  box-sizing: content-box; // 2
   &::-webkit-search-cancel-button,
   &::-webkit-search-decoration {
     -webkit-appearance: none; // 3
@@ -349,7 +338,8 @@ $form-field-false-width: $form-label-width;
   @extend .field-submit;
   label,
   .label {
-    @include inline-block(middle);
+    display: inline-block;
+    vertical-align: middle;
     width: $form-label-width;
     margin-right: $form-label-marge;
     font-weight: bold;

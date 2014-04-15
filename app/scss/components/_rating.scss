@@ -32,7 +32,7 @@
     @extend .floatr;
     @extend .medium;
     @extend .mrn;
-    @include transition(color .4s);
+    transition: color .4s;
   }
   label:hover ~ label,
   input:focus ~ label,

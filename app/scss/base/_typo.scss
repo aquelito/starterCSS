@@ -140,9 +140,17 @@ La justification n'est pas disponible car interdite en accessibilité pour des q
 
 */
 
-.floatl { @include float-left; }
-.floatr { @include float-right; }
-.floatn { @include reset-float; }
+.floatl {
+  float: left;
+}
+
+.floatr {
+  float: right;
+}
+
+.floatn {
+  float: none;
+}
 
 /*
 ## Blocs incrustations

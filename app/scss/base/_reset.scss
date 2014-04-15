@@ -10,7 +10,7 @@
 
 // http://paulirish.com/2012/box-sizing-border-box-ftw/
 // apply a natural box layout model to all elements
-* { @include box-sizing(border-box); }
+* { box-sizing: border-box; }
 
 /*
 
@@ -19,8 +19,6 @@
 */
 
 // HTML5 display-role reset for older browsers
-// ==========================================================================
-
 article,
 aside,
 audio,
@@ -39,8 +37,6 @@ video {
 }
 
 // Correct `inline-block` display not defined in IE 8/9.
-// ==========================================================================
-
 audio,
 canvas,
 progress,
@@ -49,14 +45,12 @@ video {
 }
 
 // Prevent modern browsers from displaying `audio` without controls.
-// Remove excess height in iOS 5 devices.
-// ==========================================================================
-
 [hidden],
 audio:not([controls]) {
   display: none; // Address styling not present in IE 8/9.
 }
 
+// Remove excess height in iOS 5 devices.
 audio:not([controls]) {
   height: 0;
 }
@@ -78,7 +72,7 @@ figure {
 body {
   background: $body-background;
   color: $body-color;
-  > script { display: none !important; }
+  > script { @extend .dn; }
 }
 
 // Baseline
@@ -107,8 +101,8 @@ heading hierarchy.
 @each $hn, $size in $font_size {
   #{$hn}, .#{$hn} {
     @include font-size($size);
-    @include margin-leader(1, $size);
-    @include margin-trailer(1, $size);
+    margin-top: rhythm(1, $size);
+    margin-bottom: rhythm(1, $size);
   }
 }
 
@@ -167,8 +161,8 @@ ol,
 dl,
 table
 form, {
-  @include margin-leader(0);
-  @include margin-trailer();
+  margin-top: rhythm(0, $base-font-size);
+  margin-bottom: rhythm(0, $base-font-size);
 }
 
 // avoid collapsing margins
@@ -197,24 +191,21 @@ blockquote:last-child {
 }
 
 // defaut links
-// ==========================================================================
-
 a {
   background: transparent; // Remove the gray background color from active links in IE 10.
-  @include link-colors($link-color, $link-color-hover, $link-color-active, false);
-}
-
-a {
+  color: $link-color;
   &:hover,
-  &:focus  {}
-  &:active {}
+  &:focus {
+    text-decoration: none;
+    color: $link-color-hover;
+  }
+  &:active {
+    color: $link-color-active;
+  }
 }
 
 // Address `outline` inconsistency between Chrome and other browsers.
 a:focus { outline: thin dotted; }
-
-// misc
-// ==========================================================================
 
 // Firefox 4+, Safari 5, et Chrome.
 strong { @extend .bold; }
@@ -358,7 +349,6 @@ ol {
   }
 }
 
-// Definition
 dt {
   @extend strong;
 }
@@ -413,8 +403,6 @@ figcaption {
 }
 
 // hr
-// ==========================================================================
-
 hr {
   $color-hr: #000;
   background: $color-hr;
@@ -425,10 +413,6 @@ hr {
   clear: both;
   padding: 0;
 }
-
-// blockquote
-// ==========================================================================
-
 
 /*
 
@@ -507,8 +491,6 @@ samp {
 
 /*
 ## Quotes
-
-
 
 */
 
@@ -738,12 +720,9 @@ tbody {
 
 /* */
 
-// Selection
-// ==========================================================================
-
-// Supprime l'ombre portée du texte lors de sa sélection.
-// @see   h5bp.com/
-// @note  Les couleurs de texte et d'arrière-plan doivent être rédéfinies pour que l'instruction soit appliquée.
+// // Supprime l'ombre portée du texte lors de sa sélection.
+// // @see   h5bp.com/
+// // @note  Les couleurs de texte et d'arrière-plan doivent être rédéfinies pour que l'instruction soit appliquée.
 // $selection-background: #fff8ab;
 // $selection-color: #666;
 // ::selection {
@@ -752,8 +731,8 @@ tbody {
 //   background-color: $selection-background;
 // }
 
-// Supprime l'ombre portée du texte lors de sa sélection.
-// @bugfix  Firefox
+// // Supprime l'ombre portée du texte lors de sa sélection.
+// // @bugfix  Firefox
 // ::-moz-selection {
 //   text-shadow: none;
 //   color: $selection-color;

@@ -153,8 +153,7 @@ Les longues valeurs de propriétés, séparées par des virgules *comme des ense
 ```
 .selecteur-1 {
   @extend .other-rule;
-  @include clearfix();
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   width: x-grid-unit(1);
   // Autres déclarations
 }
@@ -197,27 +196,33 @@ L'organisation du code est une partie importante de n'importe quelle base de cod
 scss/
 ├── screen.scss
 ├── print.scss
-├── _var.scss
 ├── base
+│   ├── _colorz.scss
 │   ├── _fonts.scss
-│   ├── _reset.scss
-│   ├── _helpers.scss
-│   ├── _layout.scss
 │   ├── _from.scss
+│   ├── _helpers.scss
+│   ├── _reset.scss
 │   ├── _spacing.scss
+│   └── _typo.scss
 ├── components
-│   ├── _icon.scss
 │   ├── _breadcrumb.scss
-│   ├── _pagination.scss
 │   ├── _button.scss
-│   ├── _message.scss
 │   ├── _comments.scss
+│   ├── _icon.scss
+│   ├── _message.scss
+│   ├── _pagination.scss
 │   └── …
+├── helpers
+│   ├── _debug.scss
+│   ├── _functions.scss
+│   ├── _mixins.scss
+│   └── _vars.scss
 ├── pages
+│   ├── homepage.scss
 │   ├── issues.scss
 │   ├── profile.scss
 │   └── …
-└── plugins
+└── vendors
     ├── jquery.prettyphoto.css
     ├── jquery.ui.css
     └── …
@@ -226,7 +231,7 @@ scss/
 * Le dossier `/base` regroupe les fichiers contient les fichiers CSS de bases ;
 * Le dossier `/components` contient les  composants CSS ;
 * Le dossier `/pages` contient les styles spécifiques pour les  pages ;
-* Le dossier `/plugins` contient les feuilles CSS dédiées aux plugins.
+* Le dossier `/vendors` contient les feuilles CSS dédiées aux plugins.
 
 > **En cas d'un multi-sites, un dossier `/share` peut être créé pour partager les styles entre différents sites.**
 
@@ -235,11 +240,8 @@ Fichiers contenus dans le dossier `/base`.
 * `_fonts.scss` contient les appels vers les fonts exotiques ;
 * `_reset.scss` uniformisation des styles à travers les navigateurs (basé sur normalize.css) ;
 * `_helper.scss` contient une liste de sélecteurs à usage unique pouvant être étendu (typo, alignement, etc.) ;
-* `_layout.scss` contient la mise en pages ;
 * `_from.scss` contient les éléments de formulaire ;
-* `_grid.scss` contient le système de grille ;
 * `_spacing.scss` contient les espacements, liste de sélecteurs à usage unique pouvant être étendu ;
-* `_debug.scss` contient un système de deboggage.
 
 ## 7. Sources et inspiration
 

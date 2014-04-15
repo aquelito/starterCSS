@@ -28,10 +28,10 @@ Pour une action, préférer un `<button>` à un lien `<a>`
 
 .btn {
   background-color: #ececec;
-  @include background-image(linear-gradient(#f4f4f4, #ececec));
-  @include transition-timing-function(ease);
-  @include transition-property(background-color);
-  @include transition-duration(.3s);
+  background-image: linear-gradient(#f4f4f4, #ececec);
+  transition-timing-function: ease;
+  transition-property: background-color;
+  transition-duration: .3s;
   overflow: visible;
   padding: 0.5em 1em;
   margin: 0;
@@ -51,7 +51,7 @@ Pour une action, préférer un `<button>` à un lien `<a>`
   &:active,
   &.btn--active {
     background-color: #3c8dde;
-    @include background-image(linear-gradient(#599bdc, #3072b3));
+    background-image: linear-gradient(#599bdc, #3072b3);
     text-decoration: none;
     border-color: #599bdc;
     color: #fff;
@@ -124,10 +124,10 @@ Couleur par défault.
   .btn--#{$name} {
     color: #fff;
     background-color: $color;
-    @include background-image(linear-gradient(darken($color, 10%), $color));
+    background-image: linear-gradient(darken($color, 10%), $color);
     &:hover, &:focus, &:active {
       background-color: darken($color, 10%);
-      @include background-image(linear-gradient($color, darken($color, 10%)));
+      background-image: linear-gradient($color, darken($color, 10%));
       border-color: $color;
     }
   }
@@ -175,7 +175,8 @@ Couleur par défault.
 
 .btn[disabled],
 .btn--disabled {
-  @include opacity(.65);
+  opacity: .65;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; // IE 8
   cursor: not-allowed;
   pointer-events: none;
 }

@@ -49,11 +49,10 @@
   outline: 0;
   // When fading in the modal, animate it to slide down
   &.fade .modal__dialog {
-    @include translate(0, -25%);
-    @include transform(0.3s ease-out);
+    transform: 0.3s ease-out translate(0, -25%);
   }
   &.in .modal__dialog {
-    @include translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 
@@ -73,8 +72,14 @@
   @extend .black-background;
   z-index: 1030;
   // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.in { opacity: .6; }
+  &.fade {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; // IE 8
+  }
+  &.in {
+    opacity: .6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; // IE 8
+  }
 }
 
 // Shell div to position the modal with bottom padding
@@ -87,7 +92,7 @@
 // Actual modal
 .modal__content {
   @extend .white-background;
-  // @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  // box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
   position: relative;
   border-radius: 10px;
   border: 1px solid #ccc;

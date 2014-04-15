@@ -9,67 +9,7 @@
 
 */
 
-@import
-  'compass',
-  'function';
-
-// @mixin accessibility
-// @use   @include accessibility
-// ==========================================================================
-
-@mixin accessibility {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-}
-
-// @mixin inline-block
-// @use   @include inline-block
-// @import "compass/css3/inline-block";
-// ==========================================================================
-
-@mixin inline-block($alignment: top) {
-  display: inline-block;
-  @if $alignment and $alignment != none {
-    vertical-align: $alignment;
-  }
-  @if $support-for-ie7 {
-    .ie7 & { display: inline; zoom: 1; }
-  }
-}
-
-// @mixin link-colors
-// @import "compass/utilities/links/link-colors";
-// ==========================================================================
-
-@mixin link-colors($normal, $hover: false, $active: false, $visited: false) {
-  color: $normal;
-  @if $hover {
-    &:hover,&:focus {
-      text-decoration: none;
-      color: $hover;
-    }
-  }
-  @if $active {
-    &:active {
-      color: $active;
-    }
-  }
-  @if $visited {
-    &:visited {
-      color: $visited;
-    }
-  }
-}
-
 // @mixin establish-baseline
-// ==========================================================================
-
 @mixin establish-baseline($font-size: $base-font-size, $font-family: $font-serifs) {
   $taille: ($font-size / $browser-default-font-size * 100);
   $line-height: rhythm(1, $font-size);
@@ -81,20 +21,30 @@
   }
 }
 
-// @mixin font-size
-// ==========================================================================
+// Calculate rhythm units
+@function rhythm(
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  @if not $relative-font-sizing and $font-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to the rhythm function";
+  }
+  $rhythm: $font-unit * $lines * $base-line-height / $font-size;
+  @return $rhythm;
+}
+
+@function lines-for-font-size($font-size) {
+  $lines: ceil($font-size / $base-line-height);
+  @if $lines * $base-line-height - $font-size < 1 {
+    $lines: $lines + 1;
+  }
+  @return $lines;
+}
 
 @mixin font-size($taille:$base-font-size) {
-  @include adjust-font-size-to($taille);
+  font-size: $font-unit * $taille / $base-font-size;
+  line-height: rhythm(lines-for-font-size($taille), if($relative-font-sizing, $taille, $base-font-size));
 }
-
-@mixin float($side: left) {
-  float: unquote($side);
-}
-
-@mixin float-left    { @include float(left); }
-@mixin float-right   { @include float(right); }
-@mixin reset-float() { float: none; }
 
 /*
 ## Media Queries
@@ -108,7 +58,9 @@ Variable `$keyword` possible egal to :
 * `retina` : *
 
 ```
-@include mq($keyword);
+@include mq($keyword) {
+  ...
+}
 ```
 
 */
@@ -135,3 +87,17 @@ Variable `$keyword` possible egal to :
     }
   }
 }
+
+// @mixin inline-block
+// ==========================================================================
+
+@mixin inline-block($alignment: top) {
+  display: inline-block;
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+  @if $support-for-ie7 {
+    .ie7 & { display: inline; zoom: 1; }
+  }
+}
+
