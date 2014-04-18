@@ -26,7 +26,7 @@ Build all files `/dist`
 $ grunt build
 ```
 
-Build CSS Documentation
+Builder Documentation
 
 ```bash
 $ grunt docs
@@ -38,6 +38,6 @@ Analyzer CSS & HTML
 $ grunt analyze
 ```
 
-## License ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
+## License
 
-Copyright (c) 2013 Axel Roche Licensed under the MIT License
+MIT
