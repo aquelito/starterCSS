@@ -2,3 +2,36 @@
 // ==========================================================================
 // e-commerce : Grid Products and Filter
 // ==========================================================================
+
+/*
+
+# Shopping Products
+
+
+```
+<div class="shopItem">
+  <a class="shopItem__link" href="#">
+    <div class="shopItem__capture">
+      <img class="shopItem__image" src="http://placehold.it/220x200" alt="" width="220" height="200" />
+    </div>
+    <div class="shopItem__content">
+      <h2 class="shopItem__title">Product Name</h2>
+      <p class="shopItem__price price"><span class="price__normal">$399.00</span> <span class="price__promo">$299.00</span></p>
+      <p class="shopItem__excerpt">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+      <dl>
+        <dt>Size :</dt>
+        <dd>M</dd>
+        <dt>Color :</dt>
+        <dd>Green</dd>
+      </dl>
+      <div class="shopItem__addBasket"><button type="submit" class="shopItem__btn btn">Shop Now</button></div>
+    </div>
+  </a>
+</div>
+```
+
+*/
+
+
+

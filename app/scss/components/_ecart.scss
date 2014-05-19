@@ -12,120 +12,157 @@
 /*
 
 ```
-<div class="shoppingcart">
-  <table class="table shoppingcart__table">
-    <thead>
-      <tr>
-        <th scope="col">Picture</th>
-        <th scope="col">Product name</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Options</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Discount</th>
-        <th scope="col">Final cost</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="shoppingcart__capture atop"><img class="shoppingcart__image" src="http://placehold.it/80x80" alt="" /></td>
-        <td class="shoppingcart__product">
-          <span class="shoppingcart__title">Product 1</span><br />
-          <small>Taille&nbsp;: <strong>49</strong></small><br />
-          <small>Longueur&nbsp;: <strong>32</strong></small>
-        </td>
-        <td class="shoppingcart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-        <td class="acenter"><a href="#">delete</a></td>
-        <td class="shoppingcart__price aright">100.00€</td>
-        <td class="shoppingcart__discount acenter">20%</td>
-        <td class="shoppingcart__cost aright">80.00€</td>
-      </tr>
-      <tr>
-        <td class="shoppingcart__capture atop"><img class="shoppingcart__image" src="http://placehold.it/80x80" alt="" /></td>
-        <td class="shoppingcart__product"><span class="shoppingcart__title">Product 2</span></td>
-        <td class="shoppingcart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-        <td class="acenter"><a href="#">delete</a></td>
-        <td class="shoppingcart__price aright">100.00€</td>
-        <td class="shoppingcart__discount acenter"></td>
-        <td class="shoppingcart__cost aright">100.00€</td>
-      </tr>
-      <tr>
-        <td class="shoppingcart__capture atop"><img class="shoppingcart__image" src="http://placehold.it/80x80" alt="" /></td>
-        <td class="shoppingcart__product"><span class="shoppingcart__title">Product 2-1</span></td>
-        <td class="shoppingcart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-        <td class="acenter"><a href="#">delete</a></td>
-        <td class="shoppingcart__price aright">100.00€</td>
-        <td class="shoppingcart__discount acenter"></td>
-        <td class="shoppingcart__cost aright">100.00€</td>
-      </tr>
-      <tr>
-        <td class="shoppingcart__capture atop"><img class="shoppingcart__image" src="http://placehold.it/80x80" alt="" /></td>
-        <td class="shoppingcart__product"><span class="shoppingcart__title">Product 2-2</span></td>
-        <td class="shoppingcart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-        <td class="acenter"><a href="#">delete</a></td>
-        <td class="shoppingcart__price aright">100.00€</td>
-        <td class="shoppingcart__discount acenter"></td>
-        <td class="shoppingcart__cost aright">100.00€</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="6" class="shoppingcart__vat aright">TVA 20%</td>
-        <td class="shoppingcart__cost aright">40.00€</td>
-      </tr>
-      <tr>
-        <td colspan="6" class="shoppingcart__shipping aright">Shipping</td>
-        <td class="shoppingcart__cost aright">400.00€</td>
-      </tr>
-      <tr>
-        <td colspan="6" class="shoppingcart__total aright">Total</td>
-        <td class="shoppingcart__cost aright">400.00€</td>
-      </tr>
-    </tfoot>
-  </table>
-  <form class="form-horizontal">
+<div class="shopCart">
+  <div class="shopCart__inner">
+    <table class="table shopCart__table">
+      <thead class="shopCart__tableHeader">
+        <tr>
+          <th scope="col">Picture</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Options</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Discount</th>
+          <th scope="col">Final cost</th>
+        </tr>
+      </thead>
+      <tbody class="shopCart__tableBody">
+        <tr class="shopCart__tableItem">
+          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product">
+            <span class="shopCart__title">Product 1</span><br />
+            <small>Taille&nbsp;: <strong>49</strong></small><br />
+            <small>Longueur&nbsp;: <strong>32</strong></small>
+          </td>
+          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
+          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
+          <td class="shopCart__price aright">100.00€</td>
+          <td class="shopCart__discount acenter">20%</td>
+          <td class="shopCart__cost aright">80.00€</td>
+        </tr>
+        <tr class="shopCart__tableItem">
+          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product"><span class="shopCart__title">Product 2</span></td>
+          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
+          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
+          <td class="shopCart__price aright">100.00€</td>
+          <td class="shopCart__discount acenter"></td>
+          <td class="shopCart__cost aright">100.00€</td>
+        </tr>
+        <tr class="shopCart__tableItem">
+          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product"><span class="shopCart__title">Product 2-1</span></td>
+          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
+          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
+          <td class="shopCart__price aright">100.00€</td>
+          <td class="shopCart__discount acenter"></td>
+          <td class="shopCart__cost aright">100.00€</td>
+        </tr>
+        <tr class="shopCart__tableItem">
+          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product"><span class="shopCart__title">Product 2-2</span></td>
+          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
+          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
+          <td class="shopCart__price aright">100.00€</td>
+          <td class="shopCart__discount acenter"></td>
+          <td class="shopCart__cost aright">100.00€</td>
+        </tr>
+      </tbody>
+      <tfoot class="shopCart__tableFooter">
+        <tr>
+          <td colspan="6" class="shopCart__vat aright">TVA 20%</td>
+          <td class="shopCart__cost aright">40.00€</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="shopCart__shipping aright">Shipping</td>
+          <td class="shopCart__cost aright">400.00€</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="shopCart__total aright">Total</td>
+          <td class="shopCart__cost aright">400.00€</td>
+        </tr>
+      </tfoot>
+    </table>
+    <form class="shopCart__form">
 
-    <div class="accordion" id="accordion2">
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-            <h3>Apply discount code</h3>
-          </a>
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              <h3>Apply discount code</h3>
+            </a>
+          </div>
+          <div id="collapseOne" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p class="field-group">
+                <label for="input01">Discount code</label>
+                <input aria-describedby="descri-discount" type="text" id="input01" class="input-xlarge" placeholder="Enter your coupon here" />
+                <br /><small id="descri-discount">You can only use one discount code at a time</small>
+              </p>
+            </div>
+          </div>
         </div>
-        <div id="collapseOne" class="accordion-body collapse">
-          <div class="accordion-inner">
-            <p class="field-group">
-              <label for="input01">Discount code</label>
-              <input type="text" id="input01" class="input-xlarge" placeholder="Enter your coupon here" />
-              <br /><small>You can only use one discount code at a time</small>
-            </p>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+              <h3>Use gift voucher</h3>
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-body in collapse">
+            <div class="accordion-inner">
+              <p class="field-group">
+                <label for="input02">Gift voucher</label>
+                <input aria-describedby="descri-voucher" type="text" id="input02" class="input-xlarge" placeholder="Enter your gift voucher here" />
+                <br /><small id="descri-voucher">You can use multiple gift vouchers at a time</small>
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-            <h3>Use gift voucher</h3>
-          </a>
-        </div>
-        <div id="collapseTwo" class="accordion-body in collapse">
-          <div class="accordion-inner">
-            <p class="field-group">
-              <label for="input02">Gift voucher</label>
-              <input type="text" id="input02" class="input-xlarge" placeholder="Enter your gift voucher here" />
-              <br /><small>You can use multiple gift vouchers at a time</small>
-            </p>
-          </div>
-        </div>
+      <div class="shopCart__submit clearfix">
+        <a class="shopCart__back" href="#">Return to catalog</a>
+        <button type="submit" class="bold btn btn--primary btn--checkout">Checkout</button>
       </div>
-    </div>
-
-    <div class="shoppingcart__submit clearfix">
-      <a href="#">Return to catalog</a>
-      <button type="submit" class="bold btn btn--primary btn--checkout">Checkout</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 ```
 
 */
+
+.shopCart {
+  &__inner { }
+
+  // Table
+  &__table {
+    &Header { }
+    &Footer { }
+    &Body { }
+    &Item { }
+  }
+
+  // Rows
+  &__title { }
+  &__capture { }
+  &__image { }
+  &__product { }
+  &__qty { }
+  &__delete { }
+  &__price { }
+  &__discount { }
+  &__cost { }
+
+  // Total
+  &__vat { }
+  &__shipping { }
+  &__total { }
+  &__cost { }
+
+  // Form
+  &__back {}
+  &__form {}
+  &__submit {}
+
+}

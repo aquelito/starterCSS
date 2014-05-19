@@ -25,9 +25,10 @@
 .tabs.primary {
   @extend .clearfix;
   @extend .list-inline;
-  @extend .mbn;
+  @extend .mtn;
+  @extend .mbl;
   a {
-    @extend .pas;
+    @extend .pam;
     @extend .inbl;
   }
   .active {

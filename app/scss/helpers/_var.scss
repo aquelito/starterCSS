@@ -4,10 +4,10 @@
 // ==========================================================================
 
 // Apply fixes for IE7 (deprecated)
-$support-for-ie7: false !default;
+$support-for-ie7: false;
 
 // Apply fixes for IE8 (deprecated)
-$support-for-ie8: true !default;
+$support-for-ie8: true;
 
 // Active responsive
 $responsive: true;
@@ -27,6 +27,7 @@ $default-rhythm-border-style: solid;
 $font-unit:                   if($relative-font-sizing, 1em, $base-font-size);
 
 // Heading Size
+// <name> <size>
 $font_size: (
   h1: 36px,
   h2: 28px,
@@ -34,16 +35,17 @@ $font_size: (
   h4: 18px,
   h5: 16px,
   h6: 14px
-) !default;
+);
 
 // Helpers Size
+// <name> <size>
 $other_size: (
   smaller: 12px,
   small:   14px,
   medium:  18px,
   big:     24px,
   bigger:  28px
-) !default;
+);
 
 // Font stack
 //
@@ -71,11 +73,12 @@ $body-background: #F0F3F4;
 $body-color: #161616;
 
 // Colorz
+// <name> <hexa>
 $colorz: (
   default:   #8c4646,
   primary:   #d96459,
   secondary: #588c73
-) !default;
+);
 
 // Links colors
 $link-color:         #161616;
@@ -86,21 +89,21 @@ $link-color-visited: #452224;
 // Active style
 // ==========================================================================
 
-$active-form-support:    true !default;
-$active-message-support: true !default;
-$active-button-support:  true !default;
+$active-form-support:    true;
+$active-message-support: true;
+$active-button-support:  true;
 
 // Grid
 // ==========================================================================
 
-$grid-column-width: 60px !default;
-$grid-gutter-width: 20px !default;
-$grid-columns:      12 !default;
+$grid-column-width: 60px;
+$grid-gutter-width: 20px;
+$grid-columns:      12;
 
 // Definition description
 // ==========================================================================
 
-$description-width: 150px !default;
+$description-width: 150px;
 
 // Alert Box
 // <name> <color>
@@ -110,4 +113,4 @@ $alert-box: (
   warning: #e8b71a,
   error:   #db3340,
   status:  #1fda9a
-) !default;
+);

@@ -171,20 +171,31 @@ Utiliser souvent par le WYSIWYG pour aligner les images Ã  gauche, centrer, ou Ã
 
 */
 
+
+.alignleft,
+.alignright,
+.alignnone {
+  margin-top: rhythm(1);
+  margin-bottom: rhythm(1);
+}
+
 .alignleft {
   @extend .floatl;
-  margin: rhythm(1) $grid-gutter-width rhythm(1) 0;
+  margin-right: $grid-gutter-width;
+  margin-left: 0;
 }
 
 .alignright {
   @extend .floatr;
-  margin: rhythm(1) 0 rhythm(1) $grid-gutter-width;
+  margin-right: 0;
+  margin-left: $grid-gutter-width;
 }
 
 .alignnone {
   clear: both;
   display: block;
-  margin: rhythm(1) 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .aligncenter {

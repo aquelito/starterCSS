@@ -161,8 +161,8 @@ ol,
 dl,
 table
 form, {
-  margin-top: rhythm(0, $base-font-size);
-  margin-bottom: rhythm(0, $base-font-size);
+  margin-top: rhythm(1, $base-font-size);
+  margin-bottom: rhythm(1, $base-font-size);
 }
 
 // avoid collapsing margins

@@ -279,9 +279,9 @@ input::-moz-focus-inner {
     <input id="checkbox1_three" name="checkbox1" type="checkbox">
     <label for="checkbox1_three">Three</label>
   </p>
-  <p class="form-submit">
-    <input class="submit btn btn--primary" id="submit" name="submit" type="submit" value="Envoyer votre message">
-    <input class="submit btn btn--cancel" id="cancel" name="cancel" type="submit" value="Annuler">
+  <p class="field-group field-false">
+    <button class="btn btn--primary" type="submit" name="submit">Send your message</button>
+    <button class="btn btn--cancel" type="submit" name="cancel">Cancel</button>
   </p>
 </fieldset>
 ```
