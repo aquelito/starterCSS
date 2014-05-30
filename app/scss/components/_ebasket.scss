@@ -1,0 +1,50 @@
+
+// ==========================================================================
+// e-commerce : Basket
+// ==========================================================================
+
+/*
+# Shopping Basket
+
+```
+<div class="shopping_cart">
+  <a href="#" title="Voir mon panier" rel="nofollow">
+    <span>Panier</span>
+    <span class="ajax_cart_quantity">1</span>
+    <span class="ajax_cart_product_txt">article</span>
+    <span class="ajax_cart_total">$30.50</span>
+  </a>
+  <div class="cart_block block exclusive">
+    <div class="block_content">
+      <div class="cart_block_list">
+        <p class="cart_block_no_products unvisible">Aucun produit</p>
+        <div class="cart-prices">
+          <p class="cart-prices-line first-line">
+            <span>Expédition</span>
+            <span class="price cart_block_shipping_cost ajax_cart_shipping_cost">$7.00</span>
+          </p>
+          <p class="cart-prices-line last-line">
+            <span>Total</span>
+            <span class="price cart_block_total ajax_block_cart_total">$37.50</span>
+          </p>
+        </div>
+        <p class="cart-buttons">
+          <a id="button_order_cart" class="btn btn--default" href="#" rel="nofollow">Commander</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+*/
+
+.shopBasket {
+  &__image { }
+  &__product { }
+  &__qty { }
+  &__delete { }
+  &__price { }
+  &__discount { }
+  &__cost { }
+}

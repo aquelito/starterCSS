@@ -21,7 +21,7 @@ Le titre peut être caché avec `.hide`
 ```
 <div class="pagination clearfix">
   <h2 class="pagination__title h5 mvn">Page 2 of 5</h2>
-  <ul class="pagination__list list-inline list-separate">
+  <ul class="pagination__list list-inline list-separate mvn">
     <li class="pagination__item"><a class="pagination__link pagination__prev" rel="prev" href="#" title="Go to prev page (1 of 5)">&laquo; Prev</a></li>
     <li class="pagination__item"><a rel="noindex follow" class="pagination__link" href="#" title="Go to page 1 of 5">1</a></li>
     <li class="pagination__item"><strong class="pagination__current">[2]</strong></li>

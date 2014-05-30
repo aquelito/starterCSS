@@ -15,15 +15,15 @@
   <div class="modal__dialog">
     <div class="modal__content">
       <div class="modal__header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal__title" id="myModalLabel">Modal title</h4>
+        <button type="button" class="modal__close close" data-dismiss="modal" aria-hidden="true" title="Close modal">&times;</button>
+        <h1 class="modal__title mvn" id="myModalLabel">Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal title</h1>
       </div>
       <div class="modal__body">
         ...
       </div>
-      <div class="modal__footer">
-        <button type="button" class="btn btn--default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn--primary">Save changes</button>
+      <div class="modal__footer clearfix">
+        <button type="button" class="btn btn--default floatl" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn--primary floatr">Save changes</button>
       </div>
     </div>
   </div>
@@ -71,11 +71,15 @@
     // Fade for backdrop
     &.fade {
       opacity: 0;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; // IE 8
+      @if $support-for-ie8 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      }
     }
     &.in {
       opacity: .6;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; // IE 8
+      @if $support-for-ie8 {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+      }
     }
   }
   // Shell div to position the modal with bottom padding
@@ -90,7 +94,8 @@
     // box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
     position: relative;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     background-clip: padding-box;
     // Remove focus outline from opened modal
     outline: 0;
@@ -105,46 +110,23 @@
   }
 }
 
-// Modal header
-// Top section of the modal w/ title and dismiss
-.modal__header {
-  padding: 10px;
+.modal__header,
+.modal__content {
   border-bottom: 1px solid #ccc;
-  // Close icon
-  .close {
-    margin-top: -2px;
-  }
 }
 
-// Title text within header
+.modal__footer,
+.modal__content {
+  border-top: 1px solid #ccc;
+}
+
 .modal__title {
-  margin: 0;
   line-height: 1;
 }
 
-// Modal body
-// Where all modal content resides (sibling of .modal__header and .modal__footer)
-.modal__body {
+.modal__body,
+.modal__header,
+.modal__footer {
   position: relative;
   padding: 10px;
-}
-
-// Footer (for actions)
-.modal__footer {
-  padding: 10px;
-  text-align: right; // right align buttons
-  border-top: 1px solid #ccc;
-  // Properly space out buttons
-  .btn + .btn {
-    margin-left: 5px;
-    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-  }
-  // but override that for button groups
-  .btn-group .btn + .btn {
-    margin-left: -1px;
-  }
-  // and override it for block buttons as well
-  .btn--block + .btn--block {
-    margin-left: 0;
-  }
 }

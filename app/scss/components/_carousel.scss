@@ -37,24 +37,21 @@
   visibility: hidden;
   &, &__inner {
     @extend .overhidden;
+  }
+  &,
+  &__inner,
+  &__item {
     position: relative;
   }
   &__item {
-    float: left;
-    width: 100%;
-    position: relative;
+    @extend .floatl;
+    @extend .w100;
   }
   &__prev,
   &__next {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center center;
     position: absolute;
-    // text-indent: -9999px;
     top: 40%;
     padding: 0;
-    // width: image-width("i/arrow-left.png");
-    // height: image-height("i/arrow-left.png");
     border: 0;
   }
   &__prev {

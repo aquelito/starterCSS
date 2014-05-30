@@ -47,17 +47,12 @@ video {
 // Prevent modern browsers from displaying `audio` without controls.
 [hidden],
 audio:not([controls]) {
-  display: none; // Address styling not present in IE 8/9.
+  @extend .dn; // Address styling not present in IE 8/9.
 }
 
 // Remove excess height in iOS 5 devices.
 audio:not([controls]) {
   height: 0;
-}
-
-html,
-body {
-  overflow-x: hidden;
 }
 
 html,
@@ -159,8 +154,11 @@ p,
 ul,
 ol,
 dl,
-table
-form, {
+table,
+form,
+.alignleft,
+.alignright,
+.alignnone {
   margin-top: rhythm(1, $base-font-size);
   margin-bottom: rhythm(1, $base-font-size);
 }

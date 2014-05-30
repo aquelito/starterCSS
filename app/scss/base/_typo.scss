@@ -123,9 +123,9 @@ La justification n'est pas disponible car interdite en accessibilité pour des q
 
 */
 
-.aleft   { text-align: left; }
-.acenter { text-align: center; }
 .aright  { text-align: right; }
+.acenter { text-align: center; }
+.aleft   { text-align: left; }
 
 /*
 ## Blocs flottant
@@ -170,14 +170,6 @@ Utiliser souvent par le WYSIWYG pour aligner les images à gauche, centrer, ou �
 ```
 
 */
-
-
-.alignleft,
-.alignright,
-.alignnone {
-  margin-top: rhythm(1);
-  margin-bottom: rhythm(1);
-}
 
 .alignleft {
   @extend .floatl;

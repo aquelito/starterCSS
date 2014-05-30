@@ -39,8 +39,8 @@ fieldset {
 // 3. Remove padding so people aren't caught out if they zero out fieldsets.
 legend {
   border: 0; // 1
-  padding: 0; // 3
   white-space: normal; // 2
+  padding: 0; // 3
   @if $support-for-ie7 {
     .ie7 & { margin-left: -7px; } // bugfix IE7 (http://jamesfrank.info/2011/06/18/fieldset-legends-ie7/)
   }
@@ -101,7 +101,8 @@ input[type="number"],
 input[type="search"],
 input[type="email"],
 input[type="password"],
-input[type="url"] {
+input[type="url"],
+input[type="submit"] {
   padding: 0 5px;
   display: inline-block;
   line-height: 32px; height: 32px;
@@ -130,8 +131,6 @@ input[type="file"] {
 
 input[type="submit"] {
   padding: 0 10px;
-  height: 32px;
-  line-height: 32px;
   position: relative;
   top: 1px;
 }
@@ -162,10 +161,10 @@ input[type="submit"] {
 
 input[type="radio"],
 input[type="checkbox"] {
-  border: 0; // bugfix IE7
-  vertical-align: middle;
+  @extend .amiddle;
   @if $support-for-ie7 {
     .ie7 & {
+      border: 0;
       height: 12px;
       width: 12px;
     }
@@ -288,13 +287,6 @@ input::-moz-focus-inner {
 
 */
 
-// Sumbit button
-// ==========================================================================
-
-.form-submit {
-
-}
-
 // Required
 // ==========================================================================
 
@@ -338,25 +330,20 @@ $form-field-false-width: $form-label-width;
   @extend .field-submit;
   label,
   .label {
-    display: inline-block;
-    vertical-align: middle;
+    @extend .inbl;
+    @extend .amiddle;
+    @extend .bold;
+    @extend .aright;
     width: $form-label-width;
     margin-right: $form-label-marge;
-    font-weight: bold;
-    text-align: right;
     padding: 0;
     line-height: 32px;
     position: absolute;
     left: 0;
     top: 0;
   }
-  // .field-false {
-  //   padding: 0 5px;
-  //   display: inline-block;
-  //   line-height: 32px; height: 32px;
-  // }
   .field-false {
-    padding: 0;
+    @extend .pan;
   }
 }
 
@@ -393,8 +380,10 @@ fieldset {
 
 */
 
-.field-false {
-  label {
+.field-false,
+.field-block {
+  label,
+  .label {
     position: relative;
     left: auto;
     top: auto;
@@ -419,15 +408,12 @@ fieldset {
 */
 
 .field-block {
-  padding-left: 0;
+  @extend .pln;
   label,
   .label {
-    display: block;
-    margin-right: 0;
-    text-align: left;
-    position: relative;
-    left: auto;
-    top: auto;
+    @extend .dl;
+    @extend .mrn;
+    @extend .aleft;
   }
 }
 
@@ -455,7 +441,7 @@ fieldset {
 
 .field-radio,
 .field-checkbox {
-  padding-left: 20px;
+  @extend .pll;
   input {
     margin-left: -20px;
     position: relative;

@@ -282,139 +282,6 @@ module.exports = function (grunt) {
           stdout: true
         }
       }
-    },
-    phantomas : {
-      /* https://github.com/stefanjudis/grunt-phantomas */
-      grunt : {
-        options : {
-          indexPath: './docs/phantomas/',
-          options: {
-            'timeout': 30
-          },
-          url: 'http://gruntjs.com/',
-          group: {
-            'REQUESTS' : [
-              'requests',
-              'gzipRequests',
-              'postRequests',
-              'httpsRequests',
-              'notFound',
-              'multipleRequests',
-              'maxRequestsPerDomain',
-              'domains',
-              'medianRequestsPerDomain',
-              'redirects',
-              'redirectsTime',
-              'smallestResponse',
-              'biggestResponse',
-              'smallestLatency',
-              'biggestLatency',
-              'medianResponse',
-              'medianLatency',
-              'assetsNotGzipped',
-              'assetsWithQueryString',
-              'smallImages'
-            ],
-            'TIMINGS' : [
-              'timeToFirstByte',
-              'timeToLastByte',
-              'timeToFirstCss',
-              'timeToFirstJs',
-              'timeToFirstImage',
-              'fastestResponse',
-              'slowestResponse',
-              'onDOMReadyTime',
-              'onDOMReadyTimeEnd',
-              'windowOnLoadTime',
-              'windowOnLoadTimeEnd',
-              'httpTrafficCompleted',
-              'timeBackend',
-              'timeFrontend'
-            ],
-            'HTML' : [
-              'bodyHTMLSize',
-              'iframesCount',
-              'imagesWithoutDimensions',
-              'commentsSize',
-              'hiddenContentSize',
-              'whiteSpacesSize',
-              'DOMelementsCount',
-              'DOMelementMaxDepth',
-              'nodesWithInlineCSS',
-              'foo'
-            ],
-            'JAVASCRIPT' : [
-              'eventsBound',
-              'documentWriteCalls',
-              'evalCalls',
-              'jsErrors',
-              'consoleMessages',
-              'windowAlerts',
-              'windowConfirms',
-              'windowPrompts',
-              'globalVariables',
-              'localStorageEntries',
-              'ajaxRequests'
-            ],
-            'DOM' : [
-              'DOMqueries',
-              'DOMqueriesById',
-              'DOMqueriesByClassName',
-              'DOMqueriesByTagName',
-              'DOMqueriesByQuerySelectorAll',
-              'DOMinserts',
-              'DOMqueriesDuplicated'
-            ],
-            'HEADERS' : [
-              'headersCount',
-              'headersSentCount',
-              'headersRecvCount',
-              'headersSize',
-              'headersSentSize',
-              'headersRecvSize'
-            ],
-            'CACHING' : [
-              'cacheHits',
-              'cacheMisses',
-              'cachePasses',
-              'cachingNotSpecified',
-              'cachingTooShort',
-              'cachingDisabled'
-            ],
-            'COOKIES' : [
-              'cookiesSent',
-              'cookiesRecv',
-              'domainsWithCookies',
-              'documentCookiesLength',
-              'documentCookiesCount'
-            ],
-            'COUNTS & SIZES' : [
-              'contentLength',
-              'bodySize',
-              'htmlSize',
-              'htmlCount',
-              'cssSize',
-              'cssCount',
-              'jsSize',
-              'jsCount',
-              'jsonSize',
-              'jsonCount',
-              'imageSize',
-              'imageCount',
-              'webfontSize',
-              'webfontCount',
-              'base64Size',
-              'base64Count',
-              'otherCount',
-              'otherSize'
-            ],
-            'JQUERY' : [
-              'jQueryOnDOMReadyFunctions',
-              'jQuerySizzleCalls'
-            ]
-          }
-        }
-      }
     }
   });
 
@@ -448,8 +315,7 @@ module.exports = function (grunt) {
   grunt.registerTask('analyze', [
     'shell:cssstats',
     'cssmetrics:common',
-    'csscss:dist',
-    'phantomas'
+    'csscss:dist'
   ]);
 
   // task : browser

@@ -102,7 +102,7 @@
 
     this.isShown = false
 
-    this.$body.removeClass('modal-open')
+    this.$body.removeClass('modal__open')
 
     this.resetScrollbar()
     this.escape()

@@ -48,6 +48,13 @@
   'layers/aside',
   'layers/form';
 
+// Components e-commerce
+@import
+  'components/ebasket',
+  'components/etunnel',
+  'components/ecart',
+  'components/egrid';
+
 // Vendors
 @import
   'vendors/drupal';

@@ -10,71 +10,94 @@
 <div class="shopCart">
   <div class="shopCart__inner">
     <table class="table shopCart__table">
+      <caption class="shopCart__caption">Currently In Your Shopping Cart</caption>
       <thead class="shopCart__tableHeader">
         <tr>
-          <th scope="col">Picture</th>
-          <th scope="col">Product name</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Options</th>
-          <th scope="col">Cost</th>
-          <th scope="col">Discount</th>
+          <th scope="col" colspan="2" class="aleft">Your items</th>
+          <th scope="col">Item Price</th>
+          <th scope="col">Quantity</th>
           <th scope="col">Final cost</th>
         </tr>
       </thead>
       <tbody class="shopCart__tableBody">
         <tr class="shopCart__tableItem">
-          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__capture"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
           <td class="shopCart__product">
-            <span class="shopCart__title">Product 1</span><br />
-            <small>Taille&nbsp;: <strong>49</strong></small><br />
-            <small>Longueur&nbsp;: <strong>32</strong></small>
+            <span class="shopCart__title bold">Product 1</span><br />
+            <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339450</strong></span>
+            <ul class="shopCart__options list-none smaller mtn">
+              <li>Size&nbsp;: <strong>49</strong></li>
+              <li>Weight&nbsp;: <strong>32</strong></li>
+            </ul>
           </td>
-          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
-          <td class="shopCart__price aright">100.00€</td>
-          <td class="shopCart__discount acenter">20%</td>
+          <td class="shopCart__price acenter">
+            <span class="bold">80.00€</span><br />
+            <span class="shopCart_discount">
+              <span class="primary-color caps bold">Sale&nbsp;!</span><br />
+              <del class="primary-color caps bold strike">100.00€</del>
+            </span>
+          </td>
+          <td class="shopCart__qty acenter">
+            <form id="shopCartQuantityForm--1" class="mtn mbm" action="" method="post">
+              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="1" />
+              <input type="hidden" name="stockId" value="32490820" />
+              <input type="hidden" name="productId" value="23" /><input title="Update quantity product 1" type="submit" name="op" value="Update" />
+            </form>
+            <a class="shopCart__remove" href="#">remove</a>
+          </td>
           <td class="shopCart__cost aright">80.00€</td>
         </tr>
         <tr class="shopCart__tableItem">
-          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
-          <td class="shopCart__product"><span class="shopCart__title">Product 2</span></td>
-          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
-          <td class="shopCart__price aright">100.00€</td>
-          <td class="shopCart__discount acenter"></td>
+          <td class="shopCart__capture"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product">
+            <span class="shopCart__title bold">Very long name Product 2</span><br />
+            <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339460</strong></span>
+          </td>
+          <td class="shopCart__price acenter"><span>100.00€</span></td>
+          <td class="shopCart__qty acenter">
+            <form id="shopCartQuantityForm--2" class="mtn mbm" action="" method="post">
+              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="1" />
+              <input type="hidden" name="stockId" value="32490820" />
+              <input type="hidden" name="productId" value="24" /><input title="Update quantity product 2" type="submit" name="op" value="Update" />
+            </form>
+            <a class="shopCart__remove" href="#">remove</a>
+          </td>
           <td class="shopCart__cost aright">100.00€</td>
         </tr>
         <tr class="shopCart__tableItem">
-          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
-          <td class="shopCart__product"><span class="shopCart__title">Product 2-1</span></td>
-          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
-          <td class="shopCart__price aright">100.00€</td>
-          <td class="shopCart__discount acenter"></td>
-          <td class="shopCart__cost aright">100.00€</td>
-        </tr>
-        <tr class="shopCart__tableItem">
-          <td class="shopCart__capture atop"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
-          <td class="shopCart__product"><span class="shopCart__title">Product 2-2</span></td>
-          <td class="shopCart__qty acenter"><input type="text" class="acenter" size="3" name="amount" value="1" /></td>
-          <td class="shopCart__delete acenter"><a href="#">delete</a></td>
-          <td class="shopCart__price aright">100.00€</td>
-          <td class="shopCart__discount acenter"></td>
-          <td class="shopCart__cost aright">100.00€</td>
+          <td class="shopCart__capture"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
+          <td class="shopCart__product">
+            <span class="shopCart__title bold">Product 3</span><br />
+            <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339470</strong></span>
+          </td>
+          <td class="shopCart__price acenter"><span>100.00€</span></td>
+          <td class="shopCart__qty acenter">
+            <form id="shopCartQuantityForm--3" class="mtn mbm" action="" method="post">
+              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="2" />
+              <input type="hidden" name="stockId" value="32490820" />
+              <input type="hidden" name="productId" value="25" /><input title="Update quantity product 3" type="submit" name="op" value="Update" />
+            </form>
+            <a class="shopCart__remove" href="#">remove</a>
+          </td>
+          <td class="shopCart__cost aright">200.00€</td>
         </tr>
       </tbody>
       <tfoot class="shopCart__tableFooter">
         <tr>
-          <td colspan="6" class="shopCart__vat aright">TVA 20%</td>
-          <td class="shopCart__cost aright">40.00€</td>
+          <td colspan="4" class="shopCart__subtotal aright">Subtotal (4 items)</td>
+          <td class="shopCart__cost aright">380.00€</td>
         </tr>
         <tr>
-          <td colspan="6" class="shopCart__shipping aright">Shipping</td>
-          <td class="shopCart__cost aright">400.00€</td>
+          <td colspan="4" class="shopCart__shipping primary-color aright">Standard Ground Shipping</td>
+          <td class="shopCart__cost primary-color aright"><span class="bold">Free</span></td>
         </tr>
         <tr>
-          <td colspan="6" class="shopCart__total aright">Total</td>
-          <td class="shopCart__cost aright">400.00€</td>
+          <td colspan="4" class="shopCart__vat aright">TVA 20%</td>
+          <td class="shopCart__cost aright">-.--</td>
+        </tr>
+        <tr class="secondary-background">
+          <td colspan="4" class="shopCart__total white-color bold aright">Grand Total</td>
+          <td class="shopCart__cost white-color bold aright">380.00€</td>
         </tr>
       </tfoot>
     </table>
@@ -116,9 +139,19 @@
         </div>
       </div>
 
-      <div class="shopCart__submit clearfix">
-        <a class="shopCart__back" href="#">Return to catalog</a>
-        <button type="submit" class="bold btn btn--primary btn--checkout">Checkout</button>
+      <div class="shopCart__submit mtl clearfix">
+        <p class="floatl">
+          <a class="shopCart__back mrl" href="#">Return to catalog</a>
+        </p>
+        <div class="floatr aright">
+          <p class="mvn">
+            <button type="submit" class="bold btn btn--primary btn--checkout">Checkout</button><br />
+            <a class="smaller mrl" href="#">Shipping and Returns Policy</a><a class="smaller" href="#">Privacy Policy</a><br />
+          </p>
+          <p class="smaller mtm mbn"><span class="bold">Have questions? The Customer Loyalty Team is happy to help&nbsp;!<br />
+          Call 24&nbsp;hours a day - 365&nbsp;days a year.</span><br />
+          (xx)&nbsp;0&nbsp;00&nbsp;00&nbsp;00&nbsp;00 or Email our Customer Loyalty Team</p>
+        </div>
       </div>
     </form>
   </div>
@@ -128,6 +161,23 @@
 */
 
 .shopCart {
+  caption {
+    @extend .default-background;
+    @extend .white-color;
+    @extend .caps;
+    @extend .bold;
+    @extend .aleft;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    caption-side: top;
+  }
+  thead,
+  tfoot {
+    border: {
+      right: 1px solid #ccc;
+      left: 1px solid #ccc;
+    }
+  }
   &__inner { }
 
   // Table
@@ -140,7 +190,9 @@
 
   // Rows
   &__title { }
-  &__capture { }
+  &__capture {
+    width: 121px;
+  }
   &__image { }
   &__product { }
   &__qty { }
@@ -157,7 +209,10 @@
 
   // Form
   &__back {}
-  &__form {}
+  &__form {
+    @extend .pal;
+    border: 1px solid #ccc;
+  }
   &__submit {}
 
 }

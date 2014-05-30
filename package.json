@@ -28,7 +28,6 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-csscss": "~0.6.1",
     "css-stats": "git://github.com/apticknor/css-stats",
-    "grunt-phantomas": "~0.5.2",
     "grunt-contrib-connect": "~0.7.1",
     "sassdown": "~0.2.6"
   },

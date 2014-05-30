@@ -10,20 +10,22 @@
 <div class="shopItem">
   <a class="shopItem__link" href="#">
     <div class="shopItem__capture">
-      <img class="shopItem__image" src="http://placehold.it/220x200" alt="" width="220" height="200" />
+      <img class="shopItem__image" src="http://placehold.it/260x200" alt="" width="260" height="200" />
     </div>
     <div class="shopItem__content">
-      <h2 class="shopItem__title">Product Name</h2>
-      <p class="shopItem__price price"><span class="price__normal">$399.00</span> <span class="price__promo">$299.00</span></p>
-      <p class="shopItem__excerpt">
+      <h2 class="shopItem__title mbn">Product Name</h2>
+      <p class="shopItem__price price mtn mbm"><span class="price__promo">$299.00</span> <del class="price__normal smaller">$399.00</del></p>
+      <p class="shopItem__excerpt mvm">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
-      <dl>
-        <dt>Size :</dt>
+      <dl class="shopItem__options def-inline mvm">
+        <dt>Size&nbsp;:</dt>
         <dd>M</dd>
-        <dt>Color :</dt>
+        <dt>Color&nbsp;:</dt>
         <dd>Green</dd>
       </dl>
-      <div class="shopItem__addBasket"><button type="submit" class="shopItem__btn btn">Shop Now</button></div>
+      <div class="shopItem__addBasket acenter">
+        <button type="submit" class="shopItem__btn btn">Shop Now</button>
+      </div>
     </div>
   </a>
 </div>
@@ -31,5 +33,26 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 */
 
+.shopItem {
+  &__link {
+    display: block;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid gray;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
 
+    }
+  }
+  &__capture {}
+  &__image {}
+  &__title {}
+  &__price {}
+  &__excerpt {}
+  &__options {}
+  &__addBasket {
 
+  }
+}
