@@ -191,13 +191,16 @@ blockquote:last-child {
 // defaut links
 a {
   background: transparent; // Remove the gray background color from active links in IE 10.
+  text-decoration: none;
+  border-bottom: 1px solid;
   color: $link-color;
   &:hover,
   &:focus {
-    text-decoration: none;
+    border: 0;
     color: $link-color-hover;
   }
   &:active {
+    border: 0;
     color: $link-color-active;
   }
 }

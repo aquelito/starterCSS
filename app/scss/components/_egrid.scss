@@ -14,7 +14,7 @@
     </div>
     <div class="shopItem__content">
       <h2 class="shopItem__title mbn">Product Name</h2>
-      <p class="shopItem__price price mtn mbm"><span class="price__promo">$299.00</span> <del class="price__normal smaller">$399.00</del></p>
+      <p class="shopItem__price price mtn mbm"><span class="price__promo bold">$299.00</span> <del class="price__normal smaller">$399.00</del></p>
       <p class="shopItem__excerpt mvm">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
       <dl class="shopItem__options def-inline mvm">
@@ -38,12 +38,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     display: block;
     padding: 20px;
     width: 300px;
-    border: 1px solid gray;
+    border: 1px solid;
     text-decoration: none;
     &:hover,
     &:focus,
     &:active {
-
+      border: 1px solid;
     }
   }
   &__capture {}

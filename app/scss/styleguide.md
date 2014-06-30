@@ -8,12 +8,12 @@
 
 ## Heading Size
 
-* H1, .h1 - #{find-value($font_size, 'h1')} / 
-* H2, .h2 - #{find-value($font_size, 'h2')} / 
-* H3, .h3 - #{find-value($font_size, 'h3')} / 
-* H4, .h4 - #{find-value($font_size, 'h4')} / 
-* H5, .h5 - #{find-value($font_size, 'h5')} / 
-* H6, .h6 - #{find-value($font_size, 'h6')} / 
+* H1, .h1 - #{find-value($font_size, 'h1')}
+* H2, .h2 - #{find-value($font_size, 'h2')}
+* H3, .h3 - #{find-value($font_size, 'h3')}
+* H4, .h4 - #{find-value($font_size, 'h4')}
+* H5, .h5 - #{find-value($font_size, 'h5')}
+* H6, .h6 - #{find-value($font_size, 'h6')}
 
 ## Typography
 

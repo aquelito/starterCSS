@@ -1,6 +1,6 @@
 
 // ==========================================================================
-// Alert box
+// Messages
 // ==========================================================================
 
 @if $active-message-support {
@@ -14,16 +14,18 @@ Lorsque vous avez besoin de dévlivrer un message de notification, utiliser des 
 */
 
 /*
-## Message d'alerte par défault
+## Default Message
 
 ```
-<div role="alert" class="message mvn">
-  <h2 class="message__title hide">Message d'erreur</h2>
-  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
-  <ul class="message__list">
-    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
-    <li class="message__item">Le champ Mot de passe est requis.</li>
-   </ul>
+<div role="alert" class="message mvn clearfix">
+  <h2 class="message__title hide">Message</h2>
+  <div class="message__content">
+    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+    <ul class="message__list">
+      <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+      <li class="message__item">Le champ Mot de passe est requis.</li>
+    </ul>
+  </div>
 </div>
 ```
 
@@ -35,13 +37,15 @@ Lorsque vous avez besoin de dévlivrer un message de notification, utiliser des 
 Add `.message--error`
 
 ```
-<div role="alert" class="message message--error mvn">
+<div role="alert" class="message message--error mvn clearfix">
   <h2 class="message__title hide">Message d'erreur</h2>
-  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
-  <ul class="message__list">
-    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
-    <li class="message__item">Le champ Mot de passe est requis.</li>
-   </ul>
+  <div class="message__content">
+    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+    <ul class="message__list">
+      <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+      <li class="message__item">Le champ Mot de passe est requis.</li>
+    </ul>
+  </div>
 </div>
 ```
 
@@ -53,13 +57,15 @@ Add `.message--error`
 Add `.message--warning`
 
 ```
-<div role="alert" class="message message--warning mvn">
-  <h2 class="message__title hide">Message d'erreur</h2>
-  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
-  <ul class="message__list">
-    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
-    <li class="message__item">Le champ Mot de passe est requis.</li>
-   </ul>
+<div role="alert" class="message message--warning mvn clearfix">
+  <h2 class="message__title hide">Message d'alerte</h2>
+  <div class="message__content">
+    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+    <ul class="message__list">
+      <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+      <li class="message__item">Le champ Mot de passe est requis.</li>
+    </ul>
+  </div>
 </div>
 ```
 
@@ -71,13 +77,15 @@ Add `.message--warning`
 Add `.message--status`
 
 ```
-<div role="alert" class="message message--status mvn">
-  <h2 class="message__title hide">Message d'erreur</h2>
-  <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
-  <ul class="message__list">
-    <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
-    <li class="message__item">Le champ Mot de passe est requis.</li>
-   </ul>
+<div role="alert" class="message message--status mvn clearfix">
+  <h2 class="message__title hide">Message succès</h2>
+  <div class="message__content">
+    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
+    <ul class="message__list">
+      <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
+      <li class="message__item">Le champ Mot de passe est requis.</li>
+    </ul>
+  </div>
 </div>
 
 */
@@ -87,8 +95,8 @@ Add `.message--status`
     top: 4px solid;
     bottom: 4px solid;
   }
-  background-color: lighten(#28abe3, 45%);
-  border-color: #28abe3;
+  background-color: #cfeffc;
+  border-color: darken(#cfeffc, 45%);
   margin: $base-line-height 0;
   padding: $base-line-height 20px;
   p {
@@ -101,18 +109,45 @@ Add `.message--status`
   &,
   &__title,
   & a {
-    color: #28abe3;
+    color: #333;
+    // fill: #333;
+  }
+  & a {
+    &:hover,
+    &:focus,
+    &:active {
+      color: inherit;
+    }
   }
   &__title,
   &__list {
     @extend .mvn;
   }
-  @each $name, $color in $alert-box {
+  &__content {
+    position: relative;
+    padding-left: 50px;
+    margin-left: 20px;
+    &:before {
+      @extend .i;
+      @extend .i-info;
+      font-size: 42px;
+      position: absolute;
+      left: -10px;
+    }
+  }
+  @each $name, $values in $alert-box {
+    $color: nth($values, 1);
+    $icon: nth($values, 2);
     &--#{$name} {
-      background-color: lighten($color, 45%);
-      border-color: $color;
+      background-color: $color;
+      border-color: darken($color, 45%);
       &, &__title, a {
-        color: $color;
+        color: #fff;
+      }
+      .message__content {
+        &:before {
+          @extend #{$icon};
+        }
       }
     }
   }
@@ -133,7 +168,8 @@ Add `.message--status`
 .muted { color: #999; }
 
 .text {
-  @each $name, $color in $alert-box {
+  @each $name, $values in $alert-box {
+    $color: nth($values, 1);
     &--#{$name} {
       color: $color;
     }

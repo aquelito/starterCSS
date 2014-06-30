@@ -55,8 +55,8 @@ module.exports = function (grunt) {
         imagesDir: '<%= starter.app %>/images',
         javascriptsDir: '<%= starter.app %>/js',
         fontsDir: '<%= starter.app %>/scss/fonts',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
+        httpImagesPath: '/',
+        httpGeneratedImagesPath: '/generated',
         httpFontsPath: '<%= starter.dist %>/css/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
             '*.{html,php}',
             '*.{ico,png,txt}',
             'images/{,*/}*.{webp,png,jpg,jpeg,gif}',
-            'scss/fonts/{,*/}*.*'
+            'fonts/{,*/}*.*'
           ]
         }]
       },
@@ -139,6 +139,8 @@ module.exports = function (grunt) {
         src: [
           '<%= starter.app %>/js/vendor/jquery.js',
           '<%= starter.app %>/js/vendor/jquery.modal.js',
+          '<%= starter.app %>/js/vendor/jquery.collapse.js',
+          '<%= starter.app %>/js/vendor/jquery.tab.js',
           '<%= starter.app %>/js/vendor/swipe.js',
         ],
         dest: '<%= starter.dist %>/js/vendor.min.js',
@@ -167,7 +169,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= starter.app %>/',
           src: ['images/**/*.{png}'],
-          dest: '<%= starter.dist %>/images/',
+          dest: '<%= starter.dist %>/',
           ext: '.png'
         }]
       },
@@ -179,7 +181,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= starter.app %>/',
           src: ['images/**/*.{jpg}'],
-          dest: '<%= starter.dist %>/images/',
+          dest: '<%= starter.dist %>/',
           ext: '.jpg'
         }]
       },
@@ -191,9 +193,28 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= starter.app %>/',
           src: ['images/**/*.gif'],
-          dest: '<%= starter.dist %>/images/',
+          dest: '<%= starter.dist %>/',
           ext: '.gif'
         }]
+      }
+    },
+    webfont: {
+      icons: {
+        src: '<%= starter.app %>/images/svg/*.svg',
+        dest: '<%= starter.app %>/fonts',
+        destCss: '<%= starter.app %>/scss/components',
+        options: {
+          htmlDemo: false,
+          hashes: false,
+          embed: true,
+          stylesheet: 'scss',
+          ligatures: true,
+          template: 'tools/webfonts/template.css',
+          templateOptions: {
+            baseClass: 'i',
+            classPrefix: 'i-'
+          }
+        }
       }
     },
     /*
@@ -214,7 +235,7 @@ module.exports = function (grunt) {
             '<%= starter.dist %>/js/main.js',
             'http://use.typekit.net/sea5yvm.js',
           ],
-          // theme: '<%= starter.app %>/scss/styleguide/theme.css',
+          theme: 'tools/styleguide/theme.css',
           template: 'tools/styleguide/template.hbs',
           readme: '<%= starter.app %>/scss/styleguide.md',
           highlight: 'monokai',
@@ -245,7 +266,6 @@ module.exports = function (grunt) {
         outputJson: false,
         minMatch: 3,
         compass: true,
-        // ignoreProperties: 'padding',
         ignoreSelectors: ['.btn', '.message']
       },
       dist: {
@@ -294,10 +314,11 @@ module.exports = function (grunt) {
   // task : build
   grunt.registerTask('build', [
     'clean:dist',
+    'webfont',
     'concurrent:dist',
     'autoprefixer',
     'copy:dist',
-    'favicons',
+    // 'favicons',
     'imagemin:png',
     'imagemin:jpg',
     'imagemin:gif',

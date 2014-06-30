@@ -110,7 +110,7 @@ $description-width: 150px;
 // ==========================================================================
 
 $alert-box: (
-  warning: #e8b71a,
-  error:   #db3340,
-  status:  #1fda9a
+  warning: (#d44116, ".i-danger"),
+  error:   (#990000, ".i-error"),
+  status:  (#2d8611, ".i-check")
 );

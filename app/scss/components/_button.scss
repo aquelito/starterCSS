@@ -27,6 +27,9 @@ Pour une action, préférer un `<button>` à un lien `<a>`
 */
 
 .btn {
+  @extend .inbl;
+  @extend .amiddle;
+  position: relative;
   background-color: #ececec;
   background-image: linear-gradient(#f4f4f4, #ececec);
   transition-timing-function: ease;

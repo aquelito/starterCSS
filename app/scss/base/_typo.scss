@@ -209,12 +209,10 @@ Ajoute un icône sur un lien marqué comme externe (`.external` et `http://`)
 */
 
 a.external {
-  padding-right: 18px;
-  background-image: inline-image("new_window.gif");
-  background-repeat: no-repeat;
-  background-position: right center;
-  &:focus, &:hover, &:active {
-    background-image: inline-image("new_window_hover.gif");
+  &:after {
+    @extend .pls;
+    @extend .i;
+    @extend .i-external:before;
   }
 }
 
@@ -294,8 +292,12 @@ a.external {
 .list-bullet {
   @extend .list-none;
   li {
-    padding-left: 15px;
-    //background: image-url("puce.png") no-repeat left 52%;
+    &:before {
+      @extend .mls;
+      @extend .prm;
+      @extend .i;
+      @extend .i-arrow;
+    }
   }
 }
 
@@ -317,9 +319,22 @@ a.external {
 
 .list-separate {
   li {
-    & + li {
-      padding-left: 19px;
-      background: inline-image("bullet.gif") no-repeat left center;
+    & {
+      &:before {
+        padding-left: 7px;
+        padding-right: 10px;
+        // @extend .plm;
+        // @extend .prm;
+        @extend .i;
+        @extend .i-bullet
+      }
+      &:first-child:before {
+        content: '';
+        padding-left: 0;
+        padding-right: 0;
+      }
+      //
+      // background: inline-image("bullet.gif") no-repeat left center;
     }
   }
 }
@@ -368,7 +383,6 @@ Mettre en forme une liste de mot avec une description (exemple: clé / valeur.)
   dt {
     @extend .ellipsis;
     @extend .floatl;
-    @extend .bold;
     @extend .overhidden;
     // white-space: nowrap;
     width: $description-width;

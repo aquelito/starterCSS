@@ -9,6 +9,12 @@ A small kick starter website.
 ## Installation
 
 ```bash
+# Install Grunt Webfont
+$ brew install ttfautohint fontforge --with-python
+$ npm install grunt-webfont --save-dev
+```
+
+```bash
 $ git clone https://github.com/aquelito/starterCSS.git starterCSS/
 $ npm install
 $ grunt

@@ -24,6 +24,18 @@
 
 /*
 
+## Horizontal menu
+
+```
+<ul class="menu list-inline">
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">About</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Works</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Services</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Portfolio</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Contact</span></a></li>
+</ul>
+```
+
 */
 
 .navigation {
@@ -43,3 +55,19 @@
     }
   }
 }
+
+/*
+
+## Vertical menu
+
+```
+<ul class="menu menu--vertical list-none">
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">About</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Works</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Services</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Portfolio</span></a></li>
+  <li class="menu__item"><a class="menu__link" href="#"><span class="menu__title">Contact</span></a></li>
+</ul>
+```
+
+*/

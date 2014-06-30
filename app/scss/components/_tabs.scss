@@ -10,21 +10,21 @@ ARIA
 
 ```
 <div class="tab">
-  <div class="tab-pane tab-pane__tabs">
-    <ul class="tab-pane__list list-inline">
-      <li class="tab-pane__item tab-pane__current" role="tab" aria-selected="true" aria-controls="panel-01"><a class="tab-pane__link" href="#panel-01"><strong>First Tab</strong></a></li>
-      <li class="tab-pane__item" role="tab" aria-selected="false" aria-controls="panel-02"><a class="tab-pane__link" href="#panel-02">Second Tab</a></li>
-      <li class="tab-pane__item" role="tab" aria-selected="false" aria-controls="panel-03"><a class="tab-pane__link" href="#panel-03">Thrid Tab</a></li>
+  <div class="tabPane">
+    <ul class="tabPane__list list-inline clearfix">
+      <li class="tabPane__item"><a role="tab" data-toggle="tab" class="tabPane__link" href="#panel-01">First Tab</a></li>
+      <li class="tabPane__item active"><a role="tab" data-toggle="tab" class="tabPane__link" href="#panel-02">Second Tab</a></li>
+      <li class="tabPane__item"><a role="tab" data-toggle="tab" class="tabPane__link" href="#panel-03">Thrid Tab</a></li>
     </ul>
   </div>
-  <div class="tab-pane tab-pane__panels">
-    <div class="tab-pane__content" id="panel-01" role="tabpanel" tabindex="1">
+  <div class="tabPane tabPane__panels">
+    <div class="tabPane__content fade" id="panel-01" role="tabpanel" tabindex="0">
       ...
     </div>
-    <div class="tab-pane__content" id="panel-02" role="tabpanel" tabindex="0">
+    <div class="tabPane__content fade active in" id="panel-02" role="tabpanel" tabindex="1">
       ...
     </div>
-    <div class="tab-pane__content" id="panel-03" role="tabpanel" tabindex="0">
+    <div class="tabPane__content fade" id="panel-03" role="tabpanel" tabindex="0">
       ...
     </div>
   </div>
@@ -35,11 +35,40 @@ ARIA
 
 .tab { }
 
-.tab-pane {
+.tabPane {
   &__tabs { }
-  &__list { }
-  &__item { }
-  &__current { }
-  &__panels { }
-  &__content { }
+  &__list {
+    border-bottom: 3px solid #ddd;
+  }
+  &__item {
+    float: left;
+    margin-bottom: -1px;
+    position: relative;
+    a {
+      position: relative;
+      display: block;
+      padding: 10px 15px;
+      border: 0;
+      border-radius: 4px 4px 0 0;
+    }
+  }
+  .active {
+    a,
+    a:hover,
+    a:focus {
+      font-weight: bold;
+      color: #555;
+      background-color: #ddd;
+    }
+  }
+  &__panels {
+    border: 1px solid #ddd;
+    padding: 20px;
+  }
+  &__content {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 }

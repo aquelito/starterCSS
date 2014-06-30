@@ -25,13 +25,14 @@
           <td class="shopCart__product">
             <span class="shopCart__title bold">Product 1</span><br />
             <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339450</strong></span>
-            <ul class="shopCart__options list-none smaller mtn">
-              <li>Size&nbsp;: <strong>49</strong></li>
-              <li>Weight&nbsp;: <strong>32</strong></li>
-            </ul>
+            <dl class="shopCart__options smaller mtn">
+              <dt>Size&nbsp;:</dt><dd><strong>37</strong> (US WOMEN'S 6-6.5)</dd>
+              <dt>Weight&nbsp;:<dt><dd><strong>32</strong></dd>
+              <dt>Color&nbsp;:<dt><dd><strong>Green</strong></dd>
+            </dl>
           </td>
           <td class="shopCart__price acenter">
-            <span class="bold">80.00€</span><br />
+            <span class="price bold">80.00</span><span class="currency">€</span><br />
             <span class="shopCart_discount">
               <span class="primary-color caps bold">Sale&nbsp;!</span><br />
               <del class="primary-color caps bold strike">100.00€</del>
@@ -39,13 +40,13 @@
           </td>
           <td class="shopCart__qty acenter">
             <form id="shopCartQuantityForm--1" class="mtn mbm" action="" method="post">
-              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="1" />
+              <input type="text" class="shopCart__qtyQuantity acenter" size="3" maxlength="3" name="changeQuantity" value="1" /><input class="shopCart__qtyUpdate" title="Update quantity product 1" type="submit" name="op" value="Update" />
               <input type="hidden" name="stockId" value="32490820" />
-              <input type="hidden" name="productId" value="23" /><input title="Update quantity product 1" type="submit" name="op" value="Update" />
+              <input type="hidden" name="productId" value="23" />
             </form>
-            <a class="shopCart__remove" href="#">remove</a>
+            <a class="shopCart__remove" href="#"><span class="i i-cross" aria-hidden="true"></span> remove</a>
           </td>
-          <td class="shopCart__cost aright">80.00€</td>
+          <td class="shopCart__cost aright"><span class="price">80.00</span><span class="currency">€</span></td>
         </tr>
         <tr class="shopCart__tableItem">
           <td class="shopCart__capture"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
@@ -53,16 +54,16 @@
             <span class="shopCart__title bold">Very long name Product 2</span><br />
             <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339460</strong></span>
           </td>
-          <td class="shopCart__price acenter"><span>100.00€</span></td>
+          <td class="shopCart__price acenter"><span class="price">100.00€</span></td>
           <td class="shopCart__qty acenter">
             <form id="shopCartQuantityForm--2" class="mtn mbm" action="" method="post">
-              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="1" />
+              <input type="text" class="shopCart__qtyQuantity acenter" size="3" maxlength="3" name="changeQuantity" value="1" /><input class="shopCart__qtyUpdate" title="Update quantity product 2" type="submit" name="op" value="Update" />
               <input type="hidden" name="stockId" value="32490820" />
-              <input type="hidden" name="productId" value="24" /><input title="Update quantity product 2" type="submit" name="op" value="Update" />
+              <input type="hidden" name="productId" value="24" />
             </form>
-            <a class="shopCart__remove" href="#">remove</a>
+            <a class="shopCart__remove" href="#"><span class="i i-cross" aria-hidden="true"></span> remove</a>
           </td>
-          <td class="shopCart__cost aright">100.00€</td>
+          <td class="shopCart__cost aright"><span class="price">100.00</span><span class="currency">€</span></td>
         </tr>
         <tr class="shopCart__tableItem">
           <td class="shopCart__capture"><img class="shopCart__image" src="http://placehold.it/80x80" alt="" /></td>
@@ -70,48 +71,54 @@
             <span class="shopCart__title bold">Product 3</span><br />
             <span class="shopCart__sku small mvn">SKU&nbsp;: <strong>#8339470</strong></span>
           </td>
-          <td class="shopCart__price acenter"><span>100.00€</span></td>
+          <td class="shopCart__price acenter">
+            <span class="price">100.00</span><span class="currency">€</span><br />
+            <span class="shopCart_discount">
+              <span class="primary-color caps bold">Only&nbsp;3&nbsp;left&nbsp;!</span><br />
+              <small class="primary-color">This item may become unavailable if someone else purchases it.</small>
+            </span>
+          </td>
           <td class="shopCart__qty acenter">
             <form id="shopCartQuantityForm--3" class="mtn mbm" action="" method="post">
-              <input type="text" class="acenter" size="3" maxlength="3" name="changeQuantity" value="2" />
+              <input type="text" class="shopCart__qtyQuantity acenter" size="3" maxlength="3" name="changeQuantity" value="2" /><input class="shopCart__qtyUpdate" title="Update quantity product 3" type="submit" name="op" value="Update" />
               <input type="hidden" name="stockId" value="32490820" />
-              <input type="hidden" name="productId" value="25" /><input title="Update quantity product 3" type="submit" name="op" value="Update" />
+              <input type="hidden" name="productId" value="25" />
             </form>
-            <a class="shopCart__remove" href="#">remove</a>
+            <a class="shopCart__remove" href="#"><span class="i i-cross" aria-hidden="true"></span> remove</a>
           </td>
-          <td class="shopCart__cost aright">200.00€</td>
+          <td class="shopCart__cost aright"><span class="price">200.00</span><span class="currency">€</span></td>
         </tr>
       </tbody>
       <tfoot class="shopCart__tableFooter">
         <tr>
-          <td colspan="4" class="shopCart__subtotal aright">Subtotal (4&nbsp;items)</td>
-          <td class="shopCart__cost aright">380.00€</td>
+          <td colspan="4" class="shopCart__subtotal aright">Subtotal (<span id="total-items">3&nbsp;items</span>)</td>
+          <td class="shopCart__cost aright"><span id="cart-subtotal" class="total total--value">380.00</span><span class="currency">€</span></td>
         </tr>
         <tr>
           <td colspan="4" class="shopCart__shipping primary-color aright">Standard Ground Shipping</td>
-          <td class="shopCart__cost primary-color aright"><span class="bold">Free</span></td>
+          <td class="shopCart__cost primary-color aright"><span id="cart-shipping" class="bold">Free</span></td>
         </tr>
         <tr>
           <td colspan="4" class="shopCart__vat aright">TVA 20%</td>
-          <td class="shopCart__cost aright">-.--</td>
+          <td class="shopCart__cost aright"><span id="cart-tax" class="total total--value">76.00</span><span class="currency">€</span></td>
         </tr>
         <tr class="secondary-background">
           <td colspan="4" class="shopCart__total white-color bold aright">Grand Total</td>
-          <td class="shopCart__cost white-color bold aright">380.00€</td>
+          <td class="shopCart__cost white-color bold aright"><span id="cart-total" class="total total--value">471.00</span><span class="currency">€</span></td>
         </tr>
       </tfoot>
     </table>
     <form class="shopCart__form">
 
-      <div class="accordion" id="accordion2">
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-              <h3>Apply discount code</h3>
-            </a>
+      <div class="accordion">
+        <div class="accordionPanel mbm">
+          <div class="accordionPanel__heading">
+            <h2 class="accordionPanel__title">
+              <a class="accordionPanel__link" data-toggle="collapse" href="#collapse-01"><span class="i i-down" aria-hidden="true"></span> Apply discount code</a>
+            </h2>
           </div>
-          <div id="collapseOne" class="accordion-body collapse">
-            <div class="accordion-inner">
+          <div id="collapse-01" class="accordionPanel__collapse collapse">
+            <div class="accordionPanel__content">
               <p class="field-group">
                 <label for="input01">Discount code</label>
                 <input aria-describedby="descri-discount" type="text" id="input01" class="input-xlarge" placeholder="Enter your coupon here" />
@@ -120,15 +127,14 @@
             </div>
           </div>
         </div>
-
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-              <h3>Use gift voucher</h3>
-            </a>
+        <div class="accordionPanel">
+          <div class="accordionPanel__heading">
+            <h2 class="accordionPanel__title">
+              <a class="accordionPanel__link" data-toggle="collapse" href="#collapse-02"><span class="i i-down" aria-hidden="true"></span> Use gift voucher</a>
+            </h2>
           </div>
-          <div id="collapseTwo" class="accordion-body in collapse">
-            <div class="accordion-inner">
+          <div id="collapse-02" class="accordionPanel__collapse collapse">
+            <div class="accordionPanel__content">
               <p class="field-group">
                 <label for="input02">Gift voucher</label>
                 <input aria-describedby="descri-voucher" type="text" id="input02" class="input-xlarge" placeholder="Enter your gift voucher here" />
@@ -178,6 +184,10 @@
       left: 1px solid #ccc;
     }
   }
+  td {
+    @extend .atop;
+  }
+
   &__inner { }
 
   // Table
@@ -189,23 +199,45 @@
   }
 
   // Rows
-  &__title { }
+  &__title {}
+  &__product,
+  &__capture {
+
+  }
   &__capture {
     width: 121px;
   }
   &__image { }
   &__product { }
-  &__qty { }
+  &__price {
+    width: 200px;
+  }
+  &__options {
+    @extend .def-inline;
+    dt {
+      width: 55px;
+    }
+    dd {
+      margin-left: 65px;
+    }
+  }
+  &__qty {
+    width: 160px;
+    &Update {
+      border-left: 0;
+    }
+  }
   &__delete { }
-  &__price { }
   &__discount { }
-  &__cost { }
+  &__cost {
+    @extend .bold;
+    width: 130px;
+  }
 
   // Total
   &__vat { }
   &__shipping { }
   &__total { }
-  &__cost { }
 
   // Form
   &__back {}
