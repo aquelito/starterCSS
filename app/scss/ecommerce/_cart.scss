@@ -1,6 +1,6 @@
 
 // ==========================================================================
-// e-commerce : Panier d'achat
+// e-commerce : Shopping Cart
 // ==========================================================================
 
 /*
@@ -104,7 +104,7 @@
         </tr>
         <tr class="secondary-background">
           <td colspan="4" class="shopCart__total white-color bold aright">Grand Total</td>
-          <td class="shopCart__cost white-color bold aright"><span id="cart-total" class="total total--value">471.00</span><span class="currency">€</span></td>
+          <td class="shopCart__cost white-color bold aright"><span id="cart-total" class="total total--value">456.00</span><span class="currency">€</span></td>
         </tr>
       </tfoot>
     </table>
@@ -180,8 +180,8 @@
   thead,
   tfoot {
     border: {
-      right: 1px solid #ccc;
-      left: 1px solid #ccc;
+      right: 1px solid #ddd;
+      left: 1px solid #ddd;
     }
   }
   td {
@@ -243,7 +243,7 @@
   &__back {}
   &__form {
     @extend .pal;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
   }
   &__submit {}
 

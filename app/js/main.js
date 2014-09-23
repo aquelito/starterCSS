@@ -59,121 +59,67 @@ var starter = {
 
       if (window.jQuery) {
         (function($) {
+
           $.fn.Swipe = function(params) {
             return this.each(function() {
               $(this).data('Swipe', new Swipe($(this)[0], params));
             });
           };
+
           var $navLi = $('#pager li');
+
           $navLi.on('click', function() {
             window.mySwipe.slide(
             $(this).index() + 0, 200);
             $(this).siblings().removeClass('on');
             $(this).addClass('on');
           });
+
           $('#pagerPrev').on('click', function() {
             mySwipe.prev();
             $navLi.removeClass('on');
             $navLi.eq(mySwipe.getPos() - 1).addClass('on');
           });
+
           $('#pagerNext').on('click', function() {
             mySwipe.next();
             $navLi.removeClass('on');
             $navLi.eq(mySwipe.getPos() - 1).addClass('on');
           });
+
         })(window.jQuery);
       }
 
     }
 
   },
-  shoppingCart: function() {
 
-    // Set rates + misc
-    var taxRate = 0.20;
-    var shippingCost = 20.00;
-    var shippingRate = 400.00;
-    var fadeTime = 300;
+  shoppingSingle: function() {
 
-    // Assign actions
-    $('.shopCart__qtyQuantity').change( function() {
-      updateQuantity(this);
-    });
-
-    $('.shopCart__remove').click( function() {
-      removeItem(this);
-    });
-
-    // Recalculate cart
-    function recalculateCart() {
-
-      var subtotal = 0;
-
-      // Sum up row totals
-      $('.shopCart__tableItem').each(function () {
-        subtotal += parseFloat($(this).find('.shopCart__cost .price').text());
-      });
-
-      // Calculate totals
-      var tax = subtotal * taxRate;
-      var shipping = (subtotal >= shippingRate ? shippingCost : 0);
-      var total = subtotal + tax + shipping;
-
-      // Update totals display
-      $('.total--value').fadeOut(fadeTime, function() {
-
-        var totalProducts = $('.shopCart__tableItem').length;
-        var totalItems = (totalProducts >= 2) ? totalProducts + '&nbsp;items' : totalProducts + '&nbsp;item';
-        var totalShipping = (shipping === 0) ? 'Free' : '<span class="price">' + shipping.toFixed(2) + '</span><span class="currency">€</span>';
-
-        $('#total-items').html(totalItems);
-
-        $('#cart-subtotal').html(subtotal.toFixed(2));
-        $('#cart-tax').html(tax.toFixed(2));
-        $('#cart-shipping').html(totalShipping);
-        $('#cart-total').html(total.toFixed(2));
-        if(total === 0) {
-          $('.btn--checkout').fadeOut(fadeTime);
-        }
-        else {
-          $('.btn--checkout').fadeIn(fadeTime);
-        }
-        $('.total--value').fadeIn(fadeTime);
-      });
-    }
-    // Update quantity
-    function updateQuantity(quantityInput) {
-      // Calculate line price
-      var productRow = $(quantityInput).parent().parent().parent();
-      var price = parseFloat(productRow.find('.shopCart__price .price').text());
-      var quantity = $(quantityInput).val();
-      var linePrice = price * quantity;
-
-      // Update line price display and recalc cart totals
-      productRow.find('.shopCart__cost .price').each(function () {
-        $(this).fadeOut(fadeTime, function() {
-          $(this).text(linePrice.toFixed(2));
-          recalculateCart();
-          $(this).fadeIn(fadeTime);
-        });
+    // UI Styles: Radio Sizes
+    function radioSizes(){
+      $('input').attr('data-set','radio-size-set').change(function() { // Just use a data-attribute
+        var parent = $(this).closest('form');
+        var selected = $('input[type=radio]:checked', parent);
+        $('.radio-display', parent).attr('data-size', selected.attr('class'));
       });
     }
 
-    // Remove item from cart
-    function removeItem(removeButton) {
-      // Remove row from DOM and recalc cart total
-      var productRow = $(removeButton).parent().parent();
-      productRow.slideUp(fadeTime, function() {
-        productRow.remove();
-        recalculateCart();
+    // UI Styles: Radio Colors
+    function radioColor(){
+      $('input').attr('data-set','radio-color-set').change(function() {
+        var parent = $(this).closest('form');
+        var selected = $('input[type=radio]:checked', parent);
+        $('.radio-display', parent).attr('data-color', selected.attr('class'));
       });
     }
+
   }
 };
 
-jQuery(function($){
+jQuery(function($) {
 
   starter.swipe();
-  starter.shoppingCart();
+  starter.shoppingSingle();
 
 });

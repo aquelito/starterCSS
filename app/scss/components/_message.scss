@@ -17,7 +17,7 @@ Lorsque vous avez besoin de dévlivrer un message de notification, utiliser des 
 ## Default Message
 
 ```
-<div role="alert" class="message mvn clearfix">
+<div role="alert" class="message message--info mvn clearfix">
   <h2 class="message__title hide">Message</h2>
   <div class="message__content">
     <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
@@ -95,22 +95,18 @@ Add `.message--status`
     top: 4px solid;
     bottom: 4px solid;
   }
-  background-color: #cfeffc;
-  border-color: darken(#cfeffc, 45%);
+  min-height: $base-line-height * 4;
   margin: $base-line-height 0;
   padding: $base-line-height 20px;
+  &:first-child {
+    @extend .mtn;
+  }
   p {
     margin-bottom: rhythm(0.5);
     margin-top: 0;
   }
   a {
     @extend .bold;
-  }
-  &,
-  &__title,
-  & a {
-    color: #333;
-    // fill: #333;
   }
   & a {
     &:hover,
@@ -129,7 +125,6 @@ Add `.message--status`
     margin-left: 20px;
     &:before {
       @extend .i;
-      @extend .i-info;
       font-size: 42px;
       position: absolute;
       left: -10px;
@@ -142,7 +137,12 @@ Add `.message--status`
       background-color: $color;
       border-color: darken($color, 45%);
       &, &__title, a {
-        color: #fff;
+        @if $name == 'info' {
+          color: #333;
+        }
+        @else {
+          color: #fff;
+        }
       }
       .message__content {
         &:before {
@@ -155,12 +155,29 @@ Add `.message--status`
 
 /*
 ## Texte Alerte
+*/
+
+/*
+### Classic
 
 ```
 <p class="muted mvn">Lorem ipsum dolor sit amet.</p>
-<p class="text text--warning mvn">Lorem ipsum dolor sit amet.</p>
-<p class="text text--status mvn">Lorem ipsum dolor sit amet.</p>
+<p class="text text--info mvn">Lorem ipsum dolor sit amet.</p>
 <p class="text text--error mvn">Lorem ipsum dolor sit amet.</p>
+<p class="text text--warning mvn"Lorem ipsum dolor sit amet.</p>
+<p class="text text--status mtn mbl">Lorem ipsum dolor sit amet.</p>
+```
+*/
+
+/*
+### With icons
+
+```
+<p class="muted mtl mbn"><span class="i i-info"></span> Lorem ipsum dolor sit amet.</p>
+<p class="text text--info mvn"><span class="i i-info"></span> Lorem ipsum dolor sit amet.</p>
+<p class="text text--error mvn"><span class="i i-error"></span> Lorem ipsum dolor sit amet.</p>
+<p class="text text--warning mvn"><span class="i i-danger"></span> Lorem ipsum dolor sit amet.</p>
+<p class="text text--status mvn"><span class="i i-check"></span> Lorem ipsum dolor sit amet.</p>
 ```
 
 */
@@ -171,7 +188,12 @@ Add `.message--status`
   @each $name, $values in $alert-box {
     $color: nth($values, 1);
     &--#{$name} {
-      color: $color;
+      @if nth($values, 3) {
+        color: nth($values, 3);
+      }
+      @else {
+        color: $color;
+      }
     }
   }
 }

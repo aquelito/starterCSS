@@ -55,7 +55,7 @@ module.exports = function (grunt) {
         imagesDir: '<%= starter.app %>/images',
         javascriptsDir: '<%= starter.app %>/js',
         fontsDir: '<%= starter.app %>/scss/fonts',
-        httpImagesPath: '/',
+        httpImagesPath: '/images',
         httpGeneratedImagesPath: '/generated',
         httpFontsPath: '<%= starter.dist %>/css/fonts',
         relativeAssets: false,
@@ -247,6 +247,7 @@ module.exports = function (grunt) {
           src: [
             'base/*.{scss,sass}',
             'components/*.{scss,sass}',
+            'ecommerce/*.{scss,sass}',
             'helpers/*.{scss,sass}',
             'layers/*.{scss,sass}',
             'pages/*.{scss,sass}',

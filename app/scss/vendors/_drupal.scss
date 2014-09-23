@@ -28,7 +28,7 @@
   @extend .mtn;
   @extend .mbl;
   a {
-    @extend .pam;
+    @extend .pas;
     @extend .inbl;
   }
   .active {
@@ -37,3 +37,8 @@
     @extend .bold;
   }
 }
+
+/* */
+
+// Drupal field class error
+.error { @extend .text--error; }

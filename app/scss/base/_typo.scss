@@ -44,54 +44,77 @@ Divers styles de typographie
 ```
 <table class="table">
   <tbody><tr>
-    <td>
+    <td class="atop pas">
       <span class="caps mbn">caps text</span>
       <br>
       <code>&lt;span class="caps"&gt;Text&lt;/span&gt;</code>
     </td>
-    <td>
+    <td class="atop pas">
       <span class="small-caps mbn">small-caps text</span>
       <br>
       <code>&lt;span class="small-caps"&gt;Text&lt;/span&gt;</code>
     </td>
-    <td>
+    <td class="atop pas">
       <span class="no-caps mbn">no-caps text</span>
       <br>
       <code>&lt;span class="no-caps"&gt;Text&lt;/span&gt;</code>
     </td>
   </tr>
   <tr>
-    <td>
+    <td class="atop pas">
+      <span class="lower-caps mbn">Lowercase TEXT</span>
+      <br>
+      <code>&lt;span class="lower-caps"&gt;Long Text&lt;/span&gt;</code>
+    </td>
+    <td class="atop pas">
+      <span class="capitalize mbn">capitalize text</span>
+      <br>
+      <code>&lt;span class="capitalize"&gt;long text&lt;/span&gt;</code>
+    </td>
+    <td class="atop pas">
+
+    </td>
+  </tr>
+  <tr>
+    <td class="atop pas">
       <span class="bold mbn">bold text</span>
       <br>
       <code>&lt;span class="bold"&gt;Text&lt;/span&gt;</code>
+      <br>or<br>
+      <code>&lt;strong&gt;Text&lt;/strong&gt;</code>
     </td>
-    <td>
+    <td class="atop pas">
       <span class="italic mbn">italic text</span>
       <br>
       <code>&lt;span class="italic"&gt;Text&lt;/span&gt;</code>
+      <br>or<br>
+      <code>&lt;em&gt;Text&lt;/em&gt;</code>
     </td>
-    <td>
+    <td class="atop pas">
       <span class="regular mbn">regular text</span>
       <br>
       <code>&lt;span class="regular"&gt;Text&lt;/span&gt;</code>
     </td>
   </tr>
   <tr>
-    <td>
+    <td class="atop pas">
       <span class="underline mbn">underline text</span>
       <br>
       <code>&lt;span class="underline"&gt;Text&lt;/span&gt;</code>
+      <br>or<br>
+      <code>&lt;s&gt;Text&lt;/s&gt;</code>
     </td>
-    <td>
-      <span class="strike mbn">strike text</span>
-      <br>
-      <code>&lt;span class="italic"&gt;Text&lt;/span&gt;</code>
-    </td>
-    <td>
+    <td class="atop pas">
       <a href="#" class="nounderline">No underline</a>
       <br>
       <code>&lt;span class="nounderline"&gt;Text&lt;/span&gt;</code>
+    </td>
+    <td class="atop pas">
+      <span class="strike mbn">strike text</span>
+      <br>
+      <code>&lt;span class="strike"&gt;Text&lt;/span&gt;</code>
+      <br>or<br>
+      <code>&lt;del&gt;Text&lt;/del&gt;</code>
     </td>
   </tr>
 </tbody></table>
@@ -101,12 +124,14 @@ Divers styles de typographie
 
 .caps        { text-transform: uppercase; }
 .small-caps  { font-variant: small-caps; }
+.lower-caps  { text-transform: lowercase; }
+.capitalize  { text-transform: capitalize; }
 .no-caps     { font-variant: normal; }
 .regular     { font-weight: normal; font-style: normal; }
 .bold        { font-weight: bold; }
 .italic      { font-style: italic; }
 .underline   { text-decoration: underline; }
-.nounderline { text-decoration: none; }
+.nounderline { text-decoration: none; border-bottom: 0; }
 .ellipsis    { text-overflow: ellipsis; }
 .strike      { text-decoration: line-through; }
 
@@ -199,7 +224,7 @@ Utiliser souvent par le WYSIWYG pour aligner les images à gauche, centrer, ou �
 /*
 ## Lien externe
 
-Ajoute un icône sur un lien marqué comme externe (`.external` et `http://`)
+Ajoute un icône sur un lien marqué comme externe (`.external`, `http://` et `https://`)
 
 ```
 <a href="http://google.fr">Lien vers Google.fr</a><br />
@@ -208,6 +233,8 @@ Ajoute un icône sur un lien marqué comme externe (`.external` et `http://`)
 
 */
 
+a[href^="http://"],
+a[href^="https://"],
 a.external {
   &:after {
     @extend .pls;
@@ -323,8 +350,6 @@ a.external {
       &:before {
         padding-left: 7px;
         padding-right: 10px;
-        // @extend .plm;
-        // @extend .prm;
         @extend .i;
         @extend .i-bullet
       }
@@ -333,8 +358,6 @@ a.external {
         padding-left: 0;
         padding-right: 0;
       }
-      //
-      // background: inline-image("bullet.gif") no-repeat left center;
     }
   }
 }

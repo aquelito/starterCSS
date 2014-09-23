@@ -60,7 +60,9 @@ textarea {
   }
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   outline: 0;
   border: 1px solid #c0c0c0;
   background: white;
@@ -288,9 +290,10 @@ input::-moz-focus-inner {
 */
 
 // Required
+// <abbr class="field-required" title="This field is required.">*</abbr>
 // ==========================================================================
 
-.form-required {
+.field-required {
   @extend .smaller;
   color: #555;
 }
@@ -301,14 +304,6 @@ input::-moz-focus-inner {
 $form-label-width: 200px;
 $form-label-marge: $grid-gutter-width;
 $form-field-false-width: $form-label-width;
-
-.field-submit {
-  @extend .clearfix;
-  border: 0;
-  position: relative;
-  margin: 0 0 ($base-line-height / 2);
-  padding: 0 0 0 $form-label-width + $form-label-marge;
-}
 
 /*
 ## Champs static
@@ -327,7 +322,11 @@ $form-field-false-width: $form-label-width;
 */
 
 .field-group {
-  @extend .field-submit;
+  @extend .clearfix;
+  border: 0;
+  position: relative;
+  margin: 0 0 ($base-line-height / 2);
+  padding: 0 0 0 $form-label-width + $form-label-marge;
   label,
   .label {
     @extend .inbl;
@@ -411,7 +410,7 @@ fieldset {
   @extend .pln;
   label,
   .label {
-    @extend .dl;
+    @extend .block;
     @extend .mrn;
     @extend .aleft;
   }
@@ -505,17 +504,22 @@ fieldset {
 
 ```
 <p class="field-group">
-  <label for="email">Email</label>
+  <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
+  <input aria-labelledby="error_email" class="field-txt field--info" id="email" name="email" type="email" required="required" aria-required="true" />
+  <br /><small id="error_email" class="text--info"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
+</p>
+<p class="field-group">
+  <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--warning" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--warning"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
 <p class="field-group">
-  <label for="email">Email</label>
+  <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--error" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--error"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
 <p class="field-group">
-  <label for="email">Email</label>
+  <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--status" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--status"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
@@ -523,9 +527,15 @@ fieldset {
 
 */
 
-@each $name, $color in $alert-box {
+@each $name, $values in $alert-box {
+  $color: nth($values, 1);
   .field--#{$name} {
-    border-color: $color;
+    @if nth($values, 3) {
+      border-color: nth($values, 3);
+    }
+    @else {
+      border-color: $color;
+    }
   }
 }
 

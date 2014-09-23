@@ -44,21 +44,21 @@ ARIA
     float: left;
     margin-bottom: -1px;
     position: relative;
+    &.active {
+      a,
+      a:hover,
+      a:focus {
+        font-weight: bold;
+        color: #555;
+        background-color: #ddd;
+      }
+    }
     a {
       position: relative;
       display: block;
       padding: 10px 15px;
       border: 0;
       border-radius: 4px 4px 0 0;
-    }
-  }
-  .active {
-    a,
-    a:hover,
-    a:focus {
-      font-weight: bold;
-      color: #555;
-      background-color: #ddd;
     }
   }
   &__panels {

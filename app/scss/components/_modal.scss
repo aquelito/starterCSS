@@ -8,7 +8,7 @@
 
 ```
 <button class="btn btn--primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
+  Modal demo
 </button>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -43,7 +43,6 @@
   }
 }
 
-// Container that the modal scrolls within
 .modal {
   display: none;
   overflow: auto;
@@ -82,22 +81,18 @@
       }
     }
   }
-  // Shell div to position the modal with bottom padding
   &__dialog {
     position: relative;
     width: auto;
     margin: 10px;
   }
-  // Actual modal
   &__content {
     @extend .white-background;
-    // box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
     position: relative;
     border-radius: 10px;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
     background-clip: padding-box;
-    // Remove focus outline from opened modal
     outline: 0;
   }
   // Measure scrollbar width for padding body during modal show/hide
@@ -108,25 +103,21 @@
     height: 50px;
     overflow: scroll;
   }
-}
-
-.modal__header,
-.modal__content {
-  border-bottom: 1px solid #ccc;
-}
-
-.modal__footer,
-.modal__content {
-  border-top: 1px solid #ccc;
-}
-
-.modal__title {
-  line-height: 1;
-}
-
-.modal__body,
-.modal__header,
-.modal__footer {
-  position: relative;
-  padding: 10px;
+  &__header,
+  &__content {
+    border-bottom: 1px solid #ddd;
+  }
+  &__footer,
+  &__content {
+    border-top: 1px solid #ddd;
+  }
+  &__title {
+    line-height: 1;
+  }
+  &__body,
+  &__header,
+  &__footer {
+    position: relative;
+    padding: 10px;
+  }
 }

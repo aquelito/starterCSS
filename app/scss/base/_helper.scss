@@ -53,8 +53,8 @@ blocks widths (percentage)
 /*
 ## Inline-block (Elements)
 
-* `.dn` - Display: none
-* `.dl` - Display: block
+* `.none` - Display: none
+* `.block` - Display: block
 * `.inbl` - Display: inline-block
 * `.inbl.atop` - Alignment top (default)
 * `.inbl.amiddle` - Alignment middle
@@ -62,8 +62,8 @@ blocks widths (percentage)
 
 */
 
-.dl { display: block !important; }
-.dn { display: none !important; }
+.block { display: block !important; }
+.none { display: none !important; }
 
 .inbl {
   @include inline-block(none);
@@ -84,12 +84,12 @@ blocks widths (percentage)
 */
 
 .show {
-  @extend .dl;
+  @extend .block;
 }
 
 .hidden {
   @extend .invisible;
-  @extend .dn;
+  @extend .none;
 }
 
 .invisible { visibility: hidden; }
