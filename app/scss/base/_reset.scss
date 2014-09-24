@@ -413,7 +413,7 @@ hr {
   $color-hr: #000;
   background: $color-hr;
   color: $color-hr;
-  margin: 0 0 ($base-line-height -1);
+  margin: 0 0 ($base-line-height - 1px);
   height: 1px;
   border-top: 0;
   clear: both;
