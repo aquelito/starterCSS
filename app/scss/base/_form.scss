@@ -5,6 +5,13 @@
 
 @if $active-form-support {
 
+$form-label-width: 200px;
+$form-label-marge: $grid-gutter-width;
+$form-field-false-width: $form-label-width;
+
+$form-background-color: #fff;
+$form-border-color:     #c0c0c0;
+
 /*
 
 # Formulaire
@@ -13,9 +20,7 @@ Mise en forme par défaut des formulaires de saisie.
 
 */
 
-$select-background-color: #fafafa;
-$select-border-color:     #c0c0c0;
-
+form,
 fieldset,
 legend,
 button,
@@ -25,9 +30,10 @@ textarea {
   margin: 0;
 }
 
+legend,
 fieldset {
   border: 0;
-  padding: rhythm(1) 0 0;
+  padding: 0;
 }
 
 // 1. Rétablit l'héritage de la propriété 'color'.
@@ -38,12 +44,7 @@ fieldset {
 //    @note     IE 6 et IE 7 nécessitent une solution de contournement alternative.
 // 3. Remove padding so people aren't caught out if they zero out fieldsets.
 legend {
-  border: 0; // 1
   white-space: normal; // 2
-  padding: 0; // 3
-  @if $support-for-ie7 {
-    .ie7 & { margin-left: -7px; } // bugfix IE7 (http://jamesfrank.info/2011/06/18/fieldset-legends-ie7/)
-  }
 }
 
 // 1. Correct font family not being inherited in all browsers.
@@ -55,9 +56,6 @@ textarea {
   font-family: inherit; // 1
   font-size: 100%; // 2
   vertical-align: baseline;
-  @if $support-for-ie7 {
-    .ie7 & { vertical-align: middle; } // bugfix IE7
-  }
 }
 
 input,
@@ -75,7 +73,7 @@ textarea {
   overflow: auto; // 1
   vertical-align: top; // 2
   resize: vertical;
-  width: 92%;
+  // width: 92%;
   &.resize-auto {
     resize: auto;
   }
@@ -89,13 +87,26 @@ button, label {
 //    the UA stylesheet.
 // 2. Re-set default cursor for disabled elements.
 button, input {
-  line-height: normal; // 1
-  &[disabled] {
-    cursor: default; // 2
-  }
+  line-height: normal;
 }
 
-.field-group .field-false,
+button[disabled],
+input[disabled],
+textarea[disabled],
+select[disabled],
+input[type="radio"][disabled] + label,
+input[type="checkbox"][disabled] + label {
+  cursor: not-allowed; // 2
+  background-color: #eee;
+  opacity: 1;
+}
+
+input[type="radio"][disabled] + label,
+input[type="checkbox"][disabled] + label {
+  background-color: transparent;
+}
+
+.form-item .field-false,
 input[type="text"],
 input[type="tel"],
 input[type="color"],
@@ -106,8 +117,9 @@ input[type="password"],
 input[type="url"],
 input[type="submit"] {
   padding: 0 5px;
+  // text-indent: 5px;
   display: inline-block;
-  line-height: 32px; height: 32px;
+  line-height: 1; height: 32px;
 }
 
 input[type="text"],
@@ -119,16 +131,20 @@ input[type="email"],
 input[type="password"],
 input[type="url"],
 textarea, select {
+  width: 100%;
   transition: background-color .3s ease;
   &:focus {
-    background-color: darken($select-background-color, 3%);
-    border-color: darken($select-border-color, 20%);
+    background-color: darken($form-background-color, 3%);
+    border-color: darken($form-border-color, 20%);
+    // box-shadow: inset 0 1px 1px darken($form-background-color, 3%),
+    //                   0 0 6px darken($form-border-color, 20%);
   }
 }
 
 textarea,
 input[type="file"] {
-  @extend .pas;
+  // @extend .pas;
+  padding: 5px;
 }
 
 input[type="submit"] {
@@ -156,40 +172,23 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; // 2
   cursor: pointer; // 3
-  @if $support-for-ie7 {
-    overflow: visible; // bugfix IE7
-  }
 }
 
 input[type="radio"],
 input[type="checkbox"] {
   @extend .amiddle;
-  @if $support-for-ie7 {
-    .ie7 & {
-      border: 0;
-      height: 12px;
-      width: 12px;
-    }
-  }
 }
 
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-radius: none;
+  width: auto;
   padding: 6px 30px 5px 5px;
   text-indent: 0.01px;
   text-overflow: ""; // ellipsis;
   border-radius: 0;
-  // width: 100%;
-  // @extend .overhidden;
-  &, &:hover {
-    background: $select-background-color url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat 98% center;
-  }
-  &:hover {
-    background-color: darken($select-background-color, 3%);
-    border-color: darken($select-border-color, 20%);
-  }
+  background: $form-background-color url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAQAAADvCgS4AAAAGklEQVR4AWNg+I8BcQGCyhAAXRlhpcQAQsoAMGIY6KADYAUAAAAASUVORK5CYII=') no-repeat 100% center;
 }
 
 // 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
@@ -220,33 +219,37 @@ input::-moz-focus-inner {
 ```
 <fieldset>
   <legend>Contact Form</legend>
-  <p class="field-group">
+  <p class="form-item">
     <label for="name">Name</label>
     <input class="field-txt" id="name" name="name" type="text" />
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="email">Email</label>
     <input class="field-txt field--error" id="email" name="email" type="email" />
     <br /><span class="text--error"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</span>
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="password">Password</label>
     <input class="field-txt" id="password" name="password" type="password" value="Password" />
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="url">Url</label>
     <input class="field-txt" id="url" name="url" type="url" />
   </p>
-  <p class="field-group">
-    <label for="message">Message</label>
+  <p class="form-item">
+    <label for="message">Textarea</label>
     <textarea class="field-txt" cols="30" id="message" name="message" rows="5"></textarea>
   </p>
-  <p class="field-group">
+  <p class="form-item">
+    <label for="message">Disabled textarea</label>
+    <textarea class="field-txt" cols="30" id="message" name="message" rows="5" disabled="disabled"></textarea>
+  </p>
+  <p class="form-item">
     <label for="file">File</label>
     <input class="field-txt" id="file" name="file" type="file" />
   </p>
-  <p class="field-group">
-    <label for="select">Subject small</label>
+  <p class="form-item">
+    <label for="select">Select</label>
     <select class="field-txt" id="select" name="select">
       <option>1</option>
       <option>2</option>
@@ -254,33 +257,49 @@ input::-moz-focus-inner {
       <option>4</option>
     </select>
   </p>
-  <fieldset class="field-group">
+  <p class="form-item">
+    <label for="select">Disabled select</label>
+    <select class="field-txt" id="select" name="select" disabled="disabled">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+  </p>
+  <fieldset class="form-item">
     <legend class="label">Birthday</legend>
-    <input id="jj" maxlength="2" name="birth[jj]" placeholder="DD" size="4" title="DD" type="text" class="w20" /><input id="mm" maxlength="2" name="birth[mm]" placeholder="MM" size="4" title="MM" type="text" class="w20" /><input id="aaaa" maxlength="4" name="birth[aaaa]" placeholder="YYYY" size="4" title="YYYY" type="text" class="w20" /></fieldset>
-  <p class="field-group field-false">
-    <input id="radio_one" name="radio" type="radio" />
-    <label for="radio_one">Radio One</label>
-    <input id="radio_two" name="radio" type="radio" />
-    <label for="radio_two">Radio Two</label>
-  </p>
-  <p class="field-group field-false">
-    <input id="checkbox_one" name="checkbox" type="checkbox">
-    <label for="checkbox1_one">Checkbox One</label>
-    <input id="checkbox_two" name="checkbox" type="checkbox">
-    <label for="checkbox1_two">Checkbox Two</label>
-  </p>
-  <p class="field-group field-false">
-    <legend class="label">Checkbox</legend>
-    <input id="checkbox1_one" name="checkbox1" type="checkbox">
-    <label for="checkbox1_one">Checkbox One</label>
-    <br />
-    <input id="checkbox1_two" name="checkbox1" type="checkbox">
-    <label for="checkbox1_two">Checkbox Two</label>
-    <br />
-    <input id="checkbox1_three" name="checkbox1" type="checkbox">
-    <label for="checkbox1_three">Three</label>
-  </p>
-  <p class="field-group field-false">
+    <div class="form-item"><input id="jj" maxlength="2" name="birth[jj]" placeholder="DD" size="4" title="DD" type="text" class="w20" /><input id="mm" maxlength="2" name="birth[mm]" placeholder="MM" size="4" title="MM" type="text" class="w20" /><input id="aaaa" maxlength="4" name="birth[aaaa]" placeholder="YYYY" size="4" title="YYYY" type="text" class="w20" /></div></fieldset>
+  <div class="form-item field-false">
+    <div class="form-item">
+      <input id="radio_off" name="optionsRadios" type="radio" />
+      <label for="radio_off">Radio is off</label>
+      <br />
+      <input id="radio_on" name="optionsRadios" type="radio" checked="checked" />
+      <label for="radio_on">Radio is on</label>
+      <br />
+      <input id="radio_off_disabled" name="optionsRadiosDisabled" type="radio" disabled="disabled" />
+      <label for="radio_off_disabled">Disabled radio is off</label>
+      <br />
+      <input id="radio_on_disabled" name="optionsRadiosDisabled" type="radio" checked="checked" disabled="disabled" />
+      <label for="radio_on_disabled">Disabled radio is on</label>
+    </div>
+  </div>
+  <div class="form-item field-false">
+    <div class="form-item">
+      <input id="checkbox_off" name="optionsCheckboxes" type="checkbox" />
+      <label for="checkbox_off">Checkbox is off</label>
+      <br />
+      <input id="checkbox_on" name="optionsCheckboxes" type="checkbox" checked="checked" />
+      <label for="checkbox_on">Checkbox is on</label>
+      <br />
+      <input id="checkbox_off_disabled" name="optionsCheckboxesDisabled" type="checkbox" disabled="disabled" />
+      <label for="checkbox_off_disabled">Disabled checkbox is off</label>
+      <br />
+      <input id="checkbox_on_disabled" name="optionsCheckboxesDisabled" type="checkbox" checked="checked" disabled="disabled" />
+      <label for="checkbox_on_disabled">Disabled checkbox is on</label>
+    </div>
+  </div>
+  <p class="form-item field-false">
     <button class="btn btn--primary" type="submit" name="submit">Send your message</button>
     <button class="btn btn--cancel" type="submit" name="cancel">Cancel</button>
   </p>
@@ -301,19 +320,15 @@ input::-moz-focus-inner {
 // Forms
 // ==========================================================================
 
-$form-label-width: 200px;
-$form-label-marge: $grid-gutter-width;
-$form-field-false-width: $form-label-width;
-
 /*
 ## Champs static
 
 ```
-<p class="field-group">
+<p class="form-item">
   <span class="label">Email</span>
   <span class="field-false bold">email@example.com</span>
 </p>
-<p class="field-group">
+<p class="form-item">
   <label for="password">Password</label>
   <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
 </p>
@@ -321,7 +336,7 @@ $form-field-false-width: $form-label-width;
 
 */
 
-.field-group {
+.form-item {
   @extend .clearfix;
   border: 0;
   position: relative;
@@ -331,8 +346,8 @@ $form-field-false-width: $form-label-width;
   .label {
     @extend .inbl;
     @extend .amiddle;
-    @extend .bold;
-    @extend .aright;
+    font-weight: bold;
+    text-align: right;
     width: $form-label-width;
     margin-right: $form-label-marge;
     padding: 0;
@@ -340,38 +355,71 @@ $form-field-false-width: $form-label-width;
     position: absolute;
     left: 0;
     top: 0;
+    > span {
+      line-height: 1;
+      display: inline-block;
+    }
+  }
+  .form-item {
+    margin: 0;
+    padding: 0;
+    label,
+    .label {
+      font-weight: normal;
+      text-align: left;
+      width: auto;
+      margin-right: 0;
+      padding: 0;
+      position: relative;
+      line-height: normal;
+    }
   }
   .field-false {
     @extend .pan;
   }
 }
 
-fieldset {
-  &.field-group {
-    input[type="text"],
-    input[type="tel"],
-    input[type="color"],
-    input[type="number"],
-    input[type="search"],
-    input[type="email"],
-    input[type="password"],
-    input[type="url"],
-    input[type="file"],
-    textarea {
-      //border: 1px transparent solid;
+.form-radios,
+.form-checkboxes,
+.container-inline-date {
+  .form-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+
+@include mq('smaller') {
+
+  .form-item {
+    margin-left: 0;
+    padding-left: 0;
+    label,
+    .label {
+      display: block;
       width: auto;
+      margin-right: 0;
+      position: relative;
+      text-align: left;
+    }
+    .form-item {
+      label,
+      .label {
+        display: inline-block;
+      }
     }
   }
+
 }
 
 /*
 ## Champs fake
 
 ```
-<p class="field-group field-false">
+<p class="form-item field-false">
   <span class="field-false bold">email@example.com</span>
 </p>
-<p class="field-group">
+<p class="form-item">
   <label for="password">Password</label>
   <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
 </p>
@@ -380,7 +428,7 @@ fieldset {
 */
 
 .field-false,
-.field-block {
+.form-block {
   label,
   .label {
     position: relative;
@@ -394,11 +442,11 @@ fieldset {
 ## Champs block
 
 ```
-<p class="field-group field-block">
+<p class="form-item form-block">
   <span class="label">Email</span>
   <span class="field-false bold">email@example.com</span>
 </p>
-<p class="field-group field-block">
+<p class="form-item form-block">
   <label for="password">Password</label>
   <input class="field-txt" id="password" name="password" type="text" placeholder="Password" />
 </p>
@@ -406,119 +454,36 @@ fieldset {
 
 */
 
-.field-block {
-  @extend .pln;
-  label,
-  .label {
-    @extend .block;
-    @extend .mrn;
-    @extend .aleft;
+.form-block {
+  padding: 0;
+  > label,
+  > .label {
+    display: block;
+    margin-right: 0;
+    text-align: left;
   }
 }
-
-/*
-## Exemple : checkbox
-
-```
-<p class="field-checkbox clearfix">
-  <label for="chk">
-    <input type="checkbox" checked="checked" id="chk" name="chk" class="inbl">
-    Available for hire
-    <br /><span class="note">Lorem ipsum dolor sit amet, consectetur adipisicing. <strong>debitis distinctio</strong> and <strong>amazing</strong> things!</span>
-  </label>
-</p>
-<p class="field-checkbox clearfix">
-  <label for="chk2">
-    <input type="checkbox" checked="checked" id="chk2" name="chk2" class="inbl">
-    <span class="highlight">A far more important option</span>
-    <br /><span class="note">It will surely do something magical.</span>
-  </label>
-</p>
-```
-
-*/
-
-.field-radio,
-.field-checkbox {
-  @extend .pll;
-  input {
-    margin-left: -20px;
-    position: relative;
-  }
-}
-
-.field-checkbox {
-  input[type="checkbox"] {
-
-  }
-}
-
-/*
-## Exemple : radio
-
-```
-<p class="field-radio clearfix">
-  <label for="csckde">
-    <input type="radio" checked="checked" id="csckde" name="csck3" class="inbl">
-    Available for hire
-    <br /><span class="note">This will do insanely <strong>awesome</strong> and <strong>amazing</strong> things!</span>
-  </label>
-</p>
-<p class="field-radio clearfix">
-  <label for="csckds">
-    <input type="radio" checked="checked" id="csckds" name="csck3" class="inbl">
-    <em class="highlight">A far more important option</em>
-    <br /><span class="note">It will surely do something magical.</span>
-  </label>
-</p>
-```
-
-*/
-
-.field-radio {
-  input[type="radio"] {
-
-  }
-}
-
-/*
-## Exemple : Phone number
-
-```
-<p class="field-group">
-  <span class="label">Phone number</span>
-  <span class="field-false">
-    ( <input type="text" name="phone-prefix" size="3" /> )
-    <input type="text" name="phone-number-1" size="3" />
-    - <input type="text" name="phone-number-2" size="3" />
-    ext: <input type="text" name="phone-ext" size="3" />
-    <br /><small class="description">Needed if there are questions about your order</small>
-  </span>
-</p>
-```
-
-*/
 
 /*
 ## Input error
 
 ```
-<p class="field-group">
+<p class="form-item">
   <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--info" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--info"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
-<p class="field-group">
+<p class="form-item">
   <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--warning" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--warning"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
-<p class="field-group">
+<p class="form-item">
   <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--error" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--error"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
 </p>
-<p class="field-group">
+<p class="form-item">
   <label for="email">Email <abbr class="field-required" title="This field is required.">*</abbr></label>
   <input aria-labelledby="error_email" class="field-txt field--status" id="email" name="email" type="email" required="required" aria-required="true" />
   <br /><small id="error_email" class="text--status"> Error&nbsp;1&nbsp;: Enter valid email address, eg toto@domaine.com.</small>
@@ -527,11 +492,11 @@ fieldset {
 
 */
 
-@each $name, $values in $alert-box {
-  $color: nth($values, 1);
+@each $name, $values in $message {
+  $color: map-get($values, 'background');
   .field--#{$name} {
-    @if nth($values, 3) {
-      border-color: nth($values, 3);
+    @if map-get($values, 'color') {
+      border-color: map-get($values, 'color');
     }
     @else {
       border-color: $color;
@@ -550,7 +515,7 @@ Couleurs de placeholder : ne pas fusionner les sélecteurs !
 
 */
 
-$field-placeholder: #A0A0A0;
+$field-placeholder: #abadb3;
 ::-webkit-input-placeholder { // WebKit browsers
   color: $field-placeholder; }
 :-moz-placeholder { // Mozilla Firefox 4 to 18
@@ -559,6 +524,7 @@ $field-placeholder: #A0A0A0;
   color: $field-placeholder; }
 :-ms-input-placeholder { // Internet Explorer 10+
   color: $field-placeholder; }
+
 
 /* */
 } // enf if

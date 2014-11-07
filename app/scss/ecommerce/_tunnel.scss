@@ -12,8 +12,8 @@
     <li class="steps__item">
       <a class="steps__link" href="#" title="Step 1 : Checkout"><span class="steps__title">Checkout</span></a>
     </li>
-    <li class="steps__item steps__item_state_active">
-      <strong class="steps__title">Shipping</strong>
+    <li class="steps__item steps__item--state_active">
+      <strong class="steps__title">[Shipping]</strong>
     </li>
     <li class="steps__item">
       <a class="steps__link" href="#" title="Step 2 : Billing"><span class="steps__title">Billing</span></a>
@@ -39,7 +39,7 @@
   &__title { }
 
   // State
-  &__item_state_active { }
+  &__item--state_active { }
 
 }
 

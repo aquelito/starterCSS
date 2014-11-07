@@ -31,3 +31,43 @@
 
 */
 
+#container {
+  padding-top: 40px;
+}
+
+.content {
+  @extend .col-md-12;
+}
+
+.aside--left {
+  @extend .col-xs-12;
+  @extend .col-sm-4;
+  @extend .col-md-4;
+  & + .content {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+    @extend .col-md-8;
+  }
+}
+
+.content,
+.node, .block {
+  position: relative;
+}
+
+.node {
+  &--teaser {
+    background: #fff;
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+  &--teaser.node--promoted {
+
+  }
+  &--teaser.node--sticky {
+    background: #333;
+    &, a {
+      color: #fff;
+    }
+  }
+}

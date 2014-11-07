@@ -5,41 +5,96 @@
 
 /*
 
-# Forms
+# Checbox Form
+
+```
+<label class="toggle">
+  <input type="checkbox" />
+  <span class="handle"></span>
+</label>
+Checkbox is off
+<br />
+<label class="toggle">
+  <input type="checkbox" checked="checked" />
+  <span class="handle"></span>
+</label>
+Checbox is on
+<br />
+<label class="toggle">
+  <input type="checkbox" checked="checked" disabled="disabled" />
+  <span class="handle"></span>
+</label>
+Disabled checkbox is on
+<br />
+<label class="toggle">
+  <input type="checkbox" disabled="disabled" />
+  <span class="handle"></span>
+</label>
+Disabled checkbox is off
+```
 
 */
 
-/*
-
-## Search Form
-
-```
-<div id="search" class="search">
-  <form class="search__form" role="search" action="/" method="post" id="search-form">
-    <input title="Search by keywords" placeholder="Enter your keywords…" type="text" name="search_block_form" value="" size="30" class="search__input form-text" /><button class="search__submit" title="Search on website Starter" type="submit" name="op"><span class="i i-search" aria-hidden="true"></span> Search</button>
-  </form>
-</div>
-```
-
-*/
-
-.search {
-  &__form {}
-  &__input {}
-  &__submit {
-    @extend .i-search:before;
-    background-color: transparent;
-    padding: 0 5px;
-    border: 0;
+label {
+  &.toggle {
+    height: 32px;
     display: inline-block;
-    line-height: 28px;
-    height: 28px;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+}
+
+.toggle {
+  .handle {
     position: relative;
-    left: -79px;
-    &:hover,
-    &:focus,
-    &:active {
-      @extend .primary-background;
+    top: -20px;
+    left: 0;
+    display: block;
+    width: 50px;
+    height: 32px;
+    background-color: #f00;
+    border-radius: 19px;
+    box-shadow: inset 0 0 0 1px #b8bfc8;
+    &:after,
+    &:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      display: block;
+      width: 30px;
+      height: 30px;
+      content: "";
+      background-color: #fff;
+      border-radius: 30px;
+      box-shadow: inset 0 0 0 1px #b8bfc8, 1px 1px 1px #c7ccd3;
+      transition: all .25s ease-in-out;
+    }
+  }
+  input[type=checkbox] {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    text-indent: -100000px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    &:disabled + .handle {
+      &, &:before, &:after {
+        background-color: #e6e9ed;
+        filter: alpha(opacity=60);
+        opacity: .6;
+      }
+    }
+    &:checked + .handle {
+      &:before {
+        width: 50px;
+        background-color: #a0d468;
+      }
+      &:after {
+        left: 20px;
+        box-shadow: inset 0 0 0 1px #f5f7fa, 1px 1px 1px #c7ccd3;
+      }
     }
   }
 }

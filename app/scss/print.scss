@@ -73,7 +73,7 @@
     }
     &.logo__link:after,
     &[href^="#"]:after,
-    &[href^="javascript:"]:after,
+    &[href^="javascript:"]:after {
       content: ""; // Don't show links for images, or javascript/internal links
     }
     ul &[href]:after,

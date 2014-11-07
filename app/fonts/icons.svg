@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Tue Sep 23 22:36:55 2014
+Created by FontForge 20120731 at Fri Nov  7 16:49:27 2014
  By Axel Roche
 Created by Axel Roche with FontForge 2.0 (http://fontforge.sf.net)
 </metadata>
@@ -19,7 +19,7 @@ Created by Axel Roche with FontForge 2.0 (http://fontforge.sf.net)
     bbox="-0.89441 -64.8944 512.894 448.894"
     underline-thickness="25"
     underline-position="-52"
-    unicode-range="U+0061-E00E"
+    unicode-range="U+0061-F10E"
   />
 <missing-glyph horiz-adv-x="187" 
 d="M17 0v341h136v-341h-136zM34 17h102v307h-102v-307z" />
@@ -44,9 +44,9 @@ d="M192 64l-160 160h97l-1 192h128v-192h96zM320 64h64v-128h-384v64v64h64v-64h256v
     <glyph glyph-name="error" unicode="error" 
 d="M503 307q9 -9 9 -22v-186q0 -13 -9 -22l-132 -132q-9 -9 -22 -9h-186q-13 0 -22 9l-132 132q-9 9 -9 22v186q0 13 9 22l132 132q9 9 22 9h186q13 0 22 -9zM256 0q14 0 23 9t9 23t-9 23t-23 9t-23 -9t-9 -23t9 -23t23 -9zM288 160v192q0 14 -9 23t-23 9t-23 -9t-9 -23
 v-192q0 -14 9 -23t23 -9t23 9t9 23z" />
-    <glyph glyph-name="external" unicode="external" horiz-adv-x="272" 
-d="M266 250q2 0 4 -2t2 -4v-62q0 -23 -16 -39t-40 -16h-160q-24 0 -40 16t-16 39v161q0 23 16 39q17 17 40 17h61q2 0 4 -2t2 -5v-12q0 -2 -2 -4t-4 -2h-61q-13 0 -22 -9t-9 -22v-161q0 -13 9 -22t22 -9h160q13 0 22 9t9 22v62q0 2 2 4t4 2h13zM268 395q4 -4 4 -9v-99
-q0 -4 -4 -8t-8 -4q-5 0 -9 4l-34 34l-126 -126q-2 -2 -4 -2q-3 0 -5 2l-22 22q-2 2 -2 4q0 3 2 5l126 126l-34 34q-4 4 -4 8q0 5 4 9t9 4h99q4 0 8 -4z" />
+    <glyph glyph-name="external" unicode="external" horiz-adv-x="403" 
+d="M393 155q5 0 7 -2q3 -3 3 -7v-91q0 -33 -25 -58t-58 -25h-238q-33 0 -58 25q-24 24 -24 58v238q0 34 24 58t58 24h91q4 0 7 -3q2 -2 2 -6v-19q0 -4 -2 -6q-3 -3 -7 -3h-91q-19 0 -32 -13t-13 -32v-238q0 -19 13 -32q14 -14 32 -14h238q18 0 32 14t14 32v91q0 5 2 7t7 2
+h18zM398 371q5 -5 5 -9v-107q0 -5 -4 -9q-6 -4 -10 -4q-5 0 -9 4l-36 37l-135 -135q-2 -2 -5 -2t-5 2l-23 24q-2 2 -2 5q0 2 2 4l134 135l-36 36q-4 6 -4 10q0 5 4 9t9 4h106q5 0 9 -4z" />
     <glyph glyph-name="info" unicode="info" 
 d="M256 448q106 0 181 -75t75 -181t-75 -181t-181 -75t-181 75t-75 181t75 181t181 75zM288 64v160q0 14 -9 23t-23 9t-23 -9t-9 -23v-160q0 -14 9 -23t23 -9t23 9t9 23zM256 287q14 0 23 9.5t9 22.5t-9 22.5t-23 9.5t-23 -9.5t-9 -22.5t9 -22.5t23 -9.5z" />
     <glyph glyph-name="menu" unicode="menu" horiz-adv-x="480" 

@@ -15,16 +15,18 @@
 Background colorz.
 
 ```
-<div class="default-background pal inbl atop w20">
-  <p>.default-background : #{find-value($colorz, 'default')}</p>
-</div><div class="primary-background pal inbl atop w20">
-  <p>.primary-background : #{find-value($colorz, 'primary')}</p>
-</div><div class="secondary-background pal inbl atop w20">
-  <p>.secondary-background : #{find-value($colorz, 'secondary')}</p>
-</div><div class="white-background black-color pal inbl atop w20">
-  <p>.white-background : #fff</p>
-</div><div class="black-background white-color pal inbl atop w20">
-  <p>.black-background : #222</p>
+<div class="row">
+  <div class="default-background pal col-sm-4 col-md-4">
+    <p>.default-background<br />#{map-get($colorz, 'default')}</p>
+  </div><div class="primary-background pal col-sm-4 col-md-4">
+    <p>.primary-background<br />#{map-get($colorz, 'primary')}</p>
+  </div><div class="secondary-background pal col-sm-4 col-md-4">
+    <p>.secondary-background<br />#{map-get($colorz, 'secondary')}</p>
+  </div><div class="white-background black-color pal col-sm-4 col-md-4">
+    <p>.white-background<br />#fff</p>
+  </div><div class="black-background white-color pal col-sm-4 col-md-4">
+    <p>.black-background<br />#222</p>
+  </div>
 </div>
 ```
 
@@ -42,24 +44,11 @@ Background colorz.
 Couleurs et nuances utilisées à travers les styles.
 
 ```
-<p class="default-color mvn">.default-color : #{find-value($colorz, 'default')}</p>
-<p class="primary-color mvn">.primary-color : #{find-value($colorz, 'primary')}</p>
-<p class="secondary-color mvn">.secondary-color : #{find-value($colorz, 'secondary')}</p>
+<p class="default-color mvn">.default-color : #{map-get($colorz, 'default')}</p>
+<p class="primary-color mvn">.primary-color : #{map-get($colorz, 'primary')}</p>
+<p class="secondary-color mvn">.secondary-color : #{map-get($colorz, 'secondary')}</p>
 <p class="white-color mvn">.white-color : #fff</p>
 <p class="black-color mvn">.black-color : #222</p>
-```
-
-*/
-
-/*
-## Gris
-
-```
-<p class="gray-darker">#222 - lighten(#000, 13.5%)}</p>
-<p class="gray-dark">#333 - lighten(#000, 20%)}</p>
-<p class="gray">#555 - lighten(#000, 33.5%)}</p>
-<p class="gray-light">#999 - lighten(#000, 60%)}</p>
-<p class="gray-lighter">#eee - lighten(#000, 93.5%)}</p>
 ```
 
 */
@@ -71,13 +60,13 @@ Border colorz.
 
 ```
 <div class="default-border mtn mbl" style="border-width:1px;border-style:solid">
-  <p class="default-color pam">.default-border : #{find-value($colorz, 'default')}</p>
+  <p class="default-color pam">.default-border : #{map-get($colorz, 'default')}</p>
 </div>
 <div class="primary-border mvl" style="border-width:1px;border-style:solid">
-  <p class="primary-color pam">.primary-border : #{find-value($colorz, 'primary')}</p>
+  <p class="primary-color pam">.primary-border : #{map-get($colorz, 'primary')}</p>
 </div>
 <div class="secondary-border mtl mbn" style="border-width:1px;border-style:solid">
-  <p class="secondary-color pam">.secondary-border : #{find-value($colorz, 'secondary')}</p>
+  <p class="secondary-color pam">.secondary-border : #{map-get($colorz, 'secondary')}</p>
 </div>
 <div class="black-border mtl mbn" style="border-width:1px;border-style:solid">
   <p class="black-color pam">.black-border : #222</p>

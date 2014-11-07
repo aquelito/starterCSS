@@ -1,0 +1,73 @@
+
+// ==========================================================================
+// Calendar
+// ==========================================================================
+
+/*
+# Calendar
+
+```
+<div class="calendar">
+  <table summary=”Calendar” class="table">
+    <caption>August 2014</caption>
+    <tr>
+      <th id="sun" scope="col" abbr="Sunday">Sun</th>
+      <th id="mon" scope="col" abbr="Monday">Mon</th>
+      <th id="tue" scope="col" abbr="Tuesday">Tue</th>
+      <th id="wed" scope="col" abbr="Wednesday">Wed</th>
+      <th id="thu" scope="col" abbr="Thursday">Thu</th>
+      <th id="fri" scope="col" abbr="Friday">Fri</th>
+      <th id="sat" scope="col" abbr="Saturday">Sat</th>
+    </tr>
+    <tr>
+      <td class="acenter"> </td>
+      <td class="acenter">1</td>
+      <td class="acenter">2</td>
+      <td class="acenter">3</td>
+      <td class="acenter">4</td>
+      <td class="acenter">5</td>
+      <td class="acenter">6</td>
+    </tr>
+    <tr>
+      <td class="acenter">7</td>
+      <td class="acenter">8</td>
+      <td class="acenter">9</td>
+      <td class="acenter">10</td>
+      <td class="acenter">11</td>
+      <td class="acenter">12</td>
+      <td class="acenter">13</td>
+    </tr>
+    <tr>
+      <td class="acenter">14</td>
+      <td class="acenter">15</td>
+      <td class="acenter">16</td>
+      <td class="acenter">17</td>
+      <td class="acenter">18</td>
+      <td class="acenter">19</td>
+      <td class="acenter">20</td>
+    </tr>
+    <tr>
+      <td class="acenter">21</td>
+      <td class="acenter">22</td>
+      <td class="acenter">23</td>
+      <td class="acenter">24</td>
+      <td class="acenter">25</td>
+      <td class="acenter">26</td>
+      <td class="acenter">27</td>
+    </tr>
+    <tr>
+      <td class="acenter">28</td>
+      <td class="acenter">29</td>
+      <td class="acenter">30</td>
+      <td class="acenter">31</td>
+      <td class="acenter"> </td>
+      <td class="acenter"> </td>
+      <td class="acenter"> </td>
+    </tr>
+  </table>
+  <button type=”button” class="btn">Last month : July</button>
+  <button type=”button” class="btn">Next month : September</button>
+</div>
+```
+
+*/

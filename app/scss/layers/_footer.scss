@@ -21,3 +21,28 @@
 ```
 
 */
+
+.banner,
+.contentinfo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.contentinfo {
+  background: #333;
+  margin-top: 40px;
+  &, a {
+    color: #999;
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    color: #fff;
+  }
+}
+
+.contentinfoCopyright {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

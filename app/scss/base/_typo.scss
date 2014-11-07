@@ -14,18 +14,18 @@
 
 Autres tailles de typographie
 
-* `.smaller` - #{find-value($other_size, 'smaller')}
-* `.small` - #{find-value($other_size, 'small')}
-* `.medium` - #{find-value($other_size, 'medium')}
-* `.big` - #{find-value($other_size, 'big')}
-* `.bigger` - #{find-value($other_size, 'bigger')}
+* `.smaller` - #{map-get($other_size, 'smaller')}
+* `.small` - #{map-get($other_size, 'small')}
+* `.medium` - #{map-get($other_size, 'medium')}
+* `.big` - #{map-get($other_size, 'big')}
+* `.bigger` - #{map-get($other_size, 'bigger')}
 
 ```
-<p class="smaller mvn">.smaller - #{find-value($other_size, 'smaller')}</p>
-<p class="small mvn">.small - #{find-value($other_size, 'small')}</p>
-<p class="medium mvn">.medium - #{find-value($other_size, 'medium')}</p>
-<p class="big mvn">.big - #{find-value($other_size, 'big')}</p>
-<p class="bigger mvn">.bigger - #{find-value($other_size, 'bigger')}</p>
+<p class="smaller mvn">.smaller - #{map-get($other_size, 'smaller')}</p>
+<p class="small mvn">.small - #{map-get($other_size, 'small')}</p>
+<p class="medium mvn">.medium - #{map-get($other_size, 'medium')}</p>
+<p class="big mvn">.big - #{map-get($other_size, 'big')}</p>
+<p class="bigger mvn">.bigger - #{map-get($other_size, 'bigger')}</p>
 ```
 
 */
@@ -351,7 +351,7 @@ a.external {
         padding-left: 7px;
         padding-right: 10px;
         @extend .i;
-        @extend .i-bullet
+        @extend .i-bullet;
       }
       &:first-child:before {
         content: '';
@@ -408,9 +408,9 @@ Mettre en forme une liste de mot avec une description (exemple: clé / valeur.)
     @extend .floatl;
     @extend .overhidden;
     // white-space: nowrap;
-    width: $description-width;
+    width: 150px;
   }
   dd {
-    margin-left: $description-width + 10;
+    margin-left: 150px + 10;
   }
 }

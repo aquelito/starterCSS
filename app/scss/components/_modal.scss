@@ -32,71 +32,91 @@
 
 */
 
-// Modal position
 .modal {
-  &, &__backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-
-.modal {
-  display: none;
-  overflow: auto;
-  overflow-y: scroll;
-  z-index: 1040;
-  -webkit-overflow-scrolling: touch;
-  // Prevent Chrome on Windows from adding a focus outline. For details, see
-  // https://github.com/twbs/bootstrap/pull/10951.
-  outline: 0;
-  // When fading in the modal, animate it to slide down
-  &.fade .modal__dialog {
-    transform: translate(0, -25%);
-    transition: transform 0.3s ease-out;
-  }
-  &.in .modal__dialog {
-    transform: translate(0, 0);
-  }
-  // Kill the scroll on the body
   &__open {
-    @extend .overhidden;
+    overflow: hidden;
   }
-  // Modal background
-  &__backdrop {
-    @extend .black-background;
-    z-index: 1030;
-    // Fade for backdrop
-    &.fade {
-      opacity: 0;
-      @if $support-for-ie8 {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      }
-    }
-    &.in {
-      opacity: .6;
-      @if $support-for-ie8 {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-      }
-    }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  &__open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   &__dialog {
     position: relative;
     width: auto;
     margin: 10px;
+    .modal.fade & {
+      transition: transform .3s ease-out;
+      transform: translate(0, -25%);
+    }
+    .modal.in & {
+      transform: translate(0, 0);
+    }
+  }
+  &__title {
+    margin: 0;
+    line-height: 1.42857143;
+  }
+  &__body {
+    position: relative;
+    padding: 15px;
   }
   &__content {
-    @extend .white-background;
     position: relative;
-    border-radius: 10px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    background-color: #fff;
     background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
     outline: 0;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
   }
-  // Measure scrollbar width for padding body during modal show/hide
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #000;
+    &.fade {
+      opacity: 0;
+    }
+    &.in {
+      opacity: .5;
+    }
+  }
+  &__header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    .close {
+      margin-top: -2px;
+    }
+  }
+
+  &__footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    .btn + .btn {
+      margin-bottom: 0;
+      margin-left: 5px;
+    }
+    .btn-group .btn + .btn {
+      margin-left: -1px;
+    }
+    .btn-block + .btn-block {
+      margin-left: 0;
+    }
+  }
+
   &__scrollbar-measure {
     position: absolute;
     top: -9999px;
@@ -104,21 +124,23 @@
     height: 50px;
     overflow: scroll;
   }
-  &__header,
-  &__content {
-    border-bottom: 1px solid #ddd;
+}
+
+@include mq('small') {
+  .modal__dialog {
+    width: 600px;
+    margin: 30px auto;
   }
-  &__footer,
-  &__content {
-    border-top: 1px solid #ddd;
+  .modal__content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   }
-  &__title {
-    line-height: 1;
+  .modal--sm {
+    width: 300px;
   }
-  &__body,
-  &__header,
-  &__footer {
-    position: relative;
-    padding: 10px;
+}
+
+@include mq('large') {
+  .modal--lg {
+    width: 900px;
   }
 }

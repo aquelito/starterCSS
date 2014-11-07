@@ -28,4 +28,9 @@
 
 // Layers
 @import
-  'layers/grid';
+  'layers/grid',
+  'helpers/debug-grid';
+
+body.cke_show_borders {
+  padding: 10px;
+}

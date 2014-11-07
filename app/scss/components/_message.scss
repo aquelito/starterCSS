@@ -3,8 +3,6 @@
 // Messages
 // ==========================================================================
 
-@if $active-message-support {
-
 /*
 # Messages
 
@@ -40,11 +38,8 @@ Add `.message--error`
 <div role="alert" class="message message--error mvn clearfix">
   <h2 class="message__title hide">Message d'erreur</h2>
   <div class="message__content">
-    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a></p>
-    <ul class="message__list">
-      <li class="message__item">Le champ Nom d'utilisateur est requis.</li>
-      <li class="message__item">Le champ Mot de passe est requis.</li>
-    </ul>
+    <p class="message__description">Nous avons trouver des erreurs, <a href="#">lien texte</a><br />
+    Nous vous recommadons de vérifier les données.</p>
   </div>
 </div>
 ```
@@ -90,6 +85,7 @@ Add `.message--status`
 
 */
 
+/* */
 .message {
   border: {
     top: 4px solid;
@@ -102,8 +98,10 @@ Add `.message--status`
     @extend .mtn;
   }
   p {
+    margin-top: rhythm(0.5);
     margin-bottom: rhythm(0.5);
-    margin-top: 0;
+    &:first-child { margin-top: 0; }
+    &:last-child  { margin-bottom: 0; }
   }
   a {
     @extend .bold;
@@ -130,12 +128,12 @@ Add `.message--status`
       left: -10px;
     }
   }
-  @each $name, $values in $alert-box {
-    $color: nth($values, 1);
-    $icon: nth($values, 2);
+  @each $name, $values in $message {
+    $icon: map-get($values, 'icon'); // map-deep-get($values, $name, 'icon');
+    $background: map-get($values, 'background'); // map-deep-get($values, $name, 'background');
     &--#{$name} {
-      background-color: $color;
-      border-color: darken($color, 45%);
+      background-color: $background;
+      border-color: darken($background, 45%);
       &, &__title, a {
         @if $name == 'info' {
           color: #333;
@@ -164,7 +162,7 @@ Add `.message--status`
 <p class="muted mvn">Lorem ipsum dolor sit amet.</p>
 <p class="text text--info mvn">Lorem ipsum dolor sit amet.</p>
 <p class="text text--error mvn">Lorem ipsum dolor sit amet.</p>
-<p class="text text--warning mvn"Lorem ipsum dolor sit amet.</p>
+<p class="text text--warning mvn">Lorem ipsum dolor sit amet.</p>
 <p class="text text--status mtn mbl">Lorem ipsum dolor sit amet.</p>
 ```
 */
@@ -182,14 +180,15 @@ Add `.message--status`
 
 */
 
+/* */
 .muted { color: #999; }
 
 .text {
-  @each $name, $values in $alert-box {
-    $color: nth($values, 1);
+  @each $name, $values in $message {
+    $color: map-get($values, 'background');
     &--#{$name} {
-      @if nth($values, 3) {
-        color: nth($values, 3);
+      @if map-get($values, 'color') {
+        color: map-get($values, 'color');
       }
       @else {
         color: $color;
@@ -197,6 +196,3 @@ Add `.message--status`
     }
   }
 }
-
-/* */
-} // enf if

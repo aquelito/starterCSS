@@ -15,8 +15,6 @@ module.exports = function (grunt) {
   // load all grunt tasks matching the `grunt-*` pattern
   require('load-grunt-tasks')(grunt);
 
-  var starter = grunt.file.readJSON('starter.json');
-
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
@@ -44,7 +42,8 @@ module.exports = function (grunt) {
       },
       all: [
         '<%= starter.app %>/js/{,*/}*.js',
-        '!<%= starter.app %>/js/vendor/*'
+        '!<%= starter.app %>/js/vendor/*',
+        '!<%= starter.app %>/js/ie/*'
       ]
     },
     compass: {
@@ -70,7 +69,14 @@ module.exports = function (grunt) {
     },
     autoprefixer: {
       options: {
-        browsers: ['last 2 version', 'ie 8', 'ie 9', 'android 2.3', 'android 4', 'opera 12']
+        browsers: [
+          'last 2 version',
+          'ie 8',
+          'ie 9',
+          'android 2.3',
+          'android 4',
+          'opera 12'
+        ]
       },
       dist: {
         files: [{
@@ -79,27 +85,6 @@ module.exports = function (grunt) {
           src: '{,*/}*.css',
           dest: '<%= starter.dist %>/css/'
         }]
-      }
-    },
-    watch: {
-      sass: {
-        files: [
-          '<%= starter.app %>/scss/**/*.{scss,sass}'
-        ],
-        tasks: ['compass']
-      },
-      livereload: {
-        options: {
-          livereload: 1338
-        },
-        files: [
-          '<%= starter.app %>/**/*.html',
-          '<%= starter.app %>/**/*.hbs',
-          '<%= starter.app %>/**/*.php',
-          '<%= starter.app %>/js/**/*.{js,json}',
-          '<%= starter.app %>/css/*.css',
-          '<%= starter.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
       }
     },
     copy: {
@@ -134,6 +119,18 @@ module.exports = function (grunt) {
       basic: {
         src: ['<%= starter.app %>/js/main.js'],
         dest: '<%= starter.dist %>/js/main.js',
+      },
+      html5shiv: {
+        src: ['<%= starter.app %>/js/ie/html5shiv.js'],
+        dest: '<%= starter.dist %>/js/html5shiv.js',
+      },
+      respond: {
+        src: ['<%= starter.app %>/js/ie/respond.src.js'],
+        dest: '<%= starter.dist %>/js/respond.src.js',
+      },
+      selectivizr: {
+        src: ['<%= starter.app %>/js/ie/selectivizr.js'],
+        dest: '<%= starter.dist %>/js/selectivizr.js',
       },
       extras: {
         src: [
@@ -230,7 +227,8 @@ module.exports = function (grunt) {
       styleguide: {
         options: {
           assets: [
-            '<%= starter.dist %>/css/*.css',
+            '<%= starter.dist %>/css/screen.css',
+            '<%= starter.dist %>/css/print.css',
             '<%= starter.dist %>/js/vendor.min.js',
             '<%= starter.dist %>/js/main.js',
             'http://use.typekit.net/sea5yvm.js',
@@ -324,7 +322,6 @@ module.exports = function (grunt) {
     'imagemin:jpg',
     'imagemin:gif',
     'concat'
-    // 'uglify'
   ]);
 
   // task : publish
@@ -341,8 +338,9 @@ module.exports = function (grunt) {
   ]);
 
   // task : browser
-  grunt.registerTask('see', [
-    'watch'
+  grunt.registerTask('prod', [,
+    'build',
+    'uglify'
   ]);
 
   // task : default

@@ -13,35 +13,14 @@
 
 ## Convert px to em
 
-Convert px to em
+Convert px to em. Exemple `font-size: pem(16px);`.
 
 ```
-pem(24);
+pem(24px);
 ```
 
 */
 
 @function pem($px, $base: $base-font-size) {
   @return ($px / $base) * 1em;
-}
-
-/*
-
-## Find value
-
-Find value width key.
-
-```
-find-value(list, key);
-```
-
-*/
-
-@function find-value($list, $key) {
-  @each $item in $list {
-    @if ($key == nth($item, 1)) {
-      @return nth($item, 2);
-    }
-  }
-  @return false;
 }

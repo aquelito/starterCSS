@@ -4,7 +4,7 @@
 // =========================================================================
 
 // <color> (<flat> <shadow> <highlight>)
-$shoppingColor: (
+$shoppingProductColor: (
   black:  (#454545, #000000, #404040),
   blue:   (#2aa9e0, #1a7aa4, #259ed2),
   orange: (#eb8046, #d3672d, #e4783d),
@@ -18,7 +18,39 @@ $shoppingColor: (
 
 */
 
-input[type="checkbox"] {
+/*
+## Choose color
+
+```
+<form role="form">
+  <fieldset class="field-group">
+    <legend class="label">Choose color</legend>
+    <p class="choose field-false mvn">
+      <input type="checkbox" id="check-black" class="choose__input choose__color choose__color--black" />
+      <label class="mhn" for="check-black"><span></span></label>
+
+      <input type="checkbox" id="check-blue" class="choose__input choose__color choose__color--blue" disabled="disabled" />
+      <label class="choose__label mhn" for="check-blue"><span></span></label>
+
+      <input type="checkbox" id="check-orange" class="choose__input choose__color choose__color--orange" />
+      <label class="choose__label mhn" for="check-orange"><span></span></label>
+
+      <input type="checkbox" id="check-pink" class="choose__input choose__color choose__color--pink" />
+      <label class="choose__label mhn" for="check-pink"><span></span></label>
+
+      <input type="checkbox" id="check-red" class="choose__input choose__color choose__color--red" />
+      <label class="choose__label mhn" for="check-red"><span></span></label>
+
+      <input type="checkbox" id="check-yellow" class="choose__input choose__color choose__color--yellow" />
+      <label class="choose__label mhn" for="check-yellow"><span></span></label>
+    </p>
+  </fieldset>
+</form>
+```
+
+*/
+
+.choose__input {
   &,
   &:active,
   &:focus,
@@ -35,10 +67,12 @@ input[type="checkbox"] {
     cursor: pointer;
   }
   & + label span {
+    text-align: center;
     display: inline-block;
     width: 32px;
-    height: 30px;
+    height: 32px;
     background: #454545;
+    color: #fff;
     position: relative;
     padding: 0;
     margin: 0 5px;
@@ -47,6 +81,14 @@ input[type="checkbox"] {
     -webkit-backface-visibility: hidden; // Chrome Flicker Fix
     appearance: none;
     transition: .075s;
+  }
+  &:active + label span {
+    top: 2px;
+  }
+  &:disabled {
+    &:active + label span {
+      top: 0;
+    }
   }
   &:checked + label span:after {
     display: block;
@@ -69,46 +111,13 @@ input[type="checkbox"] {
   }
 }
 
-/*
-## Choose color
-
-```
-<form role="form">
-  <fieldset class="field-group">
-    <legend class="label">Choose color</legend>
-    <p class="field-false mvn">
-      <input type="checkbox" id="check-black" class="black" />
-      <label class="mhn" for="check-black"><span></span></label>
-
-      <input type="checkbox" id="check-blue" class="blue" disabled="disabled" />
-      <label class="mhn" for="check-blue"><span></span></label>
-
-      <input type="checkbox" id="check-orange" class="orange" />
-      <label class="mhn" for="check-orange"><span></span></label>
-
-      <input type="checkbox" id="check-pink" class="pink" />
-      <label class="mhn" for="check-pink"><span></span></label>
-
-      <input type="checkbox" id="check-red" class="red" />
-      <label class="mhn" for="check-red"><span></span></label>
-
-      <input type="checkbox" id="check-yellow" class="yellow" />
-      <label class="mhn" for="check-yellow"><span></span></label>
-    </p>
-  </fieldset>
-</form>
-```
-
-*/
-
-@each $name, $values in $shoppingColor {
+@each $name, $values in $shoppingProductColor {
   $flat: nth($values, 1);
   $shadow: nth($values, 2);
-  input[type="checkbox"].#{$name} + label span {
+  .choose__color--#{$name} + label span {
     background: $flat;
     box-shadow: 0 2px 0 $shadow;
     &:active {
-      top: 2px;
       box-shadow: 0 0 0 $shadow;
     }
   }
@@ -121,18 +130,18 @@ input[type="checkbox"] {
 <form role="form">
   <fieldset class="field-group">
     <legend class="label">Choose size</legend>
-    <p class="field-false mvn">
-      <input type="checkbox" id="check-size-s" class="size" disabled="disabled" />
-      <label class="mhn" for="check-size-s"><span>S</span></label>
+    <p class="choose field-false mvn">
+      <input type="checkbox" id="check-size-s" class="choose__input choose__size" disabled="disabled" />
+      <label class="choose__label mhn" for="check-size-s"><span>S</span></label>
 
-      <input type="checkbox" id="check-size-m" class="size" />
-      <label class="mhn" for="check-size-m"><span>M</span></label>
+      <input type="checkbox" id="check-size-m" class="choose__input choose__size" />
+      <label class="choose__label mhn" for="check-size-m"><span>M</span></label>
 
-      <input type="checkbox" id="check-size-l" class="size" />
-      <label class="mhn" for="check-size-l"><span>L</span></label>
+      <input type="checkbox" id="check-size-l" class="choose__input choose__size" />
+      <label class="choose__label mhn" for="check-size-l"><span>L</span></label>
 
-      <input type="checkbox" id="check-size-xl" class="size" />
-      <label class="mhn" for="check-size-xl"><span>XL</span></label>
+      <input type="checkbox" id="check-size-xl" class="choose__input choose__size" />
+      <label class="choose__label mhn" for="check-size-xl"><span>XL</span></label>
     </p>
   </fieldset>
 </form>
@@ -140,35 +149,33 @@ input[type="checkbox"] {
 
 */
 
-input[type="checkbox"] {
-  &.size + label span {
+.choose__size {
+  & + label span {
     background: #b9d9f5;
     box-shadow: 0 2px 0 #94bfe4;
     text-align: center;
     line-height: 32px;
     font-size: 16px;
     color: #fff;
-    &:hover {
-      background: #7db3e1;
-      box-shadow: 0 2px 0 #6495be;
-    }
     &:active {
-      top: 2px;
       box-shadow: 0 0px 0 #94bfe4;
     }
   }
-  &:checked.size + label span {
+  &:checked + label span {
     content: '';
     color: #fff;
-    background: #7db3e1;
-    box-shadow: 0 2px 0 #6495be;
     &:after {
       content: '';
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(#fff, 0.3);
     }
   }
+  & + label span:hover,
+  &:checked + label span {
+    background: #7db3e1;
+    box-shadow: 0 2px 0 #6495be;
+  }
   // Disabled
-  &:disabled.size + label span {
+  &:disabled + label span {
     opacity: 0.4;
     &:hover,
     &:active {
@@ -177,8 +184,8 @@ input[type="checkbox"] {
     &:hover {
       background: #b9d9f5;
     }
-    &:active {
-      top: 0;
-    }
+    // &:active {
+    //   top: 0;
+    // }
   }
 }

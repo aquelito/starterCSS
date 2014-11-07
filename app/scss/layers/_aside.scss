@@ -25,6 +25,29 @@
 // Block
 .aside {
 
+  .block {
+    background: #fff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
+    &__title {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    &--first {
+      @extend .mtn;
+    }
+    &--last {
+      @extend .mbn;
+    }
+  }
+  #block-system-user-menu {
+    background-color: #333;
+    &, a {
+      color: #fff;
+    }
+  }
+
   // Modifier
   &--right { }
 

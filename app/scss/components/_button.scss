@@ -3,8 +3,6 @@
 // Buttons
 // ==========================================================================
 
-@if $active-button-support {
-
 /*
 
 # Boutons
@@ -200,10 +198,10 @@ Couleur par défault.
 ### Bouton block
 
 ```
-<button class="btn dl w100">Submit</button>
-<input id="submit" name="submit" class="btn dl w100" type="submit" value="Submit" />
-<span class="btn dl w100">Submit</span>
-<a href="#" class="btn dl w100">Submit</a>
+<button class="btn bl">Submit</button>
+<input id="submit" name="submit" class="btn bl" type="submit" value="Submit" />
+<span class="btn bl">Submit</span>
+<a href="#" class="btn bl">Submit</a>
 ```
 
 */
@@ -245,6 +243,3 @@ Must only contain `btn-group__item` objects as children.
   &:first-child { }
   &:last-child { }
 }
-
-/* */
-} // enf if

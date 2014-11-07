@@ -1,0 +1,50 @@
+
+// ==========================================================================
+// Search Form
+// ==========================================================================
+
+/*
+
+# Search Form
+
+```
+<div id="search" class="search">
+  <form class="search__form" role="search" action="/" method="post" id="search-form">
+    <input title="Search by keywords" placeholder="Enter your keywords…" type="search" name="search_block_form" value="" size="30" class="search__input form-text" /><button class="search__submit" title="Search on website Starter" type="submit" name="op"><span class="i i-search" aria-hidden="true"></span> Search</button>
+  </form>
+</div>
+```
+
+*/
+
+.search {
+  &__form {}
+  &__input {
+    width: auto!important;
+  }
+  &__submit {
+    @extend .i-search:before;
+    background-color: transparent;
+    padding: 0 5px;
+    border: 0;
+    display: inline-block;
+    line-height: 28px;
+    height: 28px;
+    position: relative;
+    left: -79px;
+    &:hover,
+    &:focus,
+    &:active {
+      @extend .primary-background;
+    }
+  }
+}
+
+.search-advanced {
+  border: 1px solid;
+  padding: 0 20px 20px;
+  legend {
+    padding: 15px;
+    margin-left: 43px;
+  }
+}

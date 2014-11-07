@@ -54,9 +54,6 @@
   @if $alignment and $alignment != none {
     vertical-align: $alignment;
   }
-  @if $support-for-ie7 {
-    .ie7 & { display: inline; zoom: 1; }
-  }
 }
 
 /*
@@ -67,8 +64,6 @@ Variable `$keyword` possible egal to :
 * `large` : screen and min-width: 1200px
 * `medium` : screen and min-width: 769px
 * `small` : screen and max-width: 768px
-* `tiny` : screen and max-width: 640px
-* `retina` : *
 
 ```
 @include mq($keyword) {
@@ -79,24 +74,19 @@ Variable `$keyword` possible egal to :
 */
 
 @mixin mq($keyword) {
-  @if $keyword == large {
-    @media screen and (min-width: 1200px) { @content; }
+  @if $keyword == tiny {
+    @media (max-width: $screen-xs-min) { @content; }
   }
-  @if $keyword == medium {
-    @media screen and (min-width: 769px) { @content; }
+  @if $keyword == smaller {
+    @media (max-width: $screen-xs-max) { @content; }
   }
   @if $keyword == small {
-    @media screen and (max-width: 768px) { @content; }
+    @media (min-width: $screen-sm-min) { @content; }
   }
-  @if $keyword == tiny  {
-    @media screen and (max-width: 640px) { @content; }
+  @if $keyword == medium {
+    @media (min-width: $screen-md-min) { @content; }
   }
-  @if $keyword == retina {
-    @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (min-resolution: 192dpi),
-      only screen and (min-resolution: 2dppx) {
-        @content;
-    }
+  @if $keyword == large {
+    @media (min-width: $screen-lg-min) { @content; }
   }
 }

@@ -10,24 +10,24 @@
 ```
 <form action="" method="post">
   <p>All field are required&nbsp;!</p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="name">Lastname <abbr class="field__required" title="Ce champ est requis.">*</abbr></label>
    <input type="text" id="name" name="contact[name]" value="" size="60" maxlength="128" class="form-text" required="required" aria-required="true" />
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="firstname">Firstname <abbr class="field_required" title="Ce champ est requis.">*</abbr></label>
    <input type="text" id="firstname" name="contact[firstname]" value="" size="60" maxlength="128" class="form-text" required="required" aria-required="true" />
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="email">Email <abbr class="field__required" title="Ce champ est requis.">*</abbr></label>
    <input aria-describedby="descri-email" class="form-text form-email" required="required" aria-required="true" type="email" id="email" name="contact[email]" size="60" />
   <br /><small class="field__description" id="descri-email">Veuillez entrer une adresse e-mail valide (de type vous@fournisseur.com).</small>
   </p>
-  <p class="field-group">
+  <p class="form-item">
     <label for="message">Message <abbr class="field__required" title="Ce champ est requis.">*</abbr></label>
    <textarea id="message" name="contact[message]" cols="60" rows="5" class="form-textarea" required="required" aria-required="true"></textarea>
   </p>
-  <p class="field-group field-false">
+  <p class="form-item field-false">
     <button class="btn btn--primary form-submit" type="submit" name="op">Send your message</button>
   </p>
 </form>

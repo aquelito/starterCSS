@@ -46,10 +46,12 @@
   a {
     display: inline-block;
     vertical-align: middle;
-    padding: 10px;
+    border-bottom: 0;
+    padding: 12px 20px;
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &.active {
       background-color: $body-color;
       color: #fff;
     }

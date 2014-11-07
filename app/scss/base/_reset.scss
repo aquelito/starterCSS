@@ -10,7 +10,13 @@
 
 // http://paulirish.com/2012/box-sizing-border-box-ftw/
 // apply a natural box layout model to all elements
-* { box-sizing: border-box; }
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
 
 /*
 
@@ -83,12 +89,12 @@ This allows us to apply, say, `class="h1"` to a `h3`; a double-stranded
 heading hierarchy.
 
 ```
-<h1>.h1 - #{find-value($font_size, 'h1')} - Lorem ipsum</h1>
-<h2>.h2 - #{find-value($font_size, 'h2')} - Lorem ipsum</h2>
-<h3>.h3 - #{find-value($font_size, 'h3')} - Lorem ipsum</h3>
-<h4>.h4 - #{find-value($font_size, 'h4')} - Lorem ipsum</h4>
-<h5>.h5 - #{find-value($font_size, 'h5')} - Lorem ipsum</h5>
-<h6>.h6 - #{find-value($font_size, 'h6')} - Lorem ipsum</h6>
+<h1>.h1 - #{map-get($font_size, 'h1')} - Lorem ipsum</h1>
+<h2>.h2 - #{map-get($font_size, 'h2')} - Lorem ipsum</h2>
+<h3>.h3 - #{map-get($font_size, 'h3')} - Lorem ipsum</h3>
+<h4>.h4 - #{map-get($font_size, 'h4')} - Lorem ipsum</h4>
+<h5>.h5 - #{map-get($font_size, 'h5')} - Lorem ipsum</h5>
+<h6>.h6 - #{map-get($font_size, 'h6')} - Lorem ipsum</h6>
 ```
 
 */
@@ -108,6 +114,8 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   font-family: $font-headline;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /*
@@ -155,7 +163,6 @@ ul,
 ol,
 dl,
 table,
-form,
 .alignleft,
 .alignright,
 .alignnone {
@@ -196,11 +203,11 @@ a {
   color: $link-color;
   &:hover,
   &:focus {
-    border: 0;
+    border-bottom: 0;
     color: $link-color-hover;
   }
   &:active {
-    border: 0;
+    border-bottom: 0;
     color: $link-color-active;
   }
 }
@@ -248,9 +255,6 @@ kbd {
   border: 1px dotted;
   background: #fff;
   color: #A00C31;
-  @if $support-for-ie7 {
-    .ie7 & { font-size: 85%; } // bugfix IE7
-  }
 }
 
 code {
@@ -330,9 +334,6 @@ dd {
 ul,
 ol {
   padding-left: rhythm(1);
-  @if $support-for-ie7 {
-    .ie7 & { margin-left: 0; }
-  }
 }
 
 li {
@@ -465,7 +466,7 @@ pre {
 blockquote {
   font-style: italic;
   cite {
-    @extend .block;
+    @extend .bl;
     color: #555;
     font-size: 80%;
     font-style: normal;
@@ -646,7 +647,7 @@ Faire une table responsive ajouté un wrapper autour de l'élément `<table>`
 
 table {
   width: 100%;
-  caption-side: bottom;
+  caption-side: top;
   &, .table {
     display: table;
     // table-layout: fixed;
@@ -664,14 +665,11 @@ table {
       border-bottom: 0;
     }
   }
-  td {
-    color: #555;
-  }
 }
 
-caption {
+caption,
+table td {
   color: #555;
-  font-style: italic;
 }
 
 tbody {
@@ -726,21 +724,19 @@ tbody {
 
 /* */
 
-// // Supprime l'ombre portée du texte lors de sa sélection.
-// // @see   h5bp.com/
-// // @note  Les couleurs de texte et d'arrière-plan doivent être rédéfinies pour que l'instruction soit appliquée.
-// $selection-background: #fff8ab;
-// $selection-color: #666;
-// ::selection {
-//   text-shadow: none;
-//   color: $selection-color;
-//   background-color: $selection-background;
-// }
+// Supprime l'ombre portée du texte lors de sa sélection.
+// @see   h5bp.com/
+// @note  Les couleurs de texte et d'arrière-plan doivent être rédéfinies pour que l'instruction soit appliquée.
+::selection {
+  text-shadow: none;
+  color: $selection-color;
+  background-color: $selection-background;
+}
 
-// // Supprime l'ombre portée du texte lors de sa sélection.
-// // @bugfix  Firefox
-// ::-moz-selection {
-//   text-shadow: none;
-//   color: $selection-color;
-//   background-color: $selection-background
-// }
+// Supprime l'ombre portée du texte lors de sa sélection.
+// @bugfix  Firefox
+::-moz-selection {
+  text-shadow: none;
+  color: $selection-color;
+  background-color: $selection-background
+}

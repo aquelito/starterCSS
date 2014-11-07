@@ -45,7 +45,7 @@
   }
   &__item {
     @extend .floatl;
-    @extend .w100;
+    width: 100%;
   }
   &__prev,
   &__next {

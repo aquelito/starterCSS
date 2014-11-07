@@ -25,16 +25,19 @@
 @import
   'components/breadcrumb',
   'components/button',
-  'components/carousel',
-  'components/collapse',
-  'components/cover',
   'components/icons',
   'components/message',
-  'components/modal',
   'components/pagination',
+  'components/video';
+
+@import
+  'components/search-form',
+  'components/cover',
+  'components/modal',
   'components/rating',
   'components/tabs',
-  'components/video';
+  'components/carousel',
+  'components/collapse';
 
 // Layers
 @import
@@ -44,6 +47,7 @@
   'layers/footer',
   'layers/navigation',
   'layers/aside',
+  'layers/comments',
   'layers/form';
 
 // Components e-commerce
@@ -60,6 +64,3 @@
   'pages/homepage';
 
 // Vendors
-@import
-  'vendors/drupal';
-  // 'vendors/wordpress';
