@@ -1,0 +1,33 @@
+
+// ==========================================================================
+// Progress bar
+// ==========================================================================
+
+/*
+
+# Progress bar
+
+*/
+
+.progress {
+  .bar {
+    background: #fff;
+    border: 1px solid #666;
+  }
+  .filled {
+    background: #0072b9 url(/misc/progress.gif);
+    height: 1.5em;
+    width: 5px;
+  }
+  .percentage {
+    float: right;
+  }
+  .message {
+    border: 0;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 80%;
+  }
+}
+
