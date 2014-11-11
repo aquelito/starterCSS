@@ -371,7 +371,7 @@ input::-moz-focus-inner {
       margin-right: 0;
       padding: 0;
       position: relative;
-      line-height: normal;
+      // line-height: normal;
     }
   }
   .field-false {
@@ -379,13 +379,19 @@ input::-moz-focus-inner {
   }
 }
 
-.form-radios,
-.form-checkboxes,
-.container-inline-date {
-  .form-item {
-    display: inline-block;
-    margin-right: 10px;
-  }
+// .form-radios,
+// .form-checkboxes,
+// .container-inline-date {
+//   .form-item {
+//     display: inline-block;
+//     margin-right: 10px;
+//   }
+// }
+
+.form-item-date-day,
+.form-item-date-month,
+.form-item-date-year {
+  display: inline-block;
 }
 
 
@@ -501,6 +507,13 @@ input::-moz-focus-inner {
     @else {
       border-color: $color;
     }
+  }
+}
+
+.form-item .error {
+  @extend .field--error !optional;
+  & + .description {
+    @extend .text--error !optional;
   }
 }
 
