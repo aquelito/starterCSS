@@ -233,8 +233,6 @@ Ajoute un icône sur un lien marqué comme externe (`.external`, `http://` et `h
 
 */
 
-a[href^="http://"],
-a[href^="https://"],
 a.external {
   &:after {
     @extend .pls;
