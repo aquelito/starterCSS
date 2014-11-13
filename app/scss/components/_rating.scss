@@ -41,3 +41,54 @@
     color: orange;
   }
 }
+
+
+/*
+# Rating
+
+```
+<div class="poll-results">
+  <div class="poll-bars">
+    <div class="poll-bars__text"><sapn class="bold">France</sapn> - <small class="poll-bars__percent">50% (1 vote)</small></div>
+    <div class="poll-bars__bar">
+      <div style="width: 50%;" class="foreground"></div>
+    </div>
+  </div>
+  <div class="poll-bars">
+    <div class="poll-bars__text"><sapn class="bold">Espagne</sapn> - <small class="poll-bars__percent">0% (0 vote)</small></div>
+    <div class="poll-bars__bar">
+      <div style="width: 0%;" class="foreground"></div>
+    </div>
+  </div>
+  <div class="poll-bars">
+    <div class="poll-bars__text"><sapn class="bold">Italie</sapn> - <small class="poll-bars__percent">50% (1 vote)</small></div>
+    <div class="poll-bars__bar">
+      <div style="width: 50%;" class="foreground"></div>
+    </div>
+  </div>
+  <div class="poll-results__total mvl">
+    <p class="bold">Total votes&nbsp;: 2</p>
+  </div>
+</div>
+```
+
+*/
+
+.poll {
+  &-bars {
+    margin-top: 10px;
+    &__bar {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+    }
+    .foreground {
+      background: #71a7cc;
+      height: 1em;
+    }
+  }
+  &-results {
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    padding: 20px;
+  }
+}
